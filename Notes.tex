@@ -490,7 +490,7 @@ $\alpha$太大可能不收敛，太小可能收敛太慢。来回试吧\textasci
 
 
 
-\subsection{Normal equation 正规方程}
+\subsection{Normal equation 正规方程\label{sub:Normal-equation-=006B63=0089C4=0065B9=007A0B}}
 \begin{description}
 \item [{Normal~equation}] Method to solve for $\theta$ analytically.
 \end{description}
@@ -1169,7 +1169,7 @@ Small values for parameters $\theta_{0},\theta_{1},\ldots,\theta_{n}$
 \end{itemize}
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.7\paperwidth]{7\lyxdot 2\lyxdot Intuition2}
+\includegraphics[width=0.75\paperwidth]{7\lyxdot 2\lyxdot Intuition2}
 \par\end{centering}
 
 \caption{\label{fig:Regularization}Regularization}
@@ -1198,7 +1198,8 @@ small, and therefore keeping the hypothesis simple.
 \includegraphics[width=0.75\paperwidth]{\string"7.3.Regularized linear regression\string".png}
 \par\end{centering}
 
-\caption{Gradient Descent with Regularization}
+\caption{\label{fig:Gradient-Descent-with-Regularization}Gradient Descent
+with Regularization}
 
 
 \end{figure}
@@ -1211,44 +1212,80 @@ $J\left(\theta\right)$ 求导的结果。 注意，这里有一处符号错误�
 
 \subsubsection{Normal equation}
 
-\[
+Gradient descent 只是两种线性回归拟合算法中的一个，另外一种是基于 normal equation 的，我们需要一个
+design matrix $X_{m\times\left(n+1\right)}$和结果矢量y。X的每一行对应一个 training
+example。y保存着每个training example的结果。关于算法的详细描述可参见\ref{sub:Normal-equation-=006B63=0089C4=0065B9=007A0B}
+
+\begin{equation}
 \theta=\left(X^{T}X+\lambda\begin{bmatrix}0\\
  & 1\\
  &  & \ddots\\
  &  &  & 1
-\end{bmatrix}\right)^{-1}X^{T}y
-\]
+\end{bmatrix}\right)^{-1}X^{T}y\label{eq:Normal-equation-with-regulariazion}
+\end{equation}
 
 
-上式中的矩阵是 $\left(n+1\right)\times\left(n+1\right)$.其实等号后的部分正是令Cost
-function 求导为0的结果：$\frac{\delta}{\delta\theta_{j}}J\left(\theta\right)\overset{set}{=}0$。具体为什么老师不解释:D
+上式中$\lambda$后面的矩阵是 $\left(n+1\right)\times\left(n+1\right)$的，如果去掉$\lambda$和其后的矩阵，那么就是之前学过的的Normal
+Equation，这里是加上Regularization。其实等号后的部分正是令 cost function 求导为0的结果：$\frac{\delta}{\delta\theta_{j}}J\left(\theta\right)\overset{set}{=}0$。由于证明比较复杂，因此具体为什么是这个结果老师不作解释:D
 
-我们知道，当 $m\leq n$ 时，$X^{T}X$ 是不可逆的，然而，当使用 Regularization方法后，得到的矩阵一定是可逆的。
+我们知道，当 $m\leq n$ 时，公式\ref{eq:normal equation}中的$X^{T}X$ 是不可逆的，然而可以证明，当使用
+Regularization后，加上Regularization因子后的矩阵一定是可逆的。
 
 
 \subsection{Regularized logistic regression}
 
-\includegraphics[width=0.8\paperwidth]{\string"7.4.Regularized logistic regression\string".png}
+
+\subsubsection{Gradient Descent}
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=0.75\paperwidth]{\string"7.4.Regularized logistic regression\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Cost-function-of-logistic-with-reg}Cost function of logistic
+with reguarization}
+
+
+\end{figure}
+
 
 \begin{equation}
 J\left(\theta\right)=-\left[\frac{1}{m}\sum_{i=1}^{m}\left(y^{\left(i\right)}\log h_{\theta}\left(x^{\left(i\right)}\right)+\left(1-y^{\left(i\right)}\right)\log\left(1-h_{\theta}\left(x^{\left(i\right)}\right)\right)\right)\right]+\frac{\lambda}{2m}\sum_{j=1}^{n}\theta_{j}^{2}\label{eq:cost func logistic regression with reg}
 \end{equation}
 
 
-注意j仍然是从1开始的。
+在 logistic regression 中使用Regularization的cost function见图\ref{fig:Cost-function-of-logistic-with-reg}和公式\ref{eq:cost func logistic regression with reg}，需要注意j仍然是从1开始的。
 
-\includegraphics[width=0.8\paperwidth]{7\lyxdot 4\lyxdot CostFuntion}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=0.75\paperwidth]{7\lyxdot 4\lyxdot CostFuntion}
+\par\end{centering}
 
-这里仍有一处符号错误，$\frac{\lambda}{m}\theta_{j}$ 前应该是+。
+\caption{\label{fig:Gradient-Descent-of-logistic-with-reg}Gradient Descent
+of Logistic Regression with Regularization}
+\end{figure}
 
-同前面一样，中括号中的部分仍是 $J\left(\theta\right)$ 的偏导。
+
+经过Regularized的gradient descent如图\ref{fig:Gradient-Descent-of-logistic-with-reg}所示，该图中仍有一处符号错误：$\frac{\lambda}{m}\theta_{j}$
+前应该是+。注意，虽然看起来图\ref{fig:Gradient-Descent-of-logistic-with-reg}中的公式和线性回归中的类似，但该图中的$h_{\theta}$和线性回归中的$h_{\theta}$是完全不同的函数。
+
+同上一节一样，中括号中的部分是 $J\left(\theta\right)$ 的偏导。
 
 
 \subsubsection{Advanced optimization}
 
-\includegraphics[scale=0.7]{\string"7.4.Advanced optimization\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=80cm]{\string"7.4.Advanced optimization\string".png}
+\par\end{centering}
 
-这里的符号仍然有错误。
+\caption{\label{fig:Advanced-Optimization}Advanced Optimization}
+
+
+\end{figure}
+
+
+要想使用regularized的advanced optimization，只需要将 cost function 的定义进行如图\ref{fig:Advanced-Optimization}所示的修改即可，注意图中仍然存在符号错误。
 
 
 \section{Neural Networks: Representation}

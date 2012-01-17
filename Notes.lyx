@@ -1545,6 +1545,13 @@ name "fig:多项式拟合"
 
 \begin_layout Subsection
 Normal equation 正规方程
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Normal-equation-正规方程"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Description
@@ -3877,7 +3884,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 7.2.Intuition2.png
-	width 70page%
+	width 75page%
 
 \end_inset
 
@@ -3983,6 +3990,12 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gradient-Descent-with-Regularization"
+
+\end_inset
+
 Gradient Descent with Regularization
 \end_layout
 
@@ -4025,14 +4038,15 @@ Normal equation
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
-\theta=\left(X^{T}X+\lambda\begin{bmatrix}0\\
- & 1\\
- &  & \ddots\\
- &  &  & 1
-\end{bmatrix}\right)^{-1}X^{T}y
-\]
+Gradient descent 只是两种线性回归拟合算法中的一个，另外一种是基于 normal equation 的，我们需要一个 design
+ matrix 
+\begin_inset Formula $X_{m\times\left(n+1\right)}$
+\end_inset
+
+和结果矢量y。X的每一行对应一个 training example。y保存着每个training example的结果。关于算法的详细描述可参见
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Normal-equation-正规方程"
 
 \end_inset
 
@@ -4040,15 +4054,39 @@ Normal equation
 \end_layout
 
 \begin_layout Standard
-上式中的矩阵是 
+\begin_inset Formula 
+\begin{equation}
+\theta=\left(X^{T}X+\lambda\begin{bmatrix}0\\
+ & 1\\
+ &  & \ddots\\
+ &  &  & 1
+\end{bmatrix}\right)^{-1}X^{T}y\label{eq:Normal-equation-with-regulariazion}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+上式中
+\begin_inset Formula $\lambda$
+\end_inset
+
+后面的矩阵是 
 \begin_inset Formula $\left(n+1\right)\times\left(n+1\right)$
 \end_inset
 
-.其实等号后的部分正是令Cost function 求导为0的结果：
+的，如果去掉
+\begin_inset Formula $\lambda$
+\end_inset
+
+和其后的矩阵，那么就是之前学过的的Normal Equation，这里是加上Regularization。其实等号后的部分正是令 cost function
+ 求导为0的结果：
 \begin_inset Formula $\frac{\delta}{\delta\theta_{j}}J\left(\theta\right)\overset{set}{=}0$
 \end_inset
 
-。具体为什么老师不解释:D
+。由于证明比较复杂，因此具体为什么是这个结果老师不作解释:D
 \end_layout
 
 \begin_layout Standard
@@ -4056,21 +4094,66 @@ Normal equation
 \begin_inset Formula $m\leq n$
 \end_inset
 
- 时，
+ 时，公式
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:normal equation"
+
+\end_inset
+
+中的
 \begin_inset Formula $X^{T}X$
 \end_inset
 
- 是不可逆的，然而，当使用 Regularization方法后，得到的矩阵一定是可逆的。
+ 是不可逆的，然而可以证明，当使用 Regularization后，加上Regularization因子后的矩阵一定是可逆的。
 \end_layout
 
 \begin_layout Subsection
 Regularized logistic regression
 \end_layout
 
+\begin_layout Subsubsection
+Gradient Descent
+\end_layout
+
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 7.4.Regularized logistic regression.png
-	width 80page%
+	width 75page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Cost-function-of-logistic-with-reg"
+
+\end_inset
+
+Cost function of logistic with reguarization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -4089,13 +4172,57 @@ J\left(\theta\right)=-\left[\frac{1}{m}\sum_{i=1}^{m}\left(y^{\left(i\right)}\lo
 \end_layout
 
 \begin_layout Standard
-注意j仍然是从1开始的。
+在 logistic regression 中使用Regularization的cost function见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Cost-function-of-logistic-with-reg"
+
+\end_inset
+
+和公式
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cost func logistic regression with reg"
+
+\end_inset
+
+，需要注意j仍然是从1开始的。
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 7.4.CostFuntion.png
-	width 80page%
+	width 75page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gradient-Descent-of-logistic-with-reg"
+
+\end_inset
+
+Gradient Descent of Logistic Regression with Regularization
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -4103,15 +4230,37 @@ J\left(\theta\right)=-\left[\frac{1}{m}\sum_{i=1}^{m}\left(y^{\left(i\right)}\lo
 \end_layout
 
 \begin_layout Standard
-这里仍有一处符号错误，
+经过Regularized的gradient descent如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gradient-Descent-of-logistic-with-reg"
+
+\end_inset
+
+所示，该图中仍有一处符号错误：
 \begin_inset Formula $\frac{\lambda}{m}\theta_{j}$
 \end_inset
 
- 前应该是+。
+ 前应该是+。注意，虽然看起来图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gradient-Descent-of-logistic-with-reg"
+
+\end_inset
+
+中的公式和线性回归中的类似，但该图中的
+\begin_inset Formula $h_{\theta}$
+\end_inset
+
+和线性回归中的
+\begin_inset Formula $h_{\theta}$
+\end_inset
+
+是完全不同的函数。
 \end_layout
 
 \begin_layout Standard
-同前面一样，中括号中的部分仍是 
+同上一节一样，中括号中的部分是 
 \begin_inset Formula $J\left(\theta\right)$
 \end_inset
 
@@ -4123,9 +4272,43 @@ Advanced optimization
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 7.4.Advanced optimization.png
-	scale 70
+	width 80cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Advanced-Optimization"
+
+\end_inset
+
+Advanced Optimization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -4133,7 +4316,14 @@ Advanced optimization
 \end_layout
 
 \begin_layout Standard
-这里的符号仍然有错误。
+要想使用regularized的advanced optimization，只需要将 cost function 的定义进行如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Advanced-Optimization"
+
+\end_inset
+
+所示的修改即可，注意图中仍然存在符号错误。
 \end_layout
 
 \begin_layout Section
