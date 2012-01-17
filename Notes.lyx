@@ -1,0 +1,5821 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+%中英文混排设置%
+\usepackage[BoldFont,SlantFont,fallback,CJKchecksingle]{xeCJK}
+\setmainfont{DejaVu Serif}%西文衬线字体
+\setsansfont{DejaVu Sans}%西文无衬线字体
+\setmonofont{DejaVu Sans Mono}%西文等宽字体
+\setCJKmainfont{Adobe Song Std}%中文衬线字体
+\setCJKsansfont{Adobe Heiti Std}%中文无衬线字体
+\setCJKmonofont{WenQuanYi Micro Hei Mono}%中文等宽字体
+\punctstyle{banjiao}%半角字符
+
+%其他中文设置%
+\XeTeXlinebreaklocale “zh”%中文断行
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+\setlength{\parindent}{2em}%缩进两个字符
+
+%编号语言、样式设置%
+\numberwithin{equation}{section}%设置公式按章节进行编号
+\numberwithin{figure}{section}% 按章节编号
+%\numberwithin{figure}{subsection}% 按子章节编号
+\usepackage{footnpag}
+
+
+%以下内容（\renewcommand）需要放置在\begin{document}之后才能起作用
+\renewcommand\arraystretch{1.2}%1.2表示表格中行间距的缩放比例因子(缺省的标准值为1),中文需要更多的间距
+\renewcommand{\contentsname}{目录} 
+\renewcommand{\listfigurename}{插图目录} 
+\renewcommand{\listtablename}{表格目录} 
+\renewcommand{\refname}{参考文献} 
+\renewcommand{\abstractname}{摘要} 
+\renewcommand{\indexname}{索引} 
+\renewcommand{\tablename}{表}
+\renewcommand{\figurename}{图}
+\renewcommand\appendixname{附录}
+\renewcommand\partname{部分} 
+\renewcommand\today{\number\year年\number\month月\number\day日}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\font_cjk gbsn
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement !tbh
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle false
+\pdf_quoted_options "unicode=false"
+\papersize a4paper
+\use_geometry true
+\use_amsmath 2
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 20mm
+\topmargin 25mm
+\rightmargin 20mm
+\bottommargin 25mm
+\footskip 15mm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 0 1 35 -1
+\bullet 1 1 31 -1
+\bullet 2 1 25 -1
+\bullet 3 1 20 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand
+\backslash
+arraystretch{1.2}%1.2表示表格中行间距的缩放比例因子(缺省的标准值为1),中文需要更多的间距
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+contentsname}{目录} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+listfigurename}{插图目录} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+listtablename}{表格目录} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+refname}{参考文献} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+abstractname}{摘要} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+indexname}{索引} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+tablename}{表} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+figurename}{图} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand
+\backslash
+appendixname{附录} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand
+\backslash
+partname{部分} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand
+\backslash
+today{
+\backslash
+number
+\backslash
+year年
+\backslash
+number
+\backslash
+month月
+\backslash
+number
+\backslash
+day日}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+Machine Learning Notes
+\end_layout
+
+\begin_layout Author
+Cherrot Luo
+\end_layout
+
+\begin_layout Date
+2011
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Subsection
+Supervised Learning
+\end_layout
+
+\begin_layout Standard
+e.g.
+ predict the price, predict cancer or not, etc.
+\end_layout
+
+\begin_layout Standard
+We give the algorithm a data set in which the right answer was given.
+\end_layout
+
+\begin_layout Description
+Regression
+\begin_inset space ~
+\end_inset
+
+program Predict continuous valued output.
+\end_layout
+
+\begin_layout Description
+Classification Discrete(离散的) valued output.
+\end_layout
+
+\begin_layout Subsection
+Unsupervised Learning(Clustering)
+\end_layout
+
+\begin_layout Standard
+e.g.
+ Google News, Social network clustrering, 鸡尾酒派对问题 etc.
+\end_layout
+
+\begin_layout Description
+singular
+\begin_inset space ~
+\end_inset
+
+value
+\begin_inset space ~
+\end_inset
+
+decomposition 奇异值分解。
+\end_layout
+
+\begin_layout Section
+Linear Regression With One Variable
+\end_layout
+
+\begin_layout Subsection
+Model Representation
+\end_layout
+
+\begin_layout Standard
+卖房子问题
+\end_layout
+
+\begin_layout Description
+Supervised
+\begin_inset space ~
+\end_inset
+
+learning Given the 
+\begin_inset Quotes eld
+\end_inset
+
+right answer
+\begin_inset Quotes erd
+\end_inset
+
+ for each example in the data.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Regression
+\begin_inset space ~
+\end_inset
+
+Problem Predict real-valued output.(Classification Problem 是用来预测离散值的)
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Training Set
+\end_layout
+
+\begin_layout Description
+m Number of training examples.
+\end_layout
+
+\begin_layout Description
+x'
+\series medium
+s
+\series default
+ 
+\begin_inset Quotes eld
+\end_inset
+
+input
+\begin_inset Quotes erd
+\end_inset
+
+ variable / features.( often also called purchase)
+\end_layout
+
+\begin_layout Description
+y'
+\series medium
+s 
+\begin_inset Quotes eld
+\end_inset
+
+output
+\begin_inset Quotes erd
+\end_inset
+
+ variable / 
+\begin_inset Quotes eld
+\end_inset
+
+target
+\begin_inset Quotes erd
+\end_inset
+
+ variable
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\left(x^{(i)},y^{(i)}\right)$
+\end_inset
+
+ 通常的
+\begin_inset Formula $\left(x_{i},y_{i}\right)$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+单变量（Univariate）线性回归的直观认识可见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:training-set"
+
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement tbh
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 2.1.training set.png
+	width 70page%
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:training-set"
+
+\end_inset
+
+training set
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Cost Function
+\end_layout
+
+\begin_layout Standard
+一元Hypothesis的公式
+\begin_inset Formula $h_{\theta}\left(x\right)=\theta_{0}+\theta_{1}x$
+\end_inset
+
+,其实就是y=a*x+b。
+\begin_inset Formula $\Theta_{i's}$
+\end_inset
+
+称为这个模型的参数(Parameters).问题要解决的就是如何选择这两个参数，使数据拟合的误差最小:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\underset{\theta_{0}\theta_{1}}{Minimize}\,\frac{1}{2m}\overset{m}{\underset{i=1}{\sum}}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}\label{eq: minimize cost function}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+定义cost
+\begin_inset space ~
+\end_inset
+
+function为:
+\begin_inset Formula 
+\begin{equation}
+J\left(\theta_{0},\theta_{1}\right)=\frac{1}{2m}\overset{m}{\underset{i=1}{\sum}}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}\label{eq:cost function of univariate hypothesis}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(方差的二分之一)
+\end_layout
+
+\begin_layout Subsection
+Cost function intuition I
+\end_layout
+
+\begin_layout Standard
+如果
+\begin_inset Formula $\theta_{0}=0$
+\end_inset
+
+,那么cost function 是二维坐标系的弓形。
+\end_layout
+
+\begin_layout Subsection
+Cost function intuition II
+\end_layout
+
+\begin_layout Standard
+cost function 如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Cost-Function的直观表示"
+
+\end_inset
+
+所示(这种形状称为凸函数 convex funtion)：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 2.3.cost function.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Cost-Function的直观表示"
+
+\end_inset
+
+Cost Function的直观表示
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+contour
+\begin_inset space ~
+\end_inset
+
+plot（等值线图）可以更清楚直观的表示出Cost Function的收敛趋势，如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:等值线图(Contour-Plot)"
+
+\end_inset
+
+所示。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 2.3.contour plot.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:等值线图(Contour-Plot)"
+
+\end_inset
+
+等值线图(Contour Plot)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Gradient descent -- 求最小J(
+\begin_inset Formula $\theta_{0},\theta_{1}$
+\end_inset
+
+)的算法
+\end_layout
+
+\begin_layout Standard
+得到的是局部最优解，不一定是全局最优解，如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gradient-Descent的过程"
+
+\end_inset
+
+所示，如果起始点不同，那么可能会得到不同的局部最优解（local optimal）。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 2.4.gradient descent.png
+	lyxscale 80
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gradient-Descent的过程"
+
+\end_inset
+
+Gradient Descent的过程
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+数学描述：
+\end_layout
+
+\begin_layout Standard
+repeat until convergence{
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Formula $\theta_{j}:=\theta_{j}-\alpha\frac{\delta}{\delta\theta_{j}}J\left(\theta_{0},\theta_{1}\right)\; for\, j=0\, and\, j=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+}
+\end_layout
+
+\begin_layout Description
+:= 赋值号
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\alpha$
+\end_inset
+
+ learning rate.
+ Controls how big a step we take downhill with gradient descent.即梯度值，是个正数。
+\end_layout
+
+\begin_layout Description
+偏导数(partial
+\begin_inset space ~
+\end_inset
+
+derivative
+\begin_inset space ~
+\end_inset
+
+term) 见下一节。偏导数和导数(用d而不是
+\begin_inset Formula $\delta$
+\end_inset
+
+表示)的区别在于参数个数,该题中有两个参数，只对一个求导，所以是偏导(partial)。
+\end_layout
+
+\begin_layout Standard
+注意，我们需要同时更新(Simultaneous update)
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+和
+\begin_inset Formula $\theta_{1}$
+\end_inset
+
+：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 2.5. simultaneous update
+	lyxscale 90
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+同步更新
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Gradient descent intuition
+\end_layout
+
+\begin_layout Standard
+导数的作用见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:直观理解Gradient-Descent"
+
+\end_inset
+
+：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 2.5.gradient descent intuition
+	lyxscale 80
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:直观理解Gradient-Descent"
+
+\end_inset
+
+直观理解Gradient Descent
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Gradient descent for linear regression
+\end_layout
+
+\begin_layout Standard
+“Batch
+\begin_inset Quotes erd
+\end_inset
+
+ Gradient Descent.
+ Each step of gradient descent uses all the training examples.
+\end_layout
+
+\begin_layout Section
+Linear Algebra Review
+\end_layout
+
+\begin_layout Subsection
+Matrices & Vectors
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $4\times2$
+\end_inset
+
+矩阵常表示为
+\begin_inset Formula $\mathbb{R}^{4\times2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Vector An 
+\begin_inset Formula $n\times1$
+\end_inset
+
+matrix.一个n维向量被表示成
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+加法
+\end_layout
+
+\begin_layout Subsection
+矩阵X向量
+\end_layout
+
+\begin_layout Standard
+矩阵X向量，矩阵的列数=向量的行数，得到的是另一个向量。
+\end_layout
+
+\begin_layout Standard
+一般的矩阵乘法规则如下：
+\end_layout
+
+\begin_layout Standard
+简单来说就是行X列，用“
+\series bold
+行列式
+\series default
+”来记忆它的运算顺序吧，恰好得到的结果是前面矩阵的行数X后面矩阵的列数的新矩阵。
+\end_layout
+
+\begin_layout Standard
+做乘法必须保证前面矩阵的列数=后面矩阵的行数，可以用“
+\series bold
+前列腺
+\series default
+”来记忆……、
+\end_layout
+
+\begin_layout Subsection
+矩阵X矩阵
+\end_layout
+
+\begin_layout Standard
+很简单，矩阵和一个个的向量分别计算得到一个个的结果向量，然后组成新矩阵，可见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:矩阵相乘示意图"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 3.4.matrix multiply.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:矩阵相乘示意图"
+
+\end_inset
+
+矩阵相乘示意图
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+矩阵乘法的性质
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 3.5.Not commutative.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:矩阵相乘不符合交换律"
+
+\end_inset
+
+矩阵相乘不符合交换律
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Not Commutative 不符合交换律，如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:矩阵相乘不符合交换律"
+
+\end_inset
+
+所示。
+\end_layout
+
+\begin_layout Enumerate
+associative符合结合律（也符合分配律）
+\end_layout
+
+\begin_layout Enumerate
+Identity Matrix单位矩阵
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $A\cdot I=I\cdot A=A$
+\end_inset
+
+，这里I是单位矩阵，但注意两个I并不一定相同（
+\begin_inset Formula $m\times n$
+\end_inset
+
+和
+\begin_inset Formula $n\times m$
+\end_inset
+
+）。
+\end_layout
+
+\begin_layout Subsection
+矩阵求逆Inverse和转置Transpose
+\end_layout
+
+\begin_layout Subsubsection
+求逆：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+AA^{-1}=A^{-1}A=I\label{eq:矩阵求逆}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+其中A为方阵（Square Matrix），只有方阵可以求逆。教材没有给出矩阵求逆的算法，而是用软件（Octave）实现的：pinv(A)
+\end_layout
+
+\begin_layout Subsubsection
+转置
+\end_layout
+
+\begin_layout Standard
+记矩阵
+\begin_inset Formula $A$
+\end_inset
+
+的转置为
+\begin_inset Formula $A^{T}$
+\end_inset
+
+，
+\begin_inset Formula $A_{ij}=A_{ji}^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left(AB\right)^{T}=B^{T}A^{T}\label{eq:转置矩阵的性质}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Linear Regression with Multiple Variables
+\end_layout
+
+\begin_layout Subsection
+Multiple Features
+\end_layout
+
+\begin_layout Standard
+Notation:
+\end_layout
+
+\begin_layout Standard
+n = number of features
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x^{\left(i\right)}$
+\end_inset
+
+ = input (features) of 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ training example.
+ 对应训练集中的一条输入（一个向量）
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x_{j}^{\left(i\right)}$
+\end_inset
+
+ = value of feature j in 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ training example.
+ 向量
+\begin_inset Formula $x^{\left(i\right)}$
+\end_inset
+
+中的第j项。
+\end_layout
+
+\begin_layout Standard
+多个feature的Hypothesis：
+\begin_inset Formula $h_{\theta}\left(x\right)=\theta_{0}+\theta_{1}x_{1}+\theta_{2}x_{2}+\cdots+\theta_{n}x_{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+假设
+\begin_inset Formula $x_{0}=1$
+\end_inset
+
+，且将x和
+\begin_inset Formula $\theta$
+\end_inset
+
+均表示为向量，那么上式可写为：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h_{\theta}\left(x\right)=\theta^{T}x\label{eq:hypothesis-fuction(multiple-features)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+通常被称作 multivariate linear regression（多元线性回归）
+\end_layout
+
+\begin_layout Subsection
+Gradient descent for multiple variables
+\end_layout
+
+\begin_layout Standard
+Hypothesis：
+\begin_inset Formula $h_{\theta}\left(x\right)=\theta_{0}+\theta_{1}x_{1}+\theta_{2}x_{2}+\cdots+\theta_{n}x_{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Parameters: 将参数
+\begin_inset Formula $\theta$
+\end_inset
+
+看作n+1维的向量
+\begin_inset Formula $\theta$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+Cost function: 
+\begin_inset Formula $J\left(\theta\right)=\frac{1}{2m}\overset{m}{\underset{i=1}{\sum}}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Gradient descent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \qquad{}
+\end_inset
+
+Repeat{
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \qquad{}
+\end_inset
+
+
+\begin_inset Formula $\theta_{j}:=\theta_{j}-\alpha\frac{\delta}{\delta\theta_{j}}J\left(\theta\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \qquad{}
+\end_inset
+
+}
+\end_layout
+
+\begin_layout Standard
+多变量Gradient Descent如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:多变量的Gradient-Descent"
+
+\end_inset
+
+所示。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 4.2.Gradient Descent.png
+	width 70page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:多变量的Gradient-Descent"
+
+\end_inset
+
+多变量的Gradient Descent
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Gradient descent in practice I:Feature Scaling
+\end_layout
+
+\begin_layout Standard
+Make sure features are on a similar scale。
+\end_layout
+
+\begin_layout Standard
+推荐的方案是把Feature的值控制在-1到1（或其他一个相近的）范围内，便于快速收敛。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement tbh
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 4.3.feature scaling.png
+	width 70page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Feature Scaling
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如上例，两个feature相差3个数量级，这样就会导致 contour plot （等值线图）画出来非常的陡长（一个个很长的椭圆）。这样导致的后果便是，
+ Gradient desent 需要很长的时间才能收敛到最优解。
+\end_layout
+
+\begin_layout Subsubsection
+Mean（平均值） normalization
+\end_layout
+
+\begin_layout Standard
+将
+\begin_inset Formula $x_{i}$
+\end_inset
+
+替换为
+\begin_inset Formula $x_{i}-\mu_{i}$
+\end_inset
+
+使features的平均值接近于0。
+\end_layout
+
+\begin_layout Standard
+结合这两种方法，我们可以使
+\begin_inset Formula $x_{i}$
+\end_inset
+
+取如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Mean-Normalization"
+
+\end_inset
+
+所示的值。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 4.3.Mean normalization.png
+	width 70page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Mean-Normalization"
+
+\end_inset
+
+Mean Normalization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Gradient descent in practice II: Learning rate(
+\series medium
+
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\series default
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\alpha$
+\end_inset
+
+太大可能不收敛，太小可能收敛太慢。来回试吧~
+\end_layout
+
+\begin_layout Subsection
+Features and polynomial regression
+\end_layout
+
+\begin_layout Standard
+可以根据已有的feature定义新的feature来简化模型。比如卖房子的例子，假定我们有房子的长和宽两个feature，那么我可以定义房子的面积作为一个新的f
+eature，这样就只剩下一个feature就是房子的面积了。
+\end_layout
+
+\begin_layout Standard
+另外可以使用多项式回归的方法，定义原feature的平方、立方等，增大数据拟合的精确度，如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:多项式拟合"
+
+\end_inset
+
+所示。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 4.5.Polynomial regression.png
+	width 70page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:多项式拟合"
+
+\end_inset
+
+多项式拟合
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Normal equation 正规方程
+\end_layout
+
+\begin_layout Description
+Normal
+\begin_inset space ~
+\end_inset
+
+equation Method to solve for 
+\begin_inset Formula $\theta$
+\end_inset
+
+ analytically.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 4.6.Normal equation.png
+	width 70page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+X为design matrix
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 4.6.Normal Equation3.png
+	width 70page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+构造design matrix
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Normal-equation"
+
+\end_inset
+
+构造Normal equation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+将features和y表示成如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Normal-equation"
+
+\end_inset
+
+所示的矩阵 (design matrix) 和向量的形式后，最小化cost function的
+\begin_inset Formula $\theta$
+\end_inset
+
+值为（课程并没有给出这个公式的证明）：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\theta=\left(X^{T}X\right)^{-1}X^{T}y\label{eq:normal equation}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在Octave中表示为pinv( x' *x ) *x' *y。
+\end_layout
+
+\begin_layout Standard
+使用normal equation时，feature scaling和mean normalization没有必要。
+\end_layout
+
+\begin_layout Standard
+图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gradient-Descent-Normal-Equation"
+
+\end_inset
+
+表示的是Gradient Descent和Normal Equation的区别：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 4.6.Normal Equation2.png
+	width 70page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gradient-Descent-Normal-Equation"
+
+\end_inset
+
+Gradient Descent 与 Normal Equation的区别
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+当n不是很大时，使用normal equation是个很好的选择。然而n很大时，normal equation的代价相当昂贵。
+\end_layout
+
+\begin_layout Subsection
+Normal equation and non-invertibility(不可逆性)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\theta=\left(X^{T}X\right)^{-1}X^{T}y
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $X^{T}X$
+\end_inset
+
+如果是不可逆的怎么办（虽然很少见）？（sigular/degenerate）
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+矩阵
+\begin_inset Formula $A_{n\times n}$
+\end_inset
+
+可逆的充分必要条件是
+\begin_inset Formula $A$
+\end_inset
+
+的行列式
+\begin_inset Formula $\left|A\right|\neq0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Octave中pinv和inv的区别：pinv是pseudo inverse,伪求逆，即使矩阵不可逆他也可以求得我们需要的结果。
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Formula $X^{T}X$
+\end_inset
+
+不可逆的原因？
+\end_layout
+
+\begin_layout Itemize
+Redundant features(linearly dependenta存在
+\series bold
+线性
+\series default
+依赖).
+\begin_inset Newline newline
+\end_inset
+
+E.g.
+ 
+\begin_inset Formula $x_{1}=size\, in\, feet^{2}$
+\end_inset
+
+, 
+\begin_inset Formula $x_{2}=size\, in\, m^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Too many features(e.g.
+ 
+\begin_inset Formula $m\leq n$
+\end_inset
+
+)
+\begin_inset Newline newline
+\end_inset
+
+Delete some features, or use regularization(talk later).
+\end_layout
+
+\begin_layout Section
+Octave Tutorial
+\end_layout
+
+\begin_layout Subsection
+Basic operations
+\end_layout
+
+\begin_layout Itemize
+声明矩阵：v=[1 2; 3 4]
+\end_layout
+
+\begin_layout Itemize
+v= 1:0.2:2 的意思是，得到一个行向量（一行N列的矩阵），以1开始，到2结束，每次递增0.2。
+\end_layout
+
+\begin_layout Itemize
+v=1:6 得到1到6递增1的整数行向量。
+\end_layout
+
+\begin_layout Itemize
+disp()显示函数，使用它输出的结果不会带有ans=前缀。
+\end_layout
+
+\begin_layout Itemize
+sprintf() 与C语言相似的格式输出函数。
+\end_layout
+
+\begin_layout Itemize
+ones(2,3) 产生一个2*3的全是1的矩阵。
+\end_layout
+
+\begin_layout Itemize
+zeros(3,5) 同理。
+\end_layout
+
+\begin_layout Itemize
+rand(1,3)得到一个1*3的介于0到1的随机数矩阵。（如果是方阵，只写一个参数即可）
+\end_layout
+
+\begin_layout Itemize
+randn(1,3) Gaussian random variable。得到的随机数呈0对称的高斯（正态）分布
+\end_layout
+
+\begin_layout Itemize
+hist(w) 绘制w的分布直方图 hist(w,50)，显示50个统计条。
+\end_layout
+
+\begin_layout Itemize
+eye(4) 产生4维的单位矩阵。eye是I的同音。
+\end_layout
+
+\begin_layout Subsection
+Moving data around
+\end_layout
+
+\begin_layout Itemize
+size(A)，返回A的尺寸，如果A是矩阵，则返回A的行数和列数。比如A是3*2的矩阵，那么该命令返回一个矩阵[3, 2]。如果执行size(A,
+ 1)将返回3，size(A, 2)返回2.
+\end_layout
+
+\begin_layout Itemize
+length(A) 返回A较大的维数（可能是行数也可能是列数）。
+\end_layout
+
+\begin_layout Itemize
+pwd 该变量保存Octave的当前工作目录（如/home/cherrot）。可以使用cd命令切换目录。
+\end_layout
+
+\begin_layout Itemize
+who 用于显示当前环境中的所有变量。whos给出细节
+\end_layout
+
+\begin_layout Itemize
+load 文件名 / load('文件名') ：加载数据文件。
+\end_layout
+
+\begin_layout Itemize
+clear 变量名：清除变量。如果不跟变量则清除所有。
+\end_layout
+
+\begin_layout Itemize
+v=priceY(1:10) ：将priceY的前10个元素赋值给v
+\end_layout
+
+\begin_layout Itemize
+save hello.mat v ：将v存到文件hello.mat中。默认为二进制形式。可以加参数 -ascii 以存为文本格式。
+\end_layout
+
+\begin_layout Itemize
+A(3,2) ：返回
+\begin_inset Formula $A_{3,2}$
+\end_inset
+
+（从1开始, 1-indexed）
+\begin_inset Newline newline
+\end_inset
+
+A(3,:) ：返回A第三行的所有元素。“:”代表该行/列的每一个元素
+\begin_inset Newline newline
+\end_inset
+
+A( [1 3], :) ：返回第一行和第三行的所有元素
+\end_layout
+
+\begin_layout Itemize
+A=[A, [5; 6; 7]] ：将向量[5; 6; 7]附加在A后面（右边）。
+\end_layout
+
+\begin_layout Itemize
+A(:) 将A的所有元素打印成一个向量。
+\end_layout
+
+\begin_layout Itemize
+C=[A B] ：将矩阵A、B左右拼接（也可以用逗号分隔）。
+\end_layout
+
+\begin_layout Itemize
+C=[A; B] ：将矩阵A、B上下拼接。
+\end_layout
+
+\begin_layout Subsection
+Computing on Data
+\end_layout
+
+\begin_layout Itemize
+A*B 矩阵乘法
+\end_layout
+
+\begin_layout Itemize
+Element wise operations 比如A .* B 将A中的
+\series bold
+每个元素
+\series default
+与B中对应
+\series bold
+元素
+\series default
+相乘构成新矩阵。
+\begin_inset Newline newline
+\end_inset
+
+点号在常被用于指示element wise operations。比如A .^2 的结果是A中每个元素都平方。
+\end_layout
+
+\begin_layout Itemize
+对矩阵应用log()或者abs()函数时，同样是element wise operation。对矩阵取反、加/减一个常数值、大小比较都将看作是element
+ wise operation。
+\end_layout
+
+\begin_layout Itemize
+A' ：A的转置。
+\end_layout
+
+\begin_layout Itemize
+max(A)：如果A是矩阵，则返回A中每一列的最大元素；如果A是向量或行向量，则返回A中最大元素，而且如果写作[value, index] =
+ max(A)，将返回值和其index。
+\end_layout
+
+\begin_layout Itemize
+find(V<3)：返回向量V中小于3的元素下标
+\begin_inset Newline newline
+\end_inset
+
+如果要find一个矩阵，可以写成[i, j] = find(A)。对应的i和j分别为找到元素的行列index。
+\end_layout
+
+\begin_layout Itemize
+magic(n): 创建一个n*n (n!=2)的magic方阵。即每行、每列和两对角线上的元素和都为同一个数。
+\end_layout
+
+\begin_layout Itemize
+sum() 求和。如果sum(A,
+\series bold
+1
+\series default
+)则对A每一列求和，等效于sum(A) 。
+\begin_inset Newline newline
+\end_inset
+
+sum(A,
+\series bold
+2
+\series default
+)对每一行求和。
+\end_layout
+
+\begin_layout Itemize
+prod() 求积
+\end_layout
+
+\begin_layout Itemize
+floor()向下取整
+\end_layout
+
+\begin_layout Itemize
+ceil()向上取整
+\end_layout
+
+\begin_layout Itemize
+max(A, [], 
+\series bold
+1
+\series default
+) :column wise maximum。找到每列的最大值，得到一个行向量。1 means to take max along the first
+ dimension of A.
+\end_layout
+
+\begin_layout Itemize
+max(A, [], 
+\series bold
+2
+\series default
+) :row wise maximum。找到每行的最大值，得到一个向量
+\end_layout
+
+\begin_layout Itemize
+要想找到矩阵A中的最大值，可以max(max(A)),或者max(A(:))——即先将A表示成一个向量，在求最大值。
+\end_layout
+
+\begin_layout Itemize
+flipud() ：flip up & down，上下颠倒。故flipud(eye(3))的效果就是把单位矩阵的对角线对换。
+\end_layout
+
+\begin_layout Subsection
+Plotting data
+\end_layout
+
+\begin_layout Standard
+如果要在一个Figure面板中绘制两个曲线，那么需要调用hold on命令：
+\begin_inset Newline newline
+\end_inset
+
+plot(t, y1);
+\begin_inset Newline newline
+\end_inset
+
+hold on;
+\begin_inset Newline newline
+\end_inset
+
+plot(t, y2, 'r'); % 'r'表示本事件的颜色为红色。
+\begin_inset Newline newline
+\end_inset
+
+xlabel('time')
+\begin_inset Newline newline
+\end_inset
+
+ylabel('value')
+\begin_inset Newline newline
+\end_inset
+
+legend('sin', 'cos') %添加图例。
+\begin_inset Newline newline
+\end_inset
+
+title('my plot')
+\begin_inset Newline newline
+\end_inset
+
+print -dpng 'myPlot.png' %保存为png文件
+\begin_inset Newline newline
+\end_inset
+
+close %关闭plot
+\end_layout
+
+\begin_layout Standard
+如果要绘制多于一个的图像时：
+\begin_inset Newline newline
+\end_inset
+
+figure(1); plot(t, y1);
+\begin_inset Newline newline
+\end_inset
+
+figure(2); plot(t, y2);
+\end_layout
+
+\begin_layout Standard
+如果要在一个figure中绘制两个图，可以使用subplot
+\begin_inset Newline newline
+\end_inset
+
+subplot(1, 2, 1); %Divides plot a 1x2 grid, access first element
+\begin_inset Newline newline
+\end_inset
+
+plot(t, y1);
+\begin_inset Newline newline
+\end_inset
+
+subplot(1, 2, 2);
+\begin_inset Newline newline
+\end_inset
+
+plot(t, y2);
+\begin_inset Newline newline
+\end_inset
+
+axis([0.5 1 -1 1]); %改变右边图片的x y坐标范围，x从0.5到1，y从-1到1。
+\begin_inset Newline newline
+\end_inset
+
+clf; %清空图像
+\end_layout
+
+\begin_layout Standard
+如果要“绘制”一个矩阵：
+\begin_inset Newline newline
+\end_inset
+
+A=magic(5) %生成一个矩阵
+\begin_inset Newline newline
+\end_inset
+
+imagesc(A)
+\end_layout
+
+\begin_layout Standard
+或者改成灰度显示一个矩阵：
+\begin_inset Newline newline
+\end_inset
+
+imagesc(A), colorbar, colormap gray; %逗号可以使多个函数写在一行并且不屏蔽输出（异于分号）。
+\end_layout
+
+\begin_layout Subsection
+For, While, If statements, and Functions
+\end_layout
+
+\begin_layout Subsubsection
+For
+\end_layout
+
+\begin_layout Standard
+e.g.1：
+\end_layout
+
+\begin_layout LyX-Code
+v = zeros(10,1);
+\end_layout
+
+\begin_layout LyX-Code
+for i=1:10,
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+v(i) = 2^i;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+end;
+\end_layout
+
+\begin_layout Standard
+e.g.2：
+\end_layout
+
+\begin_layout LyX-Code
+indices = 1:10; %indices 初始化为一个行向量
+\end_layout
+
+\begin_layout LyX-Code
+for i = indices
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+disp(i);
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+end;
+\end_layout
+
+\begin_layout Subsubsection
+While
+\end_layout
+
+\begin_layout Standard
+e.g.1
+\end_layout
+
+\begin_layout LyX-Code
+i = 1;
+\end_layout
+
+\begin_layout LyX-Code
+while i <= 5,
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+v(i) = 100;
+\end_layout
+
+\begin_layout LyX-Code
+i = i +1;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+end;
+\end_layout
+
+\begin_layout Standard
+e.g.2 使用break;
+\end_layout
+
+\begin_layout LyX-Code
+i = 1;
+\end_layout
+
+\begin_layout LyX-Code
+while true,
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+v(i) = 999;
+\end_layout
+
+\begin_layout LyX-Code
+i = i + 1;
+\end_layout
+
+\begin_layout LyX-Code
+if i == 6,
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+break;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+end;
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+end;
+\end_layout
+
+\begin_layout Subsubsection
+If-else
+\end_layout
+
+\begin_layout Standard
+e.g.1
+\end_layout
+
+\begin_layout LyX-Code
+if v(1) == 1,
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+disp('one');
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+elseif v(1) == 2,
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+disp('two');
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+else %这里没有逗号？
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+disp('other');
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+end;
+\end_layout
+
+\begin_layout Subsubsection
+Funtions
+\end_layout
+
+\begin_layout Standard
+Octave定义函数的方式为把函数写四则算法在一个 function_name.m 文件中。文件内容范例：
+\end_layout
+
+\begin_layout LyX-Code
+function y = function_name(x)
+\end_layout
+
+\begin_layout LyX-Code
+y = x^2;
+\end_layout
+
+\begin_layout Standard
+定义的函数文件必须在当前工作目录或者Octave的search path下。可以通过addpath('new_path')函数来增加search
+ path
+\end_layout
+
+\begin_layout Standard
+Octave的函数可以返回多值，比如返回[y1,y2]。
+\end_layout
+
+\begin_layout Subsection
+Vectorization 向量化
+\end_layout
+
+\begin_layout Standard
+把变量向量化使计算更加高效（Octave擅长矩阵运算），而且代码量更小（减少了循环等流程控制语句的使用）。
+\end_layout
+
+\begin_layout Section
+Logistic Regression
+\end_layout
+
+\begin_layout Subsection
+Classification
+\end_layout
+
+\begin_layout Standard
+Classification 仍然属于 Supervised Learning，只不过是离散的值
+\end_layout
+
+\begin_layout Standard
+应用场景：
+\end_layout
+
+\begin_layout Itemize
+Email: Spam / Not Spam
+\end_layout
+
+\begin_layout Itemize
+Online Transactions(交易): Fraudulent(欺诈)?
+\end_layout
+
+\begin_layout Itemize
+Tumor(肿瘤); Malignant / Benign？
+\end_layout
+
+\begin_layout Standard
+本节将讨论 binary classification， multi-class classification 将在以后讨论。
+\end_layout
+
+\begin_layout Standard
+一种做法是继续使用线性回归
+\begin_inset Formula $h_{\theta}\left(x\right)$
+\end_inset
+
+预测，然后定一个阈值(Threshold Classifier)，比如取0.5作为阈值，如果
+\begin_inset Formula $h_{\theta}\left(x\right)\geq0.5$
+\end_inset
+
+，则预测y=1，否则预测y=0。但是这并不合适：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 6.1 Binary claffication.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:使用线性回归处理Classification"
+
+\end_inset
+
+使用线性回归处理Classification的问题
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+正如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:使用线性回归处理Classification"
+
+\end_inset
+
+所示，假设没有最右边的值，回归曲线应该是洋红色的这条，那么我们取阈值为0.5，预测的结果完全符合样本。然而，如果多了最右侧的这个取值时，回归曲线看起来应该像蓝色这
+条一样，当我们取阈值0.5时可以发现，预测值不再符合样本了。
+\end_layout
+
+\begin_layout Description
+Logistic
+\begin_inset space ~
+\end_inset
+
+Regression: 总能产生
+\begin_inset Formula $0\leq h_{\theta}\leq1$
+\end_inset
+
+的
+\begin_inset Formula $h_{\theta}$
+\end_inset
+
+的算法（在y=0 或 y=1 的binary classification的情况下）。
+\end_layout
+
+\begin_layout Subsection
+Hypothesis Representation
+\end_layout
+
+\begin_layout Standard
+为了得到
+\begin_inset Formula $0\leq h_{\theta}\left(x\right)\leq1$
+\end_inset
+
+，则定义
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h_{\theta}\left(x\right)=g\left(\theta^{T}x\right)\label{eq:logistic regression hypothesis}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+其中
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+g\left(z\right)=\frac{1}{1+e^{-z}}\label{eq:sigmoid function}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+上式称为sigmoid function（S形函数) 或 logistic function（逻辑函数）。
+\begin_inset Formula $\theta^{T}x$
+\end_inset
+
+可见公式
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:hypothesis-fuction(multiple-features)"
+
+\end_inset
+
+。公式
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sigmoid function"
+
+\end_inset
+
+的图形如所示：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 6.2.sigmoid function.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+sigmoid function
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Interpretation(解释) of Hypothesis Output
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $h_{\theta}\left(x\right)=P\left(y=1\mid x;\,\theta\right)$
+\end_inset
+
+.
+ It 
+\series bold
+estimats
+\series default
+ probability that y=1, given x, parameterized by 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Decision Boundary
+\end_layout
+
+\begin_layout Standard
+只有当
+\begin_inset Formula $z\geq0$
+\end_inset
+
+时，
+\begin_inset Formula $g\left(z\right)\geq0.5$
+\end_inset
+
+才成立，故只有
+\begin_inset Formula $\theta^{T}x\geq0$
+\end_inset
+
+时，
+\begin_inset Formula $h_{\theta}\left(x\right)\geq0.5$
+\end_inset
+
+才成立。
+\end_layout
+
+\begin_layout Standard
+Decision Boundary 就是使
+\begin_inset Formula $\theta^{T}x=0$
+\end_inset
+
+的直线，如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Decision-Boundary"
+
+\end_inset
+
+所示：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 6.3.Decision boundary.png
+	width 80col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Decision-Boundary"
+
+\end_inset
+
+Decision Boundary
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Decision-Boundary"
+
+\end_inset
+
+中
+\begin_inset Formula $x_{1}+x_{2}=3$
+\end_inset
+
+这条线就是Decision Boundary。
+\end_layout
+
+\begin_layout Subsection
+Cost function
+\end_layout
+
+\begin_layout Standard
+如果将线性回归中的 cost function 用到这里的话，那么我们得到的将是一个 non-convex （非凸函数）的图形（因为
+\begin_inset Formula $h_{\theta}\left(x\right)$
+\end_inset
+
+不是一个线性函数，而是一个平方代价函数squre cost function），导致得不到全局最优解，如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:直接使用线性回归的cost-function导致结果为非凸函数"
+
+\end_inset
+
+所示。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 6.4.Cost Function
+	width 70page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:直接使用线性回归的cost-function导致结果为非凸函数"
+
+\end_inset
+
+直接使用线性回归的cost function导致结果为非凸函数
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+下面是Classification情况下的Cost function(with single training example)：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+J\left(\theta\right)=\frac{1}{m}\sum_{i=1}^{m}Cost\left(h_{\theta}\left(x^{\left(i\right)}\right),y^{\left(i\right)}\right)\label{eq:cost function in classification}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+其中,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Cost\left(h_{\theta}\left(x\right),y\right)=\begin{cases}
+-\log\left(h_{\theta}\left(x\right)\right) & if\, y=1\\
+-\log\left(1-h_{\theta}\left(x\right)\right) & if\, y=0
+\end{cases}\label{eq:Cost function in classifcation-Cost-2line}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+函数的图形可以直观的告诉我们上式的作用：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 6.3.Plot Cost function.png
+	width 70page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Plotting the Cost()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+为方便计算，公式
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Cost function in classifcation-Cost-2line"
+
+\end_inset
+
+可写为式
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Cost function in classifcation-Cost-1line"
+
+\end_inset
+
+的形式。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Cost\left(h_{\theta}\left(x\right),y\right)=-y\log\left(h_{\theta}\left(x\right)\right)-\left(1-y\right)\log\left(1-h_{\theta}\left(x\right)\right)\label{eq:Cost function in classifcation-Cost-1line}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这里要注意当y=1时它的几个特性，如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Cost函数(Classification)"
+
+\end_inset
+
+所示的。在y=1时，当
+\begin_inset Formula $h_{\theta}\left(x\right)=1$
+\end_inset
+
+时，Cost为0，也就是没有误差；相反，若
+\begin_inset Formula $h_{\theta}\left(x\right)\rightarrow0$
+\end_inset
+
+，那么则视为误差无限大，即Cost趋向于无穷。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 6.3.Cost function.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $Cost\left(h_{\theta}\left(x^{\left(i\right)}\right),y^{\left(i\right)}\right)$
+\end_inset
+
+函数
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Cost函数(Classification)"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The topic of convexity analysis is beyond the scope of this course.
+\end_layout
+
+\begin_layout Subsection
+Simplified cost function and gradient descent
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+J\left(\theta\right)=\frac{1}{m}\sum_{i=1}^{m}Cost\left(h_{\theta}\left(x^{\left(i\right)}\right),y^{\left(i\right)}\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}y^{\left(i\right)}\log h_{\theta}\left(x^{\left(i\right)}\right)+\left(1-y^{\left(i\right)}\right)\log\left(1-h_{\theta}\left(x^{\left(i\right)}\right)\right)\right]\label{eq:cost function for logistic regression}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+之所以使用这个公式作为Cost Function而不是使用其他的公式是因为 This cost function can be derived
+ from statistics using the 
+\series bold
+principle of maximum likelihood estimation（最大似然估计）,
+\series default
+ and it is convex.
+ 更多的细节超出了本课程的讨论范围。
+\end_layout
+
+\begin_layout Standard
+给出上式，我们需要寻找到合适的
+\begin_inset Formula $\theta$
+\end_inset
+
+满足
+\begin_inset Formula $\underset{\theta}{\min}J\left(\theta\right)$
+\end_inset
+
+，从而就可以计算
+\begin_inset Formula $h_{\theta}\left(x\right)$
+\end_inset
+
+了。
+\end_layout
+
+\begin_layout Subsubsection
+Gradient Descent
+\end_layout
+
+\begin_layout Standard
+Repeat{
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\theta_{j}\,:=\theta_{j}-\alpha\frac{\delta}{\delta\theta_{j}}J\left(\theta\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+}(simultaneously update all 
+\begin_inset Formula $\theta_{j}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+其中
+\begin_inset Formula $\frac{\delta}{\delta\theta_{j}}J\left(\theta\right)=\frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)x_{j}^{\left(i\right)}$
+\end_inset
+
+，和线性回归的结果
+\series bold
+相似
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+怎么算的？
+\series default
+ 我的猜想是，sigmoid函数只是起函数域的限定作用，不改变原函数的增长性，所以为了计算简便，求导时不考虑sigmoid函数。求证。
+\end_layout
+
+\end_inset
+
+
+\series default
+，见
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:多变量的Gradient-Descent"
+
+\end_inset
+
+。
+\series bold
+
+\begin_inset CommandInset label
+LatexCommand label
+name "why:gradient descent求导公式疑问"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+该算法同样可以使用feature scaling来优化计算。
+\end_layout
+
+\begin_layout Subsection
+Advanced Optimization
+\end_layout
+
+\begin_layout Standard
+Optimaization algorithms:
+\end_layout
+
+\begin_layout Itemize
+Gradient descent
+\end_layout
+
+\begin_layout Itemize
+Conjugate gradient
+\end_layout
+
+\begin_layout Itemize
+BFGS
+\end_layout
+
+\begin_layout Itemize
+L-BFGS
+\end_layout
+
+\begin_layout Standard
+其他三个算法具体是怎么做的将不在本课程中涉及。这些算法的缺点是非常复杂，而优点是：
+\end_layout
+
+\begin_layout Itemize
+No need to manually pick 
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Often faster than gradient descent.
+\end_layout
+
+\begin_layout Standard
+We can think of these algorithms as having a clever inter-loop.
+ In fact the inter-loop is called the 
+\series bold
+line search
+\series default
+ algorithm that automatically tries out different values for 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ and automatically picks a good learning rate so that it can even pick a
+ different alpha for every interation.
+\end_layout
+
+\begin_layout Standard
+本课程将不详细的讨论这些算法内部究竟是怎样工作的。作者使用这些算法好多年后才去探索它们是如何工作的=.=
+\end_layout
+
+\begin_layout Standard
+而且不建议自己写代码实现这些代码，有类库干吗不用？例如使用octave的自建函数fminunc更好的实现gradient descent：（图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fminunc函数的使用示例"
+
+\end_inset
+
+）
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 6.6.Gradient Example using Octave.png
+	width 70page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fminunc函数的使用示例"
+
+\end_inset
+
+fminunc函数的使用示例
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+fminunc()函数：function minimization unconstrained。 是Octave中的内建函数，@表示一个指向函数的指针
+ (function handle)。fminunc的作用就是计算使给定函数取值最小的参数值，如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Octave演示fminunc函数"
+
+\end_inset
+
+所示即为Octave的演示：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 6.6.Exercise using Octave.png
+	width 70page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Octave演示fminunc函数"
+
+\end_inset
+
+Octave演示fminunc函数
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+options是存储我们需要的option的数据结构。 'GradObj', 'on' sets the gradient objective
+ parameter to on.
+ It just means you are indeed going to provide a gradient to this algorithm.
+ 其中exitFlag=1表示算法成功收敛(converge)了。optTheta和functionVal都得到了期望的值（functionVal=0）。注意要
+使用这个函数，initialTheta必须是不小于二维的向量。
+\end_layout
+
+\begin_layout Itemize
+Octvave语法：@(t) ( costFunction(t, X, y) ) .
+ This creates a function, with argument t, which calls your costFunction.（实例见编程作业
+2）
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 6.6.Cost Function in Octave.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:使用fminunc时需要自定义的函数"
+
+\end_inset
+
+使用fminunc时需要自定义的函数
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What we need to do is 
+\series bold
+write a function that returns the cost and returns the gradient
+\series default
+（见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:使用fminunc时需要自定义的函数"
+
+\end_inset
+
+）.
+ 当然，我们甚至可以将这个算法使用在线性回归问题上。
+\end_layout
+
+\begin_layout Subsection
+Multi-class classification: One-vs-All
+\end_layout
+
+\begin_layout Standard
+实例：
+\end_layout
+
+\begin_layout Itemize
+标记E-mail类型：Wor, Friends, Family, Hobby。
+\end_layout
+
+\begin_layout Itemize
+诊断：Not ill, Cold, Flu
+\end_layout
+
+\begin_layout Itemize
+天气：Sunny, Cloudy, Rain, Snow
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 6.7.Multi class classification:One-vs-All
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Multi-class-classification-问题"
+
+\end_inset
+
+Multi-class classification 问题
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+One-vs-all(one-vs-rest)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Wrap figure
+lines 0
+placement o
+overhang 0in
+width "0col%"
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename 6.7.multi-classification
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+What we are going to do is take a training set, and turn this into three
+ 
+\series bold
+separate binary classification problems:
+\series default
+(如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Multi-class的分解"
+
+\end_inset
+
+所示)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement tb
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename 6.7.ones-vs-all1
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename 6.7.ones-vs-all2.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename 6.7.ones-vs-all3.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Multi-class的分解"
+
+\end_inset
+
+Multi-class的分解
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h_{\theta}\left(x\right)=P\left(y=i\mid x;\theta\right),\,\,\left(i=1,2,3\right)\label{eq:hypothesis of multi-class:one-vs-all}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Train a logistic regression classifier 
+\begin_inset Formula $h_{\theta}^{\left(i\right)}\left(x\right)$
+\end_inset
+
+ for each class 
+\begin_inset Formula $i$
+\end_inset
+
+ to predict the probability that 
+\begin_inset Formula $y=i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+On a new input 
+\begin_inset Formula $x$
+\end_inset
+
+, to make a prediction, pick the class 
+\begin_inset Formula $i$
+\end_inset
+
+ that maximizes 
+\begin_inset Formula $\max_{i}h_{\theta}^{\left(i\right)}\left(x\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Regularization
+\end_layout
+
+\begin_layout Subsection
+The problem of overfitting
+\end_layout
+
+\begin_layout Standard
+features 太少导致 underfitting(high bias)，而features太多就会导致overfitting(high variants)，
+正如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Underfitting-and-Overfitting-in-linear-regression"
+
+\end_inset
+
+和图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Underfitting-and-Overfitting-in-logistic"
+
+\end_inset
+
+所示。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 7.1.overfitting.png
+	width 70page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Underfitting-and-Overfitting-in-linear-regression"
+
+\end_inset
+
+Underfitting and Overfitting in Linear Regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Overfitting If we have too many features, the learned hypothesis may fit
+ the training set very well(
+\begin_inset Formula $J\left(\theta\right)=\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}\approx0$
+\end_inset
+
+), but fail to generalize to new examples(predict prices on new examples).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 7.1.overfitting2.png
+	width 70page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Underfitting-and-Overfitting-in-logistic"
+
+\end_inset
+
+Underfitting and Overfitting in Logistic Regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Addressing overfitting
+\end_layout
+
+\begin_layout Standard
+Options:
+\end_layout
+
+\begin_layout Enumerate
+Reduce number of features.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Manually select which features to keep.
+\end_layout
+
+\begin_layout Itemize
+Model selection algorithm.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Regularization
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Keep all the features, but reduce magnitude/values of parameters 
+\begin_inset Formula $\theta_{j}$
+\end_inset
+
+.（减小参数的权重）
+\end_layout
+
+\begin_layout Itemize
+Works well when we have a lot of features, each of which contributes a bit
+ to predicting 
+\begin_inset Formula $y$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Cost function
+\end_layout
+
+\begin_layout Subsubsection
+Intuition
+\end_layout
+
+\begin_layout Standard
+如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Penalize-parameters"
+
+\end_inset
+
+所示，如果出现了过度拟合，我们可以使
+\begin_inset Formula $\theta_{3}$
+\end_inset
+
+和
+\begin_inset Formula $\theta_{4}$
+\end_inset
+
+变得非常小甚至接近于0，从而降低这两个参数对整个图形的贡献。如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Penalize-parameters"
+
+\end_inset
+
+所示，在原式后面加上
+\begin_inset Formula $1000\theta_{3}^{2}+1000\theta_{4}^{2}$
+\end_inset
+
+两个因子（其中1000是随便指定的比较大的值），这样，如果要使原式取最小值，那我们必须使
+\begin_inset Formula $\theta_{3}$
+\end_inset
+
+和
+\begin_inset Formula $\theta_{4}$
+\end_inset
+
+取值很小，从而达到我们的目的。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 7.2.Intuition.png
+	width 70page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Penalize-parameters"
+
+\end_inset
+
+Penalize parameters instead of removing them
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Regularization
+\end_layout
+
+\begin_layout Standard
+Small values for parameters 
+\begin_inset Formula $\theta_{0},\theta_{1},\ldots,\theta_{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Simpler
+\begin_inset Quotes erd
+\end_inset
+
+ hypothesis
+\end_layout
+
+\begin_layout Itemize
+Less prone(倾向) to overfitting.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 7.2.Intuition2.png
+	width 70page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Regularization"
+
+\end_inset
+
+Regularization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Regularization"
+
+\end_inset
+
+所示
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+注意j是从1开始取值的。这是个习惯上的做法，实际上从0开始或从1开始对结果不会有太大影响(little difference)。
+\end_layout
+
+\end_inset
+
+，Regularization对
+\series bold
+每个
+\series default
+参数(
+\begin_inset Formula $\theta$
+\end_inset
+
+)都乘以一个惩罚因子
+\begin_inset Formula $\lambda$
+\end_inset
+
+。What the regularization parameter does is it controls the tradeoff between
+ the goal of fitting the data well and the goal of keeping the parameter
+ small, and therefore keeping the hypothesis simple.
+\end_layout
+
+\begin_layout Standard
+但是如果
+\begin_inset Formula $\lambda$
+\end_inset
+
+取值太大，则会造成underfitting。道理很简单，right?
+\end_layout
+
+\begin_layout Subsection
+Regularized linear regression
+\end_layout
+
+\begin_layout Subsubsection
+Gradient descent
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 7.3.Regularized linear regression.png
+	width 75page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Gradient Descent with Regularization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+注意 
+\begin_inset Formula $1-\alpha\frac{\lambda}{m}$
+\end_inset
+
+ 是小于1的，这就相当于把 
+\begin_inset Formula $\theta_{j}$
+\end_inset
+
+缩小了，而后面的部分和之前的公式是一样的。中间公式中括号内的部分正是对 
+\begin_inset Formula $J\left(\theta\right)$
+\end_inset
+
+ 求导的结果。 注意，这里有一处符号错误，
+\begin_inset Formula $\frac{\lambda}{m}\theta_{j}$
+\end_inset
+
+ 前应该是+。
+\end_layout
+
+\begin_layout Subsubsection
+Normal equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\theta=\left(X^{T}X+\lambda\begin{bmatrix}0\\
+ & 1\\
+ &  & \ddots\\
+ &  &  & 1
+\end{bmatrix}\right)^{-1}X^{T}y
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+上式中的矩阵是 
+\begin_inset Formula $\left(n+1\right)\times\left(n+1\right)$
+\end_inset
+
+.其实等号后的部分正是令Cost function 求导为0的结果：
+\begin_inset Formula $\frac{\delta}{\delta\theta_{j}}J\left(\theta\right)\overset{set}{=}0$
+\end_inset
+
+。具体为什么老师不解释:D
+\end_layout
+
+\begin_layout Standard
+我们知道，当 
+\begin_inset Formula $m\leq n$
+\end_inset
+
+ 时，
+\begin_inset Formula $X^{T}X$
+\end_inset
+
+ 是不可逆的，然而，当使用 Regularization方法后，得到的矩阵一定是可逆的。
+\end_layout
+
+\begin_layout Subsection
+Regularized logistic regression
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 7.4.Regularized logistic regression.png
+	width 80page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+J\left(\theta\right)=-\left[\frac{1}{m}\sum_{i=1}^{m}\left(y^{\left(i\right)}\log h_{\theta}\left(x^{\left(i\right)}\right)+\left(1-y^{\left(i\right)}\right)\log\left(1-h_{\theta}\left(x^{\left(i\right)}\right)\right)\right)\right]+\frac{\lambda}{2m}\sum_{j=1}^{n}\theta_{j}^{2}\label{eq:cost func logistic regression with reg}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+注意j仍然是从1开始的。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 7.4.CostFuntion.png
+	width 80page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这里仍有一处符号错误，
+\begin_inset Formula $\frac{\lambda}{m}\theta_{j}$
+\end_inset
+
+ 前应该是+。
+\end_layout
+
+\begin_layout Standard
+同前面一样，中括号中的部分仍是 
+\begin_inset Formula $J\left(\theta\right)$
+\end_inset
+
+ 的偏导。
+\end_layout
+
+\begin_layout Subsubsection
+Advanced optimization
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 7.4.Advanced optimization.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这里的符号仍然有错误。
+\end_layout
+
+\begin_layout Section
+Neural Networks: Representation
+\end_layout
+
+\begin_layout Subsection
+Non-linear Hypotheses
+\end_layout
+
+\begin_layout Standard
+当输入的feature集巨大时，Logistic Regression将会力不从心。神经网络是用于计算复杂非线性回归问题(complex non-linear
+ hypotheses)的好方法。
+\end_layout
+
+\begin_layout Subsection
+Neurons and the Brain
+\end_layout
+
+\begin_layout Description
+Neuro-rewiring
+\begin_inset space ~
+\end_inset
+
+experiments 比如把传入听觉中枢的神经re-wire到眼睛，那么听觉中枢会学习用眼睛看的功能。同一块大脑组织，其实可以处理听觉、视觉、触觉等等功能。看
+起来大脑有非常强大的学习算法:)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 8.2.Neurons and brain.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Model representation I
+\end_layout
+
+\begin_layout Subsubsection
+Nuron in the brain
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 8.3.1.nuron in the brain
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dendrite 是树突，也就是输入端，Axon是轴突，也就是输出端。
+\end_layout
+
+\begin_layout Subsubsection
+Neuron model: losgistic unit
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 8.3.1.neuron model:losistic unit.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sigmoid(logistic) activation function.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x_{0}=0$
+\end_inset
+
+ 称为 bias unit。parameters 也常被称为权重（weights）。
+\end_layout
+
+\begin_layout Subsubsection
+Neural Network
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 8.3.Neural Network.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 8.3.Neural Network2.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Model representation II
+\end_layout
+
+\begin_layout Subsubsection
+Forward propagation: Vectorized implementation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 8.4.forward propagation.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We call this process of computing 
+\begin_inset Formula $h_{\theta}\left(x\right)$
+\end_inset
+
+ 
+\series bold
+forward propagation
+\series default
+ because that we start of with the 
+\series bold
+activations
+\series default
+ of the input-units and then we sort of 
+\series bold
+forward propagate
+\series default
+ that to the hidden layer and compute the activations of the hidden layer
+ and then we sort of forward propagate that and compute the activations
+ of the output layer, but this process of computing the activations from
+ the input then the hidden then the output layer and that's also called
+ forward propagation.
+\end_layout
+
+\begin_layout Subsubsection
+Neural Network learning its own features
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 8.4.Neural network learning features.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如果将 input layer 遮住，那么计算 
+\begin_inset Formula $h_{\theta}\left(x\right)$
+\end_inset
+
+ 的公式将如图所示，可见与 Logistic Regression 的公式几乎相同（除了
+\begin_inset Formula $\theta$
+\end_inset
+
+变成了大写
+\begin_inset Formula $\Theta$
+\end_inset
+
+外~）。只不过在神经网络中，我们并不直接使用输入的 features -- 
+\begin_inset Formula $x_{1},x_{2},x_{3}$
+\end_inset
+
+，而是使用 hidden layer 的 activations -- 
+\begin_inset Formula $a_{1}^{\left(2\right)},a_{2}^{\left(2\right)},a_{3}^{\left(2\right)}$
+\end_inset
+
+。 It learned its own features to apply logistic regression.
+ 这将比使用原始的输入 features （或他们的多项式形式 
+\begin_inset Formula $x_{1}^{2},\, x_{1}x_{2},\, x_{2}^{2}\ldots$
+\end_inset
+
+）来计算 logistic regression 产生更好的 hypotheses。
+\end_layout
+
+\begin_layout Subsection
+Examples and intuitions I
+\end_layout
+
+\begin_layout Subsubsection
+Simple example: AND
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 8.5.Example1.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Examples and intuitions II
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 8.6.examples2.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 8.6.examples3.png
+	scale 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Multi-class classification
+\end_layout
+
+\begin_layout Subsubsection
+Multiple output units: One-vs-all
+\end_layout
+
+\begin_layout Itemize
+Suppose you have a multi-class classification problem with three classes,
+ trained with a 3 layer network.
+ Let 
+\begin_inset Formula $a_{2}^{(3)}=(h_{\Theta}(x))_{2}$
+\end_inset
+
+ be the activation of the first output unit, and similarly 
+\begin_inset Formula $a(3)2=(hΘ(x))2$
+\end_inset
+
+ and 
+\begin_inset Formula $a_{3}^{(3)}=(h_{\Theta}(x))_{3}$
+\end_inset
+
+.
+ Then for any input x, it must be the case that 
+\begin_inset Formula $a_{1}^{(3)}+a_{2}^{(3)}+a_{3}^{(3)}=1$
+\end_inset
+
+。错误，因为输出并非是概率，所以输出的总和并不一定是1。
+\end_layout
+
+\begin_layout Section
+Neural Networks: Learning
+\end_layout
+
+\begin_layout Subsection
+Cost Function
+\end_layout
+
+\begin_layout Subsubsection
+Neural Network (Classification)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 9.1.Cost Function.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L: 网络层数。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $s_{l}$
+\end_inset
+
+: 第l层的节点个数（不包括bias节点）。
+\end_layout
+
+\begin_layout Standard
+k: output layer 的节点个数。
+\end_layout
+
+\begin_layout Standard
+我们将考虑binary classification 和 Muti-class classification 两种情况。
+\end_layout
+
+\begin_layout Subsubsection
+Cost function
+\end_layout
+
+\begin_layout Paragraph
+Logistic regression:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+J\left(\theta\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}y^{\left(i\right)}\log h_{\theta}\left(x^{\left(i\right)}\right)+\left(1-y^{\left(i\right)}\right)\log\left(1-h_{\theta}\left(x^{\left(i\right)}\right)\right)\right]+\frac{\lambda}{2m}\sum_{j=1}^{n}\theta_{j}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The cost function we use for the neural network is going to be a generalization
+ of the one that we use for logistic regression(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cost func logistic regression with reg"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Paragraph
+Neural network:(K个输出)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h_{\Theta}\left(x\right)\in\mathbb{R}^{K}\qquad\left(h_{\Theta}\left(x\right)\right)_{i}=i^{th}\, output
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{aligned}J\left(\Theta\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}\sum_{k=1}^{K}y_{k}^{\left(i\right)}\log\left(h_{\Theta}\left(x^{\left(i\right)}\right)\right)_{k}+\left(1-y_{k}^{\left(i\right)}\right)\log\left(1-\left(h_{\Theta}\left(x^{\left(i\right)}\right)\right)_{k}\right)\right]\\
++\frac{\lambda}{2m}\sum_{l=1}^{L-1}\sum_{i=1}^{s_{l}}\sum_{j=1}^{s_{l+1}}\left(\Theta_{ji}^{\left(l\right)}\right)^{2}
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For logistic regression, we used to minimize the cost function j of theta
+ that was shown above.
+ For neural network, instead of having basically just one logistic regression
+ output unit, we have 
+\series bold
+K of them
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+In the cost funtion, J of 
+\begin_inset Formula $\theta$
+\end_inset
+
+, we have a sum from k = 1~K.
+ This is basically the sum over the K output unit.
+ It's basically the logistic regression algorithm's cost function but 
+\series bold
+summing
+\series default
+ that cost function over each of my output units in turn.
+\end_layout
+
+\begin_layout Subsection
+Backpropagation Algorithm (to minimize the cost function)
+\end_layout
+
+\begin_layout Subsubsection
+Gradient Comutation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 9.2.backpropagation algorithm.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What we want to do is to focus on how we can compute the partial derivative
+ terms.
+ (貌似 
+\begin_inset Formula $a^{\left(1\right)}$
+\end_inset
+
+应该加上bias unit)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 9.2.backpropagation algorithm2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Gradient computation: Backpropagation algorithm
+\end_layout
+
+\begin_layout Standard
+The intuition of the backpropagation algorithm is that for each note we're
+ going to compute the term 
+\begin_inset Formula $\delta_{j}^{\left(l\right)}$
+\end_inset
+
+ that's going to represent the 
+\series bold
+error
+\series default
+ of node j in layer l.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 9.2.backpropagation algorithm3.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+上式可以矢量化为 
+\begin_inset Formula $\delta^{\left(4\right)}=a^{\left(4\right)}-y=\left(h_{\Theta}\left(x\right)\right)-y$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+下一步需要计算erlier layers的
+\begin_inset Formula $\delta$
+\end_inset
+
+：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\delta^{\left(3\right)}=\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}\,.*g^{\prime}\left(z^{\left(3\right)}\right)$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+怀疑这里有一处错误：
+\begin_inset Formula $z^{\left(3\right)}$
+\end_inset
+
+是5*1的矩阵，然而
+\begin_inset Formula $\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}$
+\end_inset
+
+是6*1的，下同。 编程训练时将
+\begin_inset Formula $\Theta$
+\end_inset
+
+中的bias unit 去掉以保证维度相等。
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\delta^{\left(2\right)}=\left(\Theta^{\left(2\right)}\right)^{T}\delta^{\left(3\right)}\,.*g^{\prime}\left(z^{\left(2\right)}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+这里，
+\begin_inset Formula $g^{\prime}\left(z^{\left(3\right)}\right)$
+\end_inset
+
+ is the derivative of the activation function 
+\begin_inset Formula $g\left(z^{\left(3\right)}\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $g^{\prime}\left(z^{\left(3\right)}\right)=z^{\left(3\right)}\,.*\left(1-z^{\left(3\right)}\right)$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "why:sigmoid's derivative"
+
+\end_inset
+
+
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+怎么计算出来的？
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+注意没有 
+\begin_inset Formula $\delta_{1}$
+\end_inset
+
+这一说。
+\end_layout
+
+\begin_layout Standard
+The name backpropagation comes from the fact that we start by computing
+ the delta term for the output layer and then we 
+\series bold
+go back
+\series default
+ a layer and compute the delta terms for that layer.
+ So we are sort of backpropagating the errors from the current layer to
+ the earlier layer.
+\end_layout
+
+\begin_layout Standard
+可以证明（过程比这个公式还要复杂，略掉），如果忽略regularization(
+\begin_inset Formula $\lambda=0$
+\end_inset
+
+), 那么我们需要的偏导数 
+\begin_inset Formula $\frac{\partial}{\partial\Theta_{ij}^{\left(l\right)}}J\left(\Theta\right)=\delta_{i}^{\left(l+1\right)}a_{j}^{\left(l\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Backpropagation algorithm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 9.2.backpropagation algorithm4.png
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "pic:backprop algorithm"
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+文中计算
+\begin_inset Formula $D_{ij}^{\left(l\right)}$
+\end_inset
+
+的公式错误。应该为 
+\begin_inset Formula $D_{ij}^{\left(l\right)}:=\frac{1}{m}\left(\Delta_{ij}^{\left(l\right)}+\lambda\Theta_{ij}^{\left(l\right)}\right)\qquad if\; j\neq0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 9.2.backpropagation algorithm5.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Implementation not: Unrolling parameters
+\end_layout
+
+\begin_layout Standard
+我们需要用到的函数一般都将
+\begin_inset Formula $\theta$
+\end_inset
+
+视为矢量，而神经网络中的
+\begin_inset Formula $\theta$
+\end_inset
+
+是矩阵，因此需要将矩阵转化为矢量后再进行运算。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 9.3.Unrolling parameters.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 9.3.Unrolling parameters2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+以上便是矩阵到矢量和矢量到矩阵的转换方法。 
+\end_layout
+
+\begin_layout Subsection
+Gradient Checking
+\end_layout
+
+\begin_layout Standard
+神经网络的后向算法可能会出现很多微妙的错误，因此最好在投入运作之前检查一下算法是否工作正常。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 9.4.Gradient Checking.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+上图是假设
+\begin_inset Formula $\theta$
+\end_inset
+
+是一个实数（
+\begin_inset Formula $\theta\in\mathbb{R}$
+\end_inset
+
+）的情况，我们通过检查斜率和我们估计的斜率值的误差是否在容许范围之内来判断算法是否工作正常。当
+\begin_inset Formula $\theta$
+\end_inset
+
+是矢量（
+\begin_inset Formula $\theta\in\mathbb{R}$
+\end_inset
+
+）时：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 9.4.Gradient Checking2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在Octave中实现：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 9.4.Gradient Checking3.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+实现提示：检查无误后，记得关掉Gradient checking(time costing)。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 9.4.Gradient Checking4.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Random Initialization
+\end_layout
+
+\begin_layout Subsubsection
+Initial value of 
+\begin_inset Formula $\Theta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For gradient descent and advanced optimization method, need initial value
+ for 
+\begin_inset Formula $\Theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+把
+\begin_inset Formula $\Theta$
+\end_inset
+
+初始化为零向量（在logistic regression中就是这么做的）在 神经网络中是行不通的：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 9.5.Random Init.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在每次更新（gradient descent, etc）后，每个参数的权重永远是相同的。有时这被称作 The problem of symmetric
+ weights.
+\end_layout
+
+\begin_layout Subsubsection
+Random initialization: Symmetry(对称) breaking
+\end_layout
+
+\begin_layout Standard
+将每一个
+\begin_inset Formula $\Theta_{ij}^{\left(l\right)}$
+\end_inset
+
+初始化为
+\begin_inset Formula $\left[-\epsilon,\epsilon\right]$
+\end_inset
+
+之间的随机值：
+\end_layout
+
+\begin_layout LyX-Code
+Theta1 = rand(10,11)*(2*INIT_EPSILON) - INIT_EPSILON;
+\end_layout
+
+\begin_layout Subsection
+Putting It Together
+\end_layout
+
+\begin_layout Subsubsection
+Training a neural network
+\end_layout
+
+\begin_layout Enumerate
+The first thing you need to do is to pick some network architecture:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Number of input units: Dimension of features 
+\begin_inset Formula $x^{\left(i\right)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Number of output units: Number of classes.
+\end_layout
+
+\begin_layout Itemize
+Reasonable default: 1 hidden layer, or if >1 hidden layer, have same number
+ of hidden units in every layer.
+\end_layout
+
+\begin_layout Itemize
+Usually the number of hidden units in each layer will be comparable to the
+ dimension of x.
+ Same number or 3 or 4 times of that(usually the more the better).
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Randomly initialize weight
+\end_layout
+
+\begin_layout Enumerate
+Implement forward propagation to get 
+\begin_inset Formula $h_{\Theta}\left(x^{\left(i\right)}\right)$
+\end_inset
+
+ for any 
+\begin_inset Formula $x^{\left(i\right)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Implement code to compute cost function 
+\begin_inset Formula $J\left(\Theta\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Implement backprop to compute partial derivatives 
+\begin_inset Formula $\frac{\partial}{\partial\Theta_{jk}^{\left(l\right)}}J\left(\Theta\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename 9.6.put together.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+完整算法见 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "pic:backprop algorithm"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Use gradient checking to compare 
+\begin_inset Formula $\frac{\partial}{\partial\Theta_{jk}^{\left(l\right)}}J\left(\Theta\right)$
+\end_inset
+
+ computed using backpropagation vs.
+ using numerical estimate of gradient of 
+\begin_inset Formula $J\left(\Theta\right)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Then disable gradient checking code.
+\end_layout
+
+\begin_layout Enumerate
+Use gradient descent or advanced optimization method with backpropatation(
+ to compute 
+\begin_inset Formula $\frac{\partial}{\partial\Theta_{jk}^{\left(l\right)}}J\left(\Theta\right)$
+\end_inset
+
+ ) to try to minimize 
+\begin_inset Formula $J\left(\Theta\right)$
+\end_inset
+
+ as a function of parameters 
+\begin_inset Formula $\Theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+注意
+\series default
+：在z神经网络中，
+\begin_inset Formula $J\left(\Theta\right)$
+\end_inset
+
+ 是 non-convex 的。所以s理论上可能会得到局部最优解。不过在实践中这并不是一个大问题，通常得到的解已足够令人满意。
+\end_layout
+
+\begin_layout Standard
+Gradient descent 的直观描述：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 9.6.put together2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What gradient descent does is starting from some random initial point, and
+ it will repeatedly go downhill.
+ And so what back-propagation is doing is computing the direction of the
+ gradient, and what gradient descent is doing is taking little steps downhill
+ untill hopefully it gets to a pretty good local optimum.
+\end_layout
+
+\begin_layout Standard
+When you implement back-propagation and use gradient descent or one of the
+ advanced optimization methods, this picture sort of explaining what the
+ algorithm is doing.
+\end_layout
+
+\begin_layout Section
+Advice for applying machine learning
+\end_layout
+
+\begin_layout Subsection
+Deciding what to try next
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.1.Deciding what to do next.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在之后的课程里，将会介绍Machine learning diagnostic.
+\end_layout
+
+\begin_layout Standard
+It's a test that you can run to gain insight what is/isn't working with
+ a learning algorithm, and gain guidance as to how best to improve its performan
+ce.
+\end_layout
+
+\begin_layout Subsection
+Evaluating a hypothesis
+\end_layout
+
+\begin_layout Standard
+我们可以把hypothesis画出来，判断是否出现overfitting 或 underfitting.
+ 可如果features 数量很多的话，画图就不是什么好主意了。
+\end_layout
+
+\begin_layout Standard
+一般化的方法是将dataset 分割为两部分：第一部分用作training set, 而第二部分用来做test set。分割的比例大概是7:3。在分割前先对da
+taset随机排序一下（如果其排列不是随机的话）。
+\end_layout
+
+\begin_layout Subsubsection
+Training/testing procedure for linear regression
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.2.procedure for linear regression.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Training/testing procedure for logistic regression(classification)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.2.procedure for logistic regression.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Model selection and training/validation/test sets
+\end_layout
+
+\begin_layout Standard
+Suppose you'd like to decide what the degree of polynomial to fit to a data
+ set, sort of what features to include to give you a learning algorithm.
+ Or suppose you'd like to choose the regularization parameter 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ for the learning algorithm.
+ These are called model selection problems.
+\end_layout
+
+\begin_layout Standard
+在model selection 问题中，我们将把data set分成trainig、validation 和 test 三部分，而不只是 training
+ 和 test 两部分。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.3.model selection.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.3.model selection2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+使用 
+\begin_inset Formula $J_{test}\left(\theta^{\left(5\right)}\right)$
+\end_inset
+
+来估计how well the model generalize是不公平的。因为What we done is we fit the extra
+ parameter 
+\begin_inset Formula $d$
+\end_inset
+
+ using the test set, 那么我们据此得到的 
+\begin_inset Formula $\Theta^{\left(5\right)}$
+\end_inset
+
+ 可能过于乐观的估计了它的generalization.
+ 也就是说，建立在 test set 上的估计是不全面的。
+\end_layout
+
+\begin_layout Standard
+现在我们将数据分成三部分： Training set, Cross validation set 和 Test set，大概是6:2:2的比例：
+\end_layout
+
+\begin_layout Subsubsection
+Evaluating your hypothesis
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.3.model selection3.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Train/validation/test error
+\end_layout
+
+\begin_layout Standard
+Training error:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+J_{train}\left(\theta\right)=\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cross Validation error:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+J_{cv}\left(\theta\right)=\frac{1}{2m_{cv}}\sum_{i=1}^{m_{cv}}\left(h_{\theta}\left(x_{cv}^{\left(i\right)}\right)-y_{cv}^{\left(i\right)}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Test error:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+J_{test}\left(\theta\right)=\frac{1}{2m_{test}}\sum_{i=1}^{m_{test}}\left(h_{\theta}\left(x_{test}^{\left(i\right)}\right)-y_{test}^{\left(i\right)}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So when we fits the model selection problem by this, instead of using the
+ test set to select the model, we're instead going to use validation set
+ or the cross-validation set to select the model.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.3.model selection4.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.3.model selection5.png
+
+\end_inset
+
+我承认我没看懂……
+\begin_inset CommandInset label
+LatexCommand label
+name "why:validation vs. test set"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.3.excercise.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Diagnosing bias vs.
+ variance
+\end_layout
+
+\begin_layout Standard
+If you run the learning algorithm and it doesn't do as well as you're hoping,
+ almost all the time it will be because you have either a high bias problem
+ or a high variance problem.
+ In other words they're either an underfitting problem or an overfitting
+ problem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.4.bias vs variance.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Regularization and bias/variance
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.5.regularization.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+How can we automatically choose a good value for the regularization parameter
+ 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ ?
+\end_layout
+
+\begin_layout Subsubsection
+Choosing the regularization parameter 
+\begin_inset Formula $\lambda$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.5.regularization2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $J_{train}\left(\theta\right)$
+\end_inset
+
+、
+\begin_inset Formula $J_{cv}\left(\theta\right)$
+\end_inset
+
+和
+\begin_inset Formula $J_{test}\left(\theta\right)$
+\end_inset
+
+ 都没有regularization。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.5.regularization3.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+选择一个使Cross validation error最小的 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ 即可。选定之后，计算该 
+\begin_inset Formula $\theta$
+\end_inset
+
+ 的test error: 
+\begin_inset Formula $J_{test}\left(\Theta^{\left(?\right)}\right)$
+\end_inset
+
+ 来检查其在test set 上的表现如何。
+\end_layout
+
+\begin_layout Subsubsection
+Bias/variance as a function of the regularization parameter 
+\begin_inset Formula $\lambda$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.5.regularization4.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.5.regularization5.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Learning curves
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.6.Learning curves.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+High bias
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.6.Learning curves high bias.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Both 
+\begin_inset Formula $J_{cv}\left(\Theta\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $J_{train}\left(\Theta\right)$
+\end_inset
+
+ are high.
+\end_layout
+
+\begin_layout Subsubsection
+High variance
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.6.Learning curves high variance.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Deciding what to try next (revisited)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.7.revisited.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Neural networks and overfitting
+\end_layout
+
+\begin_layout Standard
+如果要增加神经网络的层数，可以测试一下不同层数的
+\begin_inset Formula $J_{cv}\left(\Theta\right)$
+\end_inset
+
+ 以找到最佳结果。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.7.neural network.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.7.neural network2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Machine Learning System Design
+\end_layout
+
+\begin_layout Subsection
+Prioritizing what to work on: Spam classification example
+\end_layout
+
+\begin_layout Standard
+采用 Supervised leaning 来构建一个垃圾邮件分类器，问题就在于如何选择 email 的features。 而输出y则是 spam(1)
+ 或 not spam(0)两个值。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 11.1 Spam classifier.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note: In practice, take most frequently occurring 
+\begin_inset Formula $n$
+\end_inset
+
+ words (10,000 to 50,000) in training set, rather than manually pick 100
+ words.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+How to spend your time to make it have low error?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 11.1 Spam classifier2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 11.1 Spam classifier3.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Error analysis
+\end_layout
+
+\begin_layout Subsubsection
+Recommended approach
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 11.2.error analysing.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+先用24小时的时间构建一个相当简单而且脏乱的系统。然后使用cross-validation data来测试。之后通过画学习曲线和误差分析来优化系统。
+\end_layout
+
+\begin_layout Subsubsection
+Error Analysis
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 11.2.error analysing2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The importance of numerical evaluation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 11.2.error analysing3.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 11.2.error analysing4.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+强烈建议
+\series default
+使用 cross validation error 而不是 test error 来进行误差分析。
+\end_layout
+
+\begin_layout Subsection
+Error metrics for skewed classes
+\end_layout
+
+\begin_layout Subsubsection
+Cancer classification example
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 11.3.Skewed class.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+在skewed class（样本中某一类别出现的频率非常之小）的情况下，使用分类准确率将变得非常困难（比如上例，将诊断正确率从99.2%提升到99.5%，谁知道是不
+是算法更先进了还是单纯的预测出更多的y=0？）
+\end_layout
+
+\begin_layout Standard
+对于skewed class问题，我们可能需要别的 error metric / evaluation metric。
+\end_layout
+
+\begin_layout Subsubsection
+Pricision/Recall
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 11.3.Precision Recall.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 11.3.Precision Recall2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Precision 和 recall 的取值越高越有利。特别地，如果像上一张幻灯片那样所有诊断结果都为0（良性），那么将得到为0的precision和recal
+l值。
+\end_layout
+
+\begin_layout Standard
+所以，如果我们得到了很高的 precision 和 recall ，那么我们可以相信我们的学习算法，即使样本是非常skewed的情况。
+\end_layout
+
+\begin_layout Subsection
+Trading off precision and recall
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 11.4.Trading off precision and recall.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+当我们将阈值从0.5改成更高的值，以达到只有当我们非常自信时才预测为癌症，那么这会带来更高的precision，和更低的recall。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 11.4.Trading off precision and recall2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如果我们宁愿错诊也不想让病人错过治疗，那么 就需要调低阈值，这样就会带来更高的recall和更低的precision。
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Formula $F_{1}$
+\end_inset
+
+ Score (F score)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 11.4.Trading off precision and recall3.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+现在一个学习算法有两个变量来描述，我们希望使用一个单值来衡量一个学习算法。使用平均值是相当没用的方式。这里我们使用 
+\begin_inset Formula $F_{1}$
+\end_inset
+
+ Score 来描述算法的质量。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 11.4.Trading off precision and recall4.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+那么，很明显：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 11.4.Trading off precision and recall5.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Data for Machine Learning
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 11.5.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 11.5.2.png
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

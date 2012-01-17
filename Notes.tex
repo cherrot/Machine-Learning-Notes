@@ -1,0 +1,1836 @@
+%% LyX 2.0.0 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=25mm,bmargin=25mm,lmargin=20mm,rmargin=20mm,footskip=15mm}
+\usepackage{color}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=3,
+ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=true]
+ {hyperref}
+\hypersetup{
+ unicode=false}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\newcommand{\lyxmathsym}[1]{\ifmmode\begingroup\def\b@ld{bold}
+  \text{\ifx\math@version\b@ld\bfseries\fi#1}\endgroup\else#1\fi}
+
+%% A simple dot to overcome graphicx limitations
+\newcommand{\lyxdot}{.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newenvironment{lyxcode}
+{\par\begin{list}{}{
+\setlength{\rightmargin}{\leftmargin}
+\setlength{\listparindent}{0pt}% needed for AMS classes
+\raggedright
+\setlength{\itemsep}{0pt}
+\setlength{\parsep}{0pt}
+\normalfont\ttfamily}%
+ \item[]}
+{\end{list}}
+
+\@ifundefined{date}{}{\date{}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+%中英文混排设置%
+\usepackage[BoldFont,SlantFont,fallback,CJKchecksingle]{xeCJK}
+\setmainfont{DejaVu Serif}%西文衬线字体
+\setsansfont{DejaVu Sans}%西文无衬线字体
+\setmonofont{DejaVu Sans Mono}%西文等宽字体
+\setCJKmainfont{Adobe Song Std}%中文衬线字体
+\setCJKsansfont{Adobe Heiti Std}%中文无衬线字体
+\setCJKmonofont{WenQuanYi Micro Hei Mono}%中文等宽字体
+\punctstyle{banjiao}%半角字符
+
+%其他中文设置%
+\XeTeXlinebreaklocale “zh”%中文断行
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt%左右弹性间距
+\usepackage{indentfirst}%段落首行缩进
+\setlength{\parindent}{2em}%缩进两个字符
+
+%编号语言、样式设置%
+\numberwithin{equation}{section}%设置公式按章节进行编号
+\numberwithin{figure}{section}% 按章节编号
+%\numberwithin{figure}{subsection}% 按子章节编号
+\usepackage{footnpag}
+
+
+%以下内容（\renewcommand）需要放置在\begin{document}之后才能起作用
+\renewcommand\arraystretch{1.2}%1.2表示表格中行间距的缩放比例因子(缺省的标准值为1),中文需要更多的间距
+\renewcommand{\contentsname}{目录} 
+\renewcommand{\listfigurename}{插图目录} 
+\renewcommand{\listtablename}{表格目录} 
+\renewcommand{\refname}{参考文献} 
+\renewcommand{\abstractname}{摘要} 
+\renewcommand{\indexname}{索引} 
+\renewcommand{\tablename}{表}
+\renewcommand{\figurename}{图}
+\renewcommand\appendixname{附录}
+\renewcommand\partname{部分} 
+\renewcommand\today{\number\year年\number\month月\number\day日}
+
+\@ifundefined{showcaptionsetup}{}{%
+ \PassOptionsToPackage{caption=false}{subfig}}
+\usepackage{subfig}
+\AtBeginDocument{
+  \def\labelitemi{\(\blacksquare\)}
+  \def\labelitemii{\(\blacktriangleright\)}
+  \def\labelitemiii{\(\vartriangleright\)}
+  \def\labelitemiv{\(\centerdot\)}
+}
+
+\makeatother
+
+\usepackage{xunicode}
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+\begin{document}
+\renewcommand\arraystretch{1.2}%1.2表示表格中行间距的缩放比例因子(缺省的标准值为1),中文需要更多的间距
+\renewcommand{\contentsname}{目录} 
+\renewcommand{\listfigurename}{插图目录} 
+\renewcommand{\listtablename}{表格目录} 
+\renewcommand{\refname}{参考文献} 
+\renewcommand{\abstractname}{摘要} 
+\renewcommand{\indexname}{索引} 
+\renewcommand{\tablename}{表} 
+\renewcommand{\figurename}{图} 
+\renewcommand\appendixname{附录} 
+\renewcommand\partname{部分} 
+\renewcommand\today{\number\year年\number\month月\number\day日}
+
+
+\title{Machine Learning Notes}
+
+
+\author{Cherrot Luo}
+
+
+\date{2011}
+
+\maketitle
+\tableofcontents{}\newpage{}
+
+
+\section{Introduction}
+
+
+\subsection{Supervised Learning}
+
+e.g. predict the price, predict cancer or not, etc.
+
+We give the algorithm a data set in which the right answer was given.
+\begin{description}
+\item [{Regression~program}] Predict continuous valued output.
+\item [{Classification}] Discrete(离散的) valued output.
+\end{description}
+
+\subsection{Unsupervised Learning(Clustering)}
+
+e.g. Google News, Social network clustrering, 鸡尾酒派对问题 etc.
+\begin{description}
+\item [{singular~value~decomposition}] 奇异值分解。
+\end{description}
+
+\section{Linear Regression With One Variable}
+
+
+\subsection{Model Representation}
+
+卖房子问题
+\begin{description}
+\item [{Supervised~learning}] Given the {}``right answer'' for each
+example in the data.
+
+\begin{description}
+\item [{Regression~Problem}] Predict real-valued output.(Classification
+Problem 是用来预测离散值的)
+\end{description}
+\end{description}
+
+\subsubsection{Training Set}
+\begin{description}
+\item [{m}] Number of training examples.
+\item [{x'\textmd{s}}] {}``input'' variable / features.( often also called
+purchase)
+\item [{y'\textmd{s}}] {}``output'' variable / {}``target'' variable
+\item [{$\left(x^{(i)},y^{(i)}\right)$}] 通常的$\left(x_{i},y_{i}\right)$。
+\end{description}
+单变量（Univariate）线性回归的直观认识可见图\ref{fig:training-set}。
+
+\begin{figure}[tbh]
+\centering{}\includegraphics[width=0.7\paperwidth]{\string"2.1.training set\string".png}\caption{\label{fig:training-set}training set}
+\end{figure}
+
+
+
+\subsection{Cost Function}
+
+一元Hypothesis的公式$h_{\theta}\left(x\right)=\theta_{0}+\theta_{1}x$,其实就是y=a{*}x+b。$\Theta_{i's}$称为这个模型的参数(Parameters).问题要解决的就是如何选择这两个参数，使数据拟合的误差最小:
+
+\begin{equation}
+\underset{\theta_{0}\theta_{1}}{Minimize}\,\frac{1}{2m}\overset{m}{\underset{i=1}{\sum}}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}\label{eq: minimize cost function}
+\end{equation}
+
+
+定义cost~function为:
+\begin{equation}
+J\left(\theta_{0},\theta_{1}\right)=\frac{1}{2m}\overset{m}{\underset{i=1}{\sum}}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}\label{eq:cost function of univariate hypothesis}
+\end{equation}
+
+
+(方差的二分之一)
+
+
+\subsection{Cost function intuition I}
+
+如果$\theta_{0}=0$,那么cost function 是二维坐标系的弓形。
+
+
+\subsection{Cost function intuition II}
+
+cost function 如图\ref{fig:Cost-Function=007684=0076F4=0089C2=008868=00793A}所示(这种形状称为凸函数
+convex funtion)：
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"2.3.cost function\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Cost-Function=007684=0076F4=0089C2=008868=00793A}Cost
+Function的直观表示}
+
+
+\end{figure}
+
+
+contour~plot（等值线图）可以更清楚直观的表示出Cost Function的收敛趋势，如图\ref{fig:=007B49=00503C=007EBF=0056FE(Contour-Plot)}所示。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"2.3.contour plot\string".png}
+\par\end{centering}
+
+\caption{\label{fig:=007B49=00503C=007EBF=0056FE(Contour-Plot)}等值线图(Contour
+Plot)}
+\end{figure}
+
+
+
+\subsection{Gradient descent -- 求最小J($\theta_{0},\theta_{1}$)的算法}
+
+得到的是局部最优解，不一定是全局最优解，如图\ref{fig:Gradient-Descent=007684=008FC7=007A0B}所示，如果起始点不同，那么可能会得到不同的局部最优解（local
+optimal）。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"2.4.gradient descent\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Gradient-Descent=007684=008FC7=007A0B}Gradient Descent的过程}
+\end{figure}
+
+
+数学描述：
+
+repeat until convergence\{
+
+\qquad{}$\theta_{j}:=\theta_{j}-\alpha\frac{\delta}{\delta\theta_{j}}J\left(\theta_{0},\theta_{1}\right)\; for\, j=0\, and\, j=1$
+
+\}
+\begin{description}
+\item [{:=}] 赋值号
+\item [{$\alpha$}] learning rate. Controls how big a step we take downhill
+with gradient descent.即梯度值，是个正数。
+\item [{偏导数(partial~derivative~term)}] 见下一节。偏导数和导数(用d而不是$\delta$表示)的区别在于参数个数,该题中有两个参数，只对一个求导，所以是偏导(partial)。
+\end{description}
+注意，我们需要同时更新(Simultaneous update)$\theta_{0}$和$\theta_{1}$：
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"2.5\string". simultaneous update}
+\par\end{centering}
+
+\caption{同步更新}
+
+
+\end{figure}
+
+
+
+\subsection{Gradient descent intuition}
+
+导数的作用见图\ref{fig:=0076F4=0089C2=007406=0089E3Gradient-Descent}：
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.6]{\string"2.5\string".gradient descent intuition}
+\par\end{centering}
+
+\caption{\label{fig:=0076F4=0089C2=007406=0089E3Gradient-Descent}直观理解Gradient
+Descent}
+
+
+\end{figure}
+
+
+
+\subsection{Gradient descent for linear regression}
+
+“Batch'' Gradient Descent. Each step of gradient descent uses all
+the training examples.
+
+
+\section{Linear Algebra Review}
+
+
+\subsection{Matrices \& Vectors}
+
+$4\times2$矩阵常表示为$\mathbb{R}^{4\times2}$
+\begin{description}
+\item [{Vector}] An $n\times1$matrix.一个n维向量被表示成$\mathbb{R}^{n}$
+\end{description}
+
+\subsection{加法}
+
+
+\subsection{矩阵X向量}
+
+矩阵X向量，矩阵的列数=向量的行数，得到的是另一个向量。
+
+一般的矩阵乘法规则如下：
+
+简单来说就是行X列，用“\textbf{行列式}”来记忆它的运算顺序吧，恰好得到的结果是前面矩阵的行数X后面矩阵的列数的新矩阵。
+
+做乘法必须保证前面矩阵的列数=后面矩阵的行数，可以用“\textbf{前列腺}”来记忆……、
+
+
+\subsection{矩阵X矩阵}
+
+很简单，矩阵和一个个的向量分别计算得到一个个的结果向量，然后组成新矩阵，可见图\ref{fig:=0077E9=009635=0076F8=004E58=00793A=00610F=0056FE}
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"3.4.matrix multiply\string".png}
+\par\end{centering}
+
+\caption{\label{fig:=0077E9=009635=0076F8=004E58=00793A=00610F=0056FE}矩阵相乘示意图}
+
+
+\end{figure}
+
+
+
+\subsection{矩阵乘法的性质}
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"3.5.Not commutative\string".png}
+\par\end{centering}
+
+\caption{\label{fig:=0077E9=009635=0076F8=004E58=004E0D=007B26=005408=004EA4=006362=005F8B}矩阵相乘不符合交换律}
+
+
+\end{figure}
+
+\begin{enumerate}
+\item Not Commutative 不符合交换律，如图\ref{fig:=0077E9=009635=0076F8=004E58=004E0D=007B26=005408=004EA4=006362=005F8B}所示。
+\item associative符合结合律（也符合分配律）
+\item Identity Matrix单位矩阵\\
+$A\cdot I=I\cdot A=A$，这里I是单位矩阵，但注意两个I并不一定相同（$m\times n$和$n\times m$）。
+\end{enumerate}
+
+\subsection{矩阵求逆Inverse和转置Transpose}
+
+
+\subsubsection{求逆：}
+
+\begin{equation}
+AA^{-1}=A^{-1}A=I\label{eq:=0077E9=009635=006C42=009006}
+\end{equation}
+
+
+其中A为方阵（Square Matrix），只有方阵可以求逆。教材没有给出矩阵求逆的算法，而是用软件（Octave）实现的：pinv(A)
+
+
+\subsubsection{转置}
+
+记矩阵$A$的转置为$A^{T}$，$A_{ij}=A_{ji}^{T}$
+
+\begin{equation}
+\left(AB\right)^{T}=B^{T}A^{T}\label{eq:=008F6C=007F6E=0077E9=009635=007684=006027=008D28}
+\end{equation}
+
+
+
+\section{Linear Regression with Multiple Variables}
+
+
+\subsection{Multiple Features}
+
+Notation:
+
+n = number of features
+
+$x^{\left(i\right)}$ = input (features) of $i^{th}$ training example.
+对应训练集中的一条输入（一个向量）
+
+$x_{j}^{\left(i\right)}$ = value of feature j in $i^{th}$ training
+example. 向量$x^{\left(i\right)}$中的第j项。
+
+多个feature的Hypothesis：$h_{\theta}\left(x\right)=\theta_{0}+\theta_{1}x_{1}+\theta_{2}x_{2}+\cdots+\theta_{n}x_{n}$
+
+假设$x_{0}=1$，且将x和$\theta$均表示为向量，那么上式可写为：
+
+\begin{equation}
+h_{\theta}\left(x\right)=\theta^{T}x\label{eq:hypothesis-fuction(multiple-features)}
+\end{equation}
+
+
+通常被称作 multivariate linear regression（多元线性回归）
+
+
+\subsection{Gradient descent for multiple variables}
+
+Hypothesis：$h_{\theta}\left(x\right)=\theta_{0}+\theta_{1}x_{1}+\theta_{2}x_{2}+\cdots+\theta_{n}x_{n}$
+
+Parameters: 将参数$\theta$看作n+1维的向量$\theta$。
+
+Cost function: $J\left(\theta\right)=\frac{1}{2m}\overset{m}{\underset{i=1}{\sum}}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}$
+
+Gradient descent:
+
+\qquad{}Repeat\{
+
+\qquad{}$\theta_{j}:=\theta_{j}-\alpha\frac{\delta}{\delta\theta_{j}}J\left(\theta\right)$
+
+\qquad{}\}
+
+多变量Gradient Descent如图\ref{fig:=00591A=0053D8=0091CF=007684Gradient-Descent}所示。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=0.7\paperwidth]{\string"4.2.Gradient Descent\string".png}
+\par\end{centering}
+
+\caption{\label{fig:=00591A=0053D8=0091CF=007684Gradient-Descent}多变量的Gradient
+Descent}
+
+
+\end{figure}
+
+
+
+\subsection{Gradient descent in practice I:Feature Scaling}
+
+Make sure features are on a similar scale。
+
+推荐的方案是把Feature的值控制在-1到1（或其他一个相近的）范围内，便于快速收敛。
+
+\begin{figure}[tbh]
+\begin{centering}
+\includegraphics[width=0.7\paperwidth]{\string"4.3.feature scaling\string".png}
+\par\end{centering}
+
+\caption{Feature Scaling}
+
+
+\end{figure}
+
+
+如上例，两个feature相差3个数量级，这样就会导致 contour plot （等值线图）画出来非常的陡长（一个个很长的椭圆）。这样导致的后果便是，
+Gradient desent 需要很长的时间才能收敛到最优解。
+
+
+\subsubsection{Mean（平均值） normalization}
+
+将$x_{i}$替换为$x_{i}-\mu_{i}$使features的平均值接近于0。
+
+结合这两种方法，我们可以使$x_{i}$取如图\ref{fig:Mean-Normalization}所示的值。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=0.7\paperwidth]{\string"4.3.Mean normalization\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Mean-Normalization}Mean Normalization}
+
+
+\end{figure}
+
+
+
+\subsection{Gradient descent in practice II: Learning rate(\textmd{$\alpha$})}
+
+$\alpha$太大可能不收敛，太小可能收敛太慢。来回试吧\textasciitilde{}
+
+
+\subsection{Features and polynomial regression}
+
+可以根据已有的feature定义新的feature来简化模型。比如卖房子的例子，假定我们有房子的长和宽两个feature，那么我可以定义房子的面积作为一个新的feature，这样就只剩下一个feature就是房子的面积了。
+
+另外可以使用多项式回归的方法，定义原feature的平方、立方等，增大数据拟合的精确度，如图\ref{fig:=00591A=009879=005F0F=0062DF=005408}所示。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=0.7\paperwidth]{\string"4.5.Polynomial regression\string".png}
+\par\end{centering}
+
+\caption{\label{fig:=00591A=009879=005F0F=0062DF=005408}多项式拟合}
+
+
+\end{figure}
+
+
+
+\subsection{Normal equation 正规方程}
+\begin{description}
+\item [{Normal~equation}] Method to solve for $\theta$ analytically.
+\end{description}
+\begin{figure}[!tbh]
+\subfloat[X为design matrix]{\begin{centering}
+\includegraphics[width=0.7\paperwidth]{\string"4.6.Normal equation\string".png}
+\par\end{centering}
+
+
+
+}
+
+\subfloat[构造design matrix]{\begin{centering}
+\includegraphics[width=0.7\paperwidth]{\string"4.6.Normal Equation3\string".png}
+\par\end{centering}
+
+
+
+}
+
+\caption{\label{fig:Normal-equation}构造Normal equation}
+
+
+\end{figure}
+
+
+将features和y表示成如图\ref{fig:Normal-equation}所示的矩阵 (design matrix) 和向量的形式后，最小化cost
+function的$\theta$值为（课程并没有给出这个公式的证明）：
+
+\begin{equation}
+\theta=\left(X^{T}X\right)^{-1}X^{T}y\label{eq:normal equation}
+\end{equation}
+
+
+在Octave中表示为pinv( x' {*}x ) {*}x' {*}y。
+
+使用normal equation时，feature scaling和mean normalization没有必要。
+
+图\ref{fig:Gradient-Descent-Normal-Equation}表示的是Gradient Descent和Normal
+Equation的区别：
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=0.7\paperwidth]{\string"4.6.Normal Equation2\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Gradient-Descent-Normal-Equation}Gradient Descent 与 Normal
+Equation的区别}
+
+
+\end{figure}
+
+
+当n不是很大时，使用normal equation是个很好的选择。然而n很大时，normal equation的代价相当昂贵。
+
+
+\subsection{Normal equation and non-invertibility(不可逆性)}
+
+\[
+\theta=\left(X^{T}X\right)^{-1}X^{T}y
+\]
+
+
+$X^{T}X$如果是不可逆的怎么办（虽然很少见）？（sigular/degenerate）%
+\footnote{矩阵$A_{n\times n}$可逆的充分必要条件是$A$的行列式$\left|A\right|\neq0$%
+}
+
+Octave中pinv和inv的区别：pinv是pseudo inverse,伪求逆，即使矩阵不可逆他也可以求得我们需要的结果。
+
+
+\subsubsection{$X^{T}X$不可逆的原因？}
+\begin{itemize}
+\item Redundant features(linearly dependenta存在\textbf{线性}依赖).\\
+E.g. $x_{1}=size\, in\, feet^{2}$, $x_{2}=size\, in\, m^{2}$
+\item Too many features(e.g. $m\leq n$)\\
+Delete some features, or use regularization(talk later).
+\end{itemize}
+
+\section{Octave Tutorial}
+
+
+\subsection{Basic operations}
+\begin{itemize}
+\item 声明矩阵：v={[}1 2; 3 4{]}
+\item v= 1:0.2:2 的意思是，得到一个行向量（一行N列的矩阵），以1开始，到2结束，每次递增0.2。
+\item v=1:6 得到1到6递增1的整数行向量。
+\item disp()显示函数，使用它输出的结果不会带有ans=前缀。
+\item sprintf() 与C语言相似的格式输出函数。
+\item ones(2,3) 产生一个2{*}3的全是1的矩阵。
+\item zeros(3,5) 同理。
+\item rand(1,3)得到一个1{*}3的介于0到1的随机数矩阵。（如果是方阵，只写一个参数即可）
+\item randn(1,3) Gaussian random variable。得到的随机数呈0对称的高斯（正态）分布
+\item hist(w) 绘制w的分布直方图 hist(w,50)，显示50个统计条。
+\item eye(4) 产生4维的单位矩阵。eye是I的同音。
+\end{itemize}
+
+\subsection{Moving data around}
+\begin{itemize}
+\item size(A)，返回A的尺寸，如果A是矩阵，则返回A的行数和列数。比如A是3{*}2的矩阵，那么该命令返回一个矩阵{[}3, 2{]}。如果执行size(A,
+1)将返回3，size(A, 2)返回2.
+\item length(A) 返回A较大的维数（可能是行数也可能是列数）。
+\item pwd 该变量保存Octave的当前工作目录（如/home/cherrot）。可以使用cd命令切换目录。
+\item who 用于显示当前环境中的所有变量。whos给出细节
+\item load 文件名 / load('文件名') ：加载数据文件。
+\item clear 变量名：清除变量。如果不跟变量则清除所有。
+\item v=priceY(1:10) ：将priceY的前10个元素赋值给v
+\item save hello.mat v ：将v存到文件hello.mat中。默认为二进制形式。可以加参数 -ascii 以存为文本格式。
+\item A(3,2) ：返回$A_{3,2}$（从1开始, 1-indexed）\\
+A(3,:) ：返回A第三行的所有元素。“:”代表该行/列的每一个元素\\
+A( {[}1 3{]}, :) ：返回第一行和第三行的所有元素
+\item A={[}A, {[}5; 6; 7{]}{]} ：将向量{[}5; 6; 7{]}附加在A后面（右边）。
+\item A(:) 将A的所有元素打印成一个向量。
+\item C={[}A B{]} ：将矩阵A、B左右拼接（也可以用逗号分隔）。
+\item C={[}A; B{]} ：将矩阵A、B上下拼接。
+\end{itemize}
+
+\subsection{Computing on Data}
+\begin{itemize}
+\item A{*}B 矩阵乘法
+\item Element wise operations 比如A .{*} B 将A中的\textbf{每个元素}与B中对应\textbf{元素}相乘构成新矩阵。\\
+点号在常被用于指示element wise operations。比如A .\textasciicircum{}2 的结果是A中每个元素都平方。
+\item 对矩阵应用log()或者abs()函数时，同样是element wise operation。对矩阵取反、加/减一个常数值、大小比较都将看作是element
+wise operation。
+\item A' ：A的转置。
+\item max(A)：如果A是矩阵，则返回A中每一列的最大元素；如果A是向量或行向量，则返回A中最大元素，而且如果写作{[}value, index{]}
+= max(A)，将返回值和其index。
+\item find(V<3)：返回向量V中小于3的元素下标\\
+如果要find一个矩阵，可以写成{[}i, j{]} = find(A)。对应的i和j分别为找到元素的行列index。
+\item magic(n): 创建一个n{*}n (n!=2)的magic方阵。即每行、每列和两对角线上的元素和都为同一个数。
+\item sum() 求和。如果sum(A,\textbf{1})则对A每一列求和，等效于sum(A) 。\\
+sum(A,\textbf{2})对每一行求和。
+\item prod() 求积
+\item floor()向下取整
+\item ceil()向上取整
+\item max(A, {[}{]}, \textbf{1}) :column wise maximum。找到每列的最大值，得到一个行向量。1
+means to take max along the first dimension of A.
+\item max(A, {[}{]}, \textbf{2}) :row wise maximum。找到每行的最大值，得到一个向量
+\item 要想找到矩阵A中的最大值，可以max(max(A)),或者max(A(:))——即先将A表示成一个向量，在求最大值。
+\item flipud() ：flip up \& down，上下颠倒。故flipud(eye(3))的效果就是把单位矩阵的对角线对换。
+\end{itemize}
+
+\subsection{Plotting data}
+
+如果要在一个Figure面板中绘制两个曲线，那么需要调用hold on命令：\\
+plot(t, y1);\\
+hold on;\\
+plot(t, y2, 'r'); \% 'r'表示本事件的颜色为红色。\\
+xlabel('time')\\
+ylabel('value')\\
+legend('sin', 'cos') \%添加图例。\\
+title('my plot')\\
+print -dpng 'myPlot.png' \%保存为png文件\\
+close \%关闭plot
+
+如果要绘制多于一个的图像时：\\
+figure(1); plot(t, y1);\\
+figure(2); plot(t, y2);
+
+如果要在一个figure中绘制两个图，可以使用subplot\\
+subplot(1, 2, 1); \%Divides plot a 1x2 grid, access first element\\
+plot(t, y1);\\
+subplot(1, 2, 2);\\
+plot(t, y2);\\
+axis({[}0.5 1 -1 1{]}); \%改变右边图片的x y坐标范围，x从0.5到1，y从-1到1。\\
+clf; \%清空图像
+
+如果要“绘制”一个矩阵：\\
+A=magic(5) \%生成一个矩阵\\
+imagesc(A)
+
+或者改成灰度显示一个矩阵：\\
+imagesc(A), colorbar, colormap gray; \%逗号可以使多个函数写在一行并且不屏蔽输出（异于分号）。
+
+
+\subsection{For, While, If statements, and Functions}
+
+
+\subsubsection{For}
+
+e.g.1：
+\begin{lyxcode}
+v~=~zeros(10,1);
+
+for~i=1:10,
+\begin{lyxcode}
+v(i)~=~2\textasciicircum{}i;
+\end{lyxcode}
+end;
+\end{lyxcode}
+e.g.2：
+\begin{lyxcode}
+indices~=~1:10;~\%indices~初始化为一个行向量
+
+for~i~=~indices
+\begin{lyxcode}
+disp(i);
+\end{lyxcode}
+end;
+\end{lyxcode}
+
+\subsubsection{While}
+
+e.g.1
+\begin{lyxcode}
+i~=~1;
+
+while~i~<=~5,
+\begin{lyxcode}
+v(i)~=~100;
+
+i~=~i~+1;
+\end{lyxcode}
+end;
+\end{lyxcode}
+e.g.2 使用break;
+\begin{lyxcode}
+i~=~1;
+
+while~true,
+\begin{lyxcode}
+v(i)~=~999;
+
+i~=~i~+~1;
+
+if~i~==~6,
+\begin{lyxcode}
+break;
+\end{lyxcode}
+end;
+\end{lyxcode}
+end;
+\end{lyxcode}
+
+\subsubsection{If-else}
+
+e.g.1
+\begin{lyxcode}
+if~v(1)~==~1,
+\begin{lyxcode}
+disp('one');
+\end{lyxcode}
+elseif~v(1)~==~2,
+\begin{lyxcode}
+disp('two');
+\end{lyxcode}
+else~\%这里没有逗号？
+\begin{lyxcode}
+disp('other');
+\end{lyxcode}
+end;
+\end{lyxcode}
+
+\subsubsection{Funtions}
+
+Octave定义函数的方式为把函数写四则算法在一个 function\_name.m 文件中。文件内容范例：
+\begin{lyxcode}
+function~y~=~function\_name(x)
+
+y~=~x\textasciicircum{}2;
+\end{lyxcode}
+定义的函数文件必须在当前工作目录或者Octave的search path下。可以通过addpath('new\_path')函数来增加search
+path
+
+Octave的函数可以返回多值，比如返回{[}y1,y2{]}。
+
+
+\subsection{Vectorization 向量化}
+
+把变量向量化使计算更加高效（Octave擅长矩阵运算），而且代码量更小（减少了循环等流程控制语句的使用）。
+
+
+\section{Logistic Regression}
+
+
+\subsection{Classification}
+
+Classification 仍然属于 Supervised Learning，只不过是离散的值
+
+应用场景：
+\begin{itemize}
+\item Email: Spam / Not Spam
+\item Online Transactions(交易): Fraudulent(欺诈)?
+\item Tumor(肿瘤); Malignant / Benign？
+\end{itemize}
+本节将讨论 binary classification， multi-class classification 将在以后讨论。
+
+一种做法是继续使用线性回归$h_{\theta}\left(x\right)$预测，然后定一个阈值(Threshold Classifier)，比如取0.5作为阈值，如果$h_{\theta}\left(x\right)\geq0.5$，则预测y=1，否则预测y=0。但是这并不合适：
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"6.1 Binary claffication\string".png}
+\par\end{centering}
+
+\caption{\label{fig:=004F7F=007528=007EBF=006027=0056DE=005F52=005904=007406Classification}使用线性回归处理Classification的问题}
+
+
+\end{figure}
+
+
+正如图\ref{fig:=004F7F=007528=007EBF=006027=0056DE=005F52=005904=007406Classification}所示，假设没有最右边的值，回归曲线应该是洋红色的这条，那么我们取阈值为0.5，预测的结果完全符合样本。然而，如果多了最右侧的这个取值时，回归曲线看起来应该像蓝色这条一样，当我们取阈值0.5时可以发现，预测值不再符合样本了。
+\begin{description}
+\item [{Logistic~Regression:}] 总能产生$0\leq h_{\theta}\leq1$的$h_{\theta}$的算法（在y=0
+或 y=1 的binary classification的情况下）。
+\end{description}
+
+\subsection{Hypothesis Representation}
+
+为了得到$0\leq h_{\theta}\left(x\right)\leq1$，则定义
+
+\begin{equation}
+h_{\theta}\left(x\right)=g\left(\theta^{T}x\right)\label{eq:logistic regression hypothesis}
+\end{equation}
+
+
+其中
+
+\begin{equation}
+g\left(z\right)=\frac{1}{1+e^{-z}}\label{eq:sigmoid function}
+\end{equation}
+
+
+上式称为sigmoid function（S形函数) 或 logistic function（逻辑函数）。$\theta^{T}x$可见公式\ref{eq:hypothesis-fuction(multiple-features)}。公式\ref{eq:sigmoid function}的图形如所示：
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"6.2.sigmoid function\string".png}
+\par\end{centering}
+
+\caption{sigmoid function}
+
+
+\end{figure}
+
+
+
+\subsubsection{Interpretation(解释) of Hypothesis Output}
+
+$h_{\theta}\left(x\right)=P\left(y=1\mid x;\,\theta\right)$. It \textbf{estimats}
+probability that y=1, given x, parameterized by $\theta$. 
+
+
+\subsection{Decision Boundary}
+
+只有当$z\geq0$时，$g\left(z\right)\geq0.5$才成立，故只有$\theta^{T}x\geq0$时，$h_{\theta}\left(x\right)\geq0.5$才成立。
+
+Decision Boundary 就是使$\theta^{T}x=0$的直线，如图\ref{fig:Decision-Boundary}所示：
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=0.8\columnwidth]{\string"6.3.Decision boundary\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Decision-Boundary}Decision Boundary}
+
+
+\end{figure}
+
+
+图\ref{fig:Decision-Boundary}中$x_{1}+x_{2}=3$这条线就是Decision Boundary。
+
+
+\subsection{Cost function}
+
+如果将线性回归中的 cost function 用到这里的话，那么我们得到的将是一个 non-convex （非凸函数）的图形（因为$h_{\theta}\left(x\right)$不是一个线性函数，而是一个平方代价函数squre
+cost function），导致得不到全局最优解，如图\ref{fig:=0076F4=0063A5=004F7F=007528=007EBF=006027=0056DE=005F52=007684cost-function=005BFC=0081F4=007ED3=00679C=004E3A=00975E=0051F8=0051FD=006570}所示。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=0.7\paperwidth]{\string"6.4\string".Cost Function}
+\par\end{centering}
+
+\caption{\label{fig:=0076F4=0063A5=004F7F=007528=007EBF=006027=0056DE=005F52=007684cost-function=005BFC=0081F4=007ED3=00679C=004E3A=00975E=0051F8=0051FD=006570}直接使用线性回归的cost
+function导致结果为非凸函数}
+
+
+\end{figure}
+
+
+下面是Classification情况下的Cost function(with single training example)：
+
+\begin{equation}
+J\left(\theta\right)=\frac{1}{m}\sum_{i=1}^{m}Cost\left(h_{\theta}\left(x^{\left(i\right)}\right),y^{\left(i\right)}\right)\label{eq:cost function in classification}
+\end{equation}
+
+
+其中,
+
+\begin{equation}
+Cost\left(h_{\theta}\left(x\right),y\right)=\begin{cases}
+-\log\left(h_{\theta}\left(x\right)\right) & if\, y=1\\
+-\log\left(1-h_{\theta}\left(x\right)\right) & if\, y=0
+\end{cases}\label{eq:Cost function in classifcation-Cost-2line}
+\end{equation}
+
+
+函数的图形可以直观的告诉我们上式的作用：
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=0.7\paperwidth]{\string"6.3.Plot Cost function\string".png}
+\par\end{centering}
+
+\caption{Plotting the Cost()}
+
+
+\end{figure}
+
+
+为方便计算，公式\ref{eq:Cost function in classifcation-Cost-2line}可写为式\ref{eq:Cost function in classifcation-Cost-1line}的形式。
+
+\begin{equation}
+Cost\left(h_{\theta}\left(x\right),y\right)=-y\log\left(h_{\theta}\left(x\right)\right)-\left(1-y\right)\log\left(1-h_{\theta}\left(x\right)\right)\label{eq:Cost function in classifcation-Cost-1line}
+\end{equation}
+
+
+这里要注意当y=1时它的几个特性，如图\ref{fig:Cost=0051FD=006570(Classification)}所示的。在y=1时，当$h_{\theta}\left(x\right)=1$时，Cost为0，也就是没有误差；相反，若$h_{\theta}\left(x\right)\rightarrow0$，那么则视为误差无限大，即Cost趋向于无穷。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"6.3.Cost function\string".png}
+\par\end{centering}
+
+\caption{$Cost\left(h_{\theta}\left(x^{\left(i\right)}\right),y^{\left(i\right)}\right)$函数\label{fig:Cost=0051FD=006570(Classification)}}
+
+
+\end{figure}
+
+
+The topic of convexity analysis is beyond the scope of this course.
+
+
+\subsection{Simplified cost function and gradient descent}
+
+\begin{equation}
+J\left(\theta\right)=\frac{1}{m}\sum_{i=1}^{m}Cost\left(h_{\theta}\left(x^{\left(i\right)}\right),y^{\left(i\right)}\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}y^{\left(i\right)}\log h_{\theta}\left(x^{\left(i\right)}\right)+\left(1-y^{\left(i\right)}\right)\log\left(1-h_{\theta}\left(x^{\left(i\right)}\right)\right)\right]\label{eq:cost function for logistic regression}
+\end{equation}
+
+
+之所以使用这个公式作为Cost Function而不是使用其他的公式是因为 This cost function can be derived
+from statistics using the \textbf{principle of maximum likelihood
+estimation（最大似然估计）,} and it is convex. 更多的细节超出了本课程的讨论范围。
+
+给出上式，我们需要寻找到合适的$\theta$满足$\underset{\theta}{\min}J\left(\theta\right)$，从而就可以计算$h_{\theta}\left(x\right)$了。
+
+
+\subsubsection{Gradient Descent}
+
+Repeat\{
+
+$\theta_{j}\,:=\theta_{j}-\alpha\frac{\delta}{\delta\theta_{j}}J\left(\theta\right)$
+
+\}(simultaneously update all $\theta_{j}$)
+
+其中$\frac{\delta}{\delta\theta_{j}}J\left(\theta\right)=\frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)x_{j}^{\left(i\right)}$，和线性回归的结果\textbf{相似}%
+\footnote{\textbf{怎么算的？} 我的猜想是，sigmoid函数只是起函数域的限定作用，不改变原函数的增长性，所以为了计算简便，求导时不考虑sigmoid函数。求证。%
+}，见\ref{fig:=00591A=0053D8=0091CF=007684Gradient-Descent}。\textbf{\label{why:gradient descent=006C42=005BFC=00516C=005F0F=007591=0095EE}}
+
+该算法同样可以使用feature scaling来优化计算。
+
+
+\subsection{Advanced Optimization}
+
+Optimaization algorithms:
+\begin{itemize}
+\item Gradient descent
+\item Conjugate gradient
+\item BFGS
+\item L-BFGS
+\end{itemize}
+其他三个算法具体是怎么做的将不在本课程中涉及。这些算法的缺点是非常复杂，而优点是：
+\begin{itemize}
+\item No need to manually pick $\alpha$
+\item Often faster than gradient descent.
+\end{itemize}
+We can think of these algorithms as having a clever inter-loop. In
+fact the inter-loop is called the \textbf{line search} algorithm that
+automatically tries out different values for $\alpha$ and automatically
+picks a good learning rate so that it can even pick a different alpha
+for every interation.
+
+本课程将不详细的讨论这些算法内部究竟是怎样工作的。作者使用这些算法好多年后才去探索它们是如何工作的=.=
+
+而且不建议自己写代码实现这些代码，有类库干吗不用？例如使用octave的自建函数fminunc更好的实现gradient descent：（图\ref{fig:fminunc=0051FD=006570=007684=004F7F=007528=00793A=004F8B}）
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=0.7\paperwidth]{\string"6.6.Gradient Example using Octave\string".png}
+\par\end{centering}
+
+\caption{\label{fig:fminunc=0051FD=006570=007684=004F7F=007528=00793A=004F8B}fminunc函数的使用示例}
+
+
+\end{figure}
+
+
+fminunc()函数：function minimization unconstrained。 是Octave中的内建函数，@表示一个指向函数的指针
+(function handle)。fminunc的作用就是计算使给定函数取值最小的参数值，如图\ref{fig:Octave=006F14=00793Afminunc=0051FD=006570}所示即为Octave的演示：
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=0.7\paperwidth]{\string"6.6.Exercise using Octave\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Octave=006F14=00793Afminunc=0051FD=006570}Octave演示fminunc函数}
+
+
+\end{figure}
+
+
+options是存储我们需要的option的数据结构。 'GradObj', 'on' sets the gradient objective
+parameter to on. It just means you are indeed going to provide a gradient
+to this algorithm. 其中exitFlag=1表示算法成功收敛(converge)了。optTheta和functionVal都得到了期望的值（functionVal=0）。注意要使用这个函数，initialTheta必须是不小于二维的向量。
+\begin{itemize}
+\item Octvave语法：@(t) ( costFunction(t, X, y) ) . This creates a function,
+with argument t, which calls your costFunction.（实例见编程作业2）
+\end{itemize}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"6.6.Cost Function in Octave\string".png}
+\par\end{centering}
+
+\caption{\label{fig:=004F7F=007528fminunc=0065F6=009700=008981=0081EA=005B9A=004E49=007684=0051FD=006570}使用fminunc时需要自定义的函数}
+
+
+\end{figure}
+
+
+What we need to do is \textbf{write a function that returns the cost
+and returns the gradient}（见图\ref{fig:=004F7F=007528fminunc=0065F6=009700=008981=0081EA=005B9A=004E49=007684=0051FD=006570}）.
+当然，我们甚至可以将这个算法使用在线性回归问题上。
+
+
+\subsection{Multi-class classification: One-vs-All}
+
+实例：
+\begin{itemize}
+\item 标记E-mail类型：Wor, Friends, Family, Hobby。
+\item 诊断：Not ill, Cold, Flu
+\item 天气：Sunny, Cloudy, Rain, Snow
+\end{itemize}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"6.7\string".Multi class classification:One-vs-All}
+\par\end{centering}
+
+\caption{\label{fig:Multi-class-classification-=0095EE=009898}Multi-class
+classification 问题}
+
+
+\end{figure}
+
+
+
+\subsubsection{One-vs-all(one-vs-rest)}
+
+\begin{wrapfigure}{o}{0\columnwidth}%
+\includegraphics[scale=0.75]{6.7.multi-classification}\end{wrapfigure}%
+What we are going to do is take a training set, and turn this into
+three \textbf{separate binary classification problems:}(如图\ref{fig:Multi-class=007684=005206=0089E3}所示)
+
+\begin{figure}[tb]
+\begin{centering}
+\subfloat[]{\includegraphics[scale=0.6]{6.7.ones-vs-all1}
+
+
+
+}\subfloat[]{\includegraphics[scale=0.6]{6\lyxdot 7\lyxdot ones-vs-all2}
+
+
+
+}\subfloat[]{\includegraphics[scale=0.6]{6\lyxdot 7\lyxdot ones-vs-all3}
+
+
+
+}
+\par\end{centering}
+
+\caption{\label{fig:Multi-class=007684=005206=0089E3}Multi-class的分解}
+
+
+\end{figure}
+
+
+\begin{equation}
+h_{\theta}\left(x\right)=P\left(y=i\mid x;\theta\right),\,\,\left(i=1,2,3\right)\label{eq:hypothesis of multi-class:one-vs-all}
+\end{equation}
+
+
+Train a logistic regression classifier $h_{\theta}^{\left(i\right)}\left(x\right)$
+for each class $i$ to predict the probability that $y=i$.
+
+On a new input $x$, to make a prediction, pick the class $i$ that
+maximizes $\max_{i}h_{\theta}^{\left(i\right)}\left(x\right)$.
+
+
+\section{Regularization}
+
+
+\subsection{The problem of overfitting}
+
+features 太少导致 underfitting(high bias)，而features太多就会导致overfitting(high
+variants)，正如图\ref{fig:Underfitting-and-Overfitting-in-linear-regression}和图\ref{fig:Underfitting-and-Overfitting-in-logistic}所示。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=0.7\paperwidth]{7\lyxdot 1\lyxdot overfitting}
+\par\end{centering}
+
+\caption{\label{fig:Underfitting-and-Overfitting-in-linear-regression}Underfitting
+and Overfitting in Linear Regression}
+\end{figure}
+
+\begin{description}
+\item [{Overfitting}] If we have too many features, the learned hypothesis
+may fit the training set very well($J\left(\theta\right)=\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}\approx0$),
+but fail to generalize to new examples(predict prices on new examples).
+\end{description}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=0.7\paperwidth]{7\lyxdot 1\lyxdot overfitting2}
+\par\end{centering}
+
+\caption{\label{fig:Underfitting-and-Overfitting-in-logistic}Underfitting
+and Overfitting in Logistic Regression}
+
+
+\end{figure}
+
+
+
+\subsubsection{Addressing overfitting}
+
+Options:
+\begin{enumerate}
+\item Reduce number of features.
+
+\begin{itemize}
+\item Manually select which features to keep.
+\item Model selection algorithm.
+\end{itemize}
+\item Regularization
+
+\begin{itemize}
+\item Keep all the features, but reduce magnitude/values of parameters $\theta_{j}$.（减小参数的权重）
+\item Works well when we have a lot of features, each of which contributes
+a bit to predicting $y$.
+\end{itemize}
+\end{enumerate}
+
+\subsection{Cost function}
+
+
+\subsubsection{Intuition}
+
+如图\ref{fig:Penalize-parameters}所示，如果出现了过度拟合，我们可以使$\theta_{3}$和$\theta_{4}$变得非常小甚至接近于0，从而降低这两个参数对整个图形的贡献。如图\ref{fig:Penalize-parameters}所示，在原式后面加上$1000\theta_{3}^{2}+1000\theta_{4}^{2}$两个因子（其中1000是随便指定的比较大的值），这样，如果要使原式取最小值，那我们必须使$\theta_{3}$和$\theta_{4}$取值很小，从而达到我们的目的。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=0.7\paperwidth]{7\lyxdot 2\lyxdot Intuition}
+\par\end{centering}
+
+\caption{\label{fig:Penalize-parameters}Penalize parameters instead of removing
+them}
+
+
+\end{figure}
+
+
+
+\subsubsection{Regularization}
+
+Small values for parameters $\theta_{0},\theta_{1},\ldots,\theta_{n}$
+\begin{itemize}
+\item {}``Simpler'' hypothesis
+\item Less prone(倾向) to overfitting.
+\end{itemize}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=0.7\paperwidth]{7\lyxdot 2\lyxdot Intuition2}
+\par\end{centering}
+
+\caption{\label{fig:Regularization}Regularization}
+
+
+\end{figure}
+
+
+如图\ref{fig:Regularization}所示%
+\footnote{注意j是从1开始取值的。这是个习惯上的做法，实际上从0开始或从1开始对结果不会有太大影响(little difference)。%
+}，Regularization对\textbf{每个}参数($\theta$)都乘以一个惩罚因子$\lambda$。What the
+regularization parameter does is it controls the tradeoff between
+the goal of fitting the data well and the goal of keeping the parameter
+small, and therefore keeping the hypothesis simple.
+
+但是如果$\lambda$取值太大，则会造成underfitting。道理很简单，right?
+
+
+\subsection{Regularized linear regression}
+
+
+\subsubsection{Gradient descent}
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=0.75\paperwidth]{\string"7.3.Regularized linear regression\string".png}
+\par\end{centering}
+
+\caption{Gradient Descent with Regularization}
+
+
+\end{figure}
+
+
+注意 $1-\alpha\frac{\lambda}{m}$ 是小于1的，这就相当于把 $\theta_{j}$缩小了，而后面的部分和之前的公式是一样的。中间公式中括号内的部分正是对
+$J\left(\theta\right)$ 求导的结果。 注意，这里有一处符号错误，$\frac{\lambda}{m}\theta_{j}$
+前应该是+。
+
+
+\subsubsection{Normal equation}
+
+\[
+\theta=\left(X^{T}X+\lambda\begin{bmatrix}0\\
+ & 1\\
+ &  & \ddots\\
+ &  &  & 1
+\end{bmatrix}\right)^{-1}X^{T}y
+\]
+
+
+上式中的矩阵是 $\left(n+1\right)\times\left(n+1\right)$.其实等号后的部分正是令Cost
+function 求导为0的结果：$\frac{\delta}{\delta\theta_{j}}J\left(\theta\right)\overset{set}{=}0$。具体为什么老师不解释:D
+
+我们知道，当 $m\leq n$ 时，$X^{T}X$ 是不可逆的，然而，当使用 Regularization方法后，得到的矩阵一定是可逆的。
+
+
+\subsection{Regularized logistic regression}
+
+\includegraphics[width=0.8\paperwidth]{\string"7.4.Regularized logistic regression\string".png}
+
+\begin{equation}
+J\left(\theta\right)=-\left[\frac{1}{m}\sum_{i=1}^{m}\left(y^{\left(i\right)}\log h_{\theta}\left(x^{\left(i\right)}\right)+\left(1-y^{\left(i\right)}\right)\log\left(1-h_{\theta}\left(x^{\left(i\right)}\right)\right)\right)\right]+\frac{\lambda}{2m}\sum_{j=1}^{n}\theta_{j}^{2}\label{eq:cost func logistic regression with reg}
+\end{equation}
+
+
+注意j仍然是从1开始的。
+
+\includegraphics[width=0.8\paperwidth]{7\lyxdot 4\lyxdot CostFuntion}
+
+这里仍有一处符号错误，$\frac{\lambda}{m}\theta_{j}$ 前应该是+。
+
+同前面一样，中括号中的部分仍是 $J\left(\theta\right)$ 的偏导。
+
+
+\subsubsection{Advanced optimization}
+
+\includegraphics[scale=0.7]{\string"7.4.Advanced optimization\string".png}
+
+这里的符号仍然有错误。
+
+
+\section{Neural Networks: Representation}
+
+
+\subsection{Non-linear Hypotheses}
+
+当输入的feature集巨大时，Logistic Regression将会力不从心。神经网络是用于计算复杂非线性回归问题(complex
+non-linear hypotheses)的好方法。
+
+
+\subsection{Neurons and the Brain}
+\begin{description}
+\item [{Neuro-rewiring~experiments}] 比如把传入听觉中枢的神经re-wire到眼睛，那么听觉中枢会学习用眼睛看的功能。同一块大脑组织，其实可以处理听觉、视觉、触觉等等功能。看起来大脑有非常强大的学习算法:)
+\end{description}
+\includegraphics[scale=0.7]{\string"8.2.Neurons and brain\string".png}
+
+
+\subsection{Model representation I}
+
+
+\subsubsection{Nuron in the brain}
+
+\includegraphics[scale=0.7]{\string"8.3.1\string".nuron in the brain}
+
+Dendrite 是树突，也就是输入端，Axon是轴突，也就是输出端。
+
+
+\subsubsection{Neuron model: losgistic unit}
+
+\includegraphics[scale=0.7]{\string"8.3.1.neuron model:losistic unit\string".png}
+
+Sigmoid(logistic) activation function. 
+
+$x_{0}=0$ 称为 bias unit。parameters 也常被称为权重（weights）。
+
+
+\subsubsection{Neural Network}
+
+\includegraphics[scale=0.7]{\string"8.3.Neural Network\string".png}
+
+\includegraphics[scale=0.7]{\string"8.3.Neural Network2\string".png}
+
+
+\subsection{Model representation II}
+
+
+\subsubsection{Forward propagation: Vectorized implementation}
+
+\includegraphics[scale=0.7]{\string"8.4.forward propagation\string".png}
+
+We call this process of computing $h_{\theta}\left(x\right)$ \textbf{forward
+propagation} because that we start of with the \textbf{activations}
+of the input-units and then we sort of \textbf{forward propagate}
+that to the hidden layer and compute the activations of the hidden
+layer and then we sort of forward propagate that and compute the activations
+of the output layer, but this process of computing the activations
+from the input then the hidden then the output layer and that's also
+called forward propagation.
+
+
+\subsubsection{Neural Network learning its own features}
+
+\includegraphics[scale=0.7]{\string"8.4.Neural network learning features\string".png}
+
+如果将 input layer 遮住，那么计算 $h_{\theta}\left(x\right)$ 的公式将如图所示，可见与 Logistic
+Regression 的公式几乎相同（除了$\theta$变成了大写$\Theta$外\textasciitilde{}）。只不过在神经网络中，我们并不直接使用输入的
+features -- $x_{1},x_{2},x_{3}$，而是使用 hidden layer 的 activations --
+$a_{1}^{\left(2\right)},a_{2}^{\left(2\right)},a_{3}^{\left(2\right)}$。
+It learned its own features to apply logistic regression. 这将比使用原始的输入
+features （或他们的多项式形式 $x_{1}^{2},\, x_{1}x_{2},\, x_{2}^{2}\ldots$）来计算
+logistic regression 产生更好的 hypotheses。
+
+
+\subsection{Examples and intuitions I}
+
+
+\subsubsection{Simple example: AND}
+
+\includegraphics[scale=0.7]{8\lyxdot 5\lyxdot Example1}
+
+
+\subsection{Examples and intuitions II}
+
+\includegraphics[scale=0.7]{8\lyxdot 6\lyxdot examples2}
+
+\includegraphics[scale=0.9]{8\lyxdot 6\lyxdot examples3}
+
+
+\subsection{Multi-class classification}
+
+
+\subsubsection{Multiple output units: One-vs-all}
+\begin{itemize}
+\item Suppose you have a multi-class classification problem with three classes,
+trained with a 3 layer network. Let $a_{2}^{(3)}=(h_{\Theta}(x))_{2}$
+be the activation of the first output unit, and similarly $a(3)2=(h\lyxmathsym{Θ}(x))2$
+and $a_{3}^{(3)}=(h_{\Theta}(x))_{3}$. Then for any input x, it must
+be the case that $a_{1}^{(3)}+a_{2}^{(3)}+a_{3}^{(3)}=1$。错误，因为输出并非是概率，所以输出的总和并不一定是1。
+\end{itemize}
+
+\section{Neural Networks: Learning}
+
+
+\subsection{Cost Function}
+
+
+\subsubsection{Neural Network (Classification)}
+
+\includegraphics{\string"9.1.Cost Function\string".png}
+
+L: 网络层数。
+
+$s_{l}$: 第l层的节点个数（不包括bias节点）。
+
+k: output layer 的节点个数。
+
+我们将考虑binary classification 和 Muti-class classification 两种情况。
+
+
+\subsubsection{Cost function}
+
+
+\paragraph{Logistic regression:}
+
+\[
+J\left(\theta\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}y^{\left(i\right)}\log h_{\theta}\left(x^{\left(i\right)}\right)+\left(1-y^{\left(i\right)}\right)\log\left(1-h_{\theta}\left(x^{\left(i\right)}\right)\right)\right]+\frac{\lambda}{2m}\sum_{j=1}^{n}\theta_{j}^{2}
+\]
+
+
+The cost function we use for the neural network is going to be a generalization
+of the one that we use for logistic regression(\ref{eq:cost func logistic regression with reg}). 
+
+
+\paragraph{Neural network:(K个输出)}
+
+\[
+h_{\Theta}\left(x\right)\in\mathbb{R}^{K}\qquad\left(h_{\Theta}\left(x\right)\right)_{i}=i^{th}\, output
+\]
+
+
+\[
+\begin{aligned}J\left(\Theta\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}\sum_{k=1}^{K}y_{k}^{\left(i\right)}\log\left(h_{\Theta}\left(x^{\left(i\right)}\right)\right)_{k}+\left(1-y_{k}^{\left(i\right)}\right)\log\left(1-\left(h_{\Theta}\left(x^{\left(i\right)}\right)\right)_{k}\right)\right]\\
++\frac{\lambda}{2m}\sum_{l=1}^{L-1}\sum_{i=1}^{s_{l}}\sum_{j=1}^{s_{l+1}}\left(\Theta_{ji}^{\left(l\right)}\right)^{2}
+\end{aligned}
+\]
+
+
+For logistic regression, we used to minimize the cost function j of
+theta that was shown above. For neural network, instead of having
+basically just one logistic regression output unit, we have \textbf{K
+of them}.
+
+In the cost funtion, J of $\theta$, we have a sum from k = 1\textasciitilde{}K.
+This is basically the sum over the K output unit. It's basically the
+logistic regression algorithm's cost function but \textbf{summing}
+that cost function over each of my output units in turn.
+
+
+\subsection{Backpropagation Algorithm (to minimize the cost function)}
+
+
+\subsubsection{Gradient Comutation}
+
+\includegraphics{\string"9.2.backpropagation algorithm\string".png}
+
+What we want to do is to focus on how we can compute the partial derivative
+terms. (貌似 $a^{\left(1\right)}$应该加上bias unit)
+
+\includegraphics{\string"9.2.backpropagation algorithm2\string".png}
+
+
+\subsubsection{Gradient computation: Backpropagation algorithm}
+
+The intuition of the backpropagation algorithm is that for each note
+we're going to compute the term $\delta_{j}^{\left(l\right)}$ that's
+going to represent the \textbf{error} of node j in layer l. 
+
+\includegraphics{\string"9.2.backpropagation algorithm3\string".png}
+
+上式可以矢量化为 $\delta^{\left(4\right)}=a^{\left(4\right)}-y=\left(h_{\Theta}\left(x\right)\right)-y$ 
+
+下一步需要计算erlier layers的$\delta$：
+
+$\delta^{\left(3\right)}=\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}\,.*g^{\prime}\left(z^{\left(3\right)}\right)$%
+\footnote{怀疑这里有一处错误：$z^{\left(3\right)}$是5{*}1的矩阵，然而$\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}$是6{*}1的，下同。
+编程训练时将$\Theta$中的bias unit 去掉以保证维度相等。%
+}
+
+$\delta^{\left(2\right)}=\left(\Theta^{\left(2\right)}\right)^{T}\delta^{\left(3\right)}\,.*g^{\prime}\left(z^{\left(2\right)}\right)$
+
+这里，$g^{\prime}\left(z^{\left(3\right)}\right)$ is the derivative
+of the activation function $g\left(z^{\left(3\right)}\right)$:
+
+$g^{\prime}\left(z^{\left(3\right)}\right)=z^{\left(3\right)}\,.*\left(1-z^{\left(3\right)}\right)$\label{why:sigmoid's derivative}\marginpar{怎么计算出来的？}
+
+注意没有 $\delta_{1}$这一说。
+
+The name backpropagation comes from the fact that we start by computing
+the delta term for the output layer and then we \textbf{go back} a
+layer and compute the delta terms for that layer. So we are sort of
+backpropagating the errors from the current layer to the earlier layer.
+
+可以证明（过程比这个公式还要复杂，略掉），如果忽略regularization($\lambda=0$), 那么我们需要的偏导数
+$\frac{\partial}{\partial\Theta_{ij}^{\left(l\right)}}J\left(\Theta\right)=\delta_{i}^{\left(l+1\right)}a_{j}^{\left(l\right)}$
+
+
+\subsubsection{Backpropagation algorithm}
+
+\includegraphics{\string"9.2.backpropagation algorithm4\string".png}\label{pic:backprop algorithm}%
+\footnote{文中计算$D_{ij}^{\left(l\right)}$的公式错误。应该为 $D_{ij}^{\left(l\right)}:=\frac{1}{m}\left(\Delta_{ij}^{\left(l\right)}+\lambda\Theta_{ij}^{\left(l\right)}\right)\qquad if\; j\neq0$%
+}
+
+\includegraphics{\string"9.2.backpropagation algorithm5\string".png}
+
+
+\subsection{Implementation not: Unrolling parameters}
+
+我们需要用到的函数一般都将$\theta$视为矢量，而神经网络中的$\theta$是矩阵，因此需要将矩阵转化为矢量后再进行运算。
+
+\includegraphics{\string"9.3.Unrolling parameters\string".png}
+
+\includegraphics{\string"9.3.Unrolling parameters2\string".png}
+
+以上便是矩阵到矢量和矢量到矩阵的转换方法。 
+
+
+\subsection{Gradient Checking}
+
+神经网络的后向算法可能会出现很多微妙的错误，因此最好在投入运作之前检查一下算法是否工作正常。
+
+\includegraphics{\string"9.4.Gradient Checking\string".png}
+
+上图是假设$\theta$是一个实数（$\theta\in\mathbb{R}$）的情况，我们通过检查斜率和我们估计的斜率值的误差是否在容许范围之内来判断算法是否工作正常。当$\theta$是矢量（$\theta\in\mathbb{R}$）时：
+
+\includegraphics{\string"9.4.Gradient Checking2\string".png}
+
+在Octave中实现：
+
+\includegraphics{\string"9.4.Gradient Checking3\string".png}
+
+实现提示：检查无误后，记得关掉Gradient checking(time costing)。
+
+\includegraphics{\string"9.4.Gradient Checking4\string".png}
+
+
+\subsection{Random Initialization}
+
+
+\subsubsection{Initial value of $\Theta$}
+
+For gradient descent and advanced optimization method, need initial
+value for $\Theta$.
+
+把$\Theta$初始化为零向量（在logistic regression中就是这么做的）在 神经网络中是行不通的：
+
+\includegraphics{\string"9.5.Random Init\string".png}
+
+在每次更新（gradient descent, etc）后，每个参数的权重永远是相同的。有时这被称作 The problem of
+symmetric weights.
+
+
+\subsubsection{Random initialization: Symmetry(对称) breaking}
+
+将每一个$\Theta_{ij}^{\left(l\right)}$初始化为$\left[-\epsilon,\epsilon\right]$之间的随机值：
+\begin{lyxcode}
+Theta1~=~rand(10,11){*}(2{*}INIT\_EPSILON)~-~INIT\_EPSILON;
+\end{lyxcode}
+
+\subsection{Putting It Together}
+
+
+\subsubsection{Training a neural network}
+\begin{enumerate}
+\item The first thing you need to do is to pick some network architecture:
+
+\begin{itemize}
+\item Number of input units: Dimension of features $x^{\left(i\right)}$.
+\item Number of output units: Number of classes.
+\item Reasonable default: 1 hidden layer, or if >1 hidden layer, have same
+number of hidden units in every layer.
+\item Usually the number of hidden units in each layer will be comparable
+to the dimension of x. Same number or 3 or 4 times of that(usually
+the more the better).
+\end{itemize}
+\item Randomly initialize weight
+\item Implement forward propagation to get $h_{\Theta}\left(x^{\left(i\right)}\right)$
+for any $x^{\left(i\right)}$.
+\item Implement code to compute cost function $J\left(\Theta\right)$.
+\item Implement backprop to compute partial derivatives $\frac{\partial}{\partial\Theta_{jk}^{\left(l\right)}}J\left(\Theta\right)$.
+
+
+\includegraphics{\string"9.6.put together\string".png}
+
+
+完整算法见 \ref{pic:backprop algorithm}
+
+\item Use gradient checking to compare $\frac{\partial}{\partial\Theta_{jk}^{\left(l\right)}}J\left(\Theta\right)$
+computed using backpropagation vs. using numerical estimate of gradient
+of $J\left(\Theta\right)$.\\
+Then disable gradient checking code.
+\item Use gradient descent or advanced optimization method with backpropatation(
+to compute $\frac{\partial}{\partial\Theta_{jk}^{\left(l\right)}}J\left(\Theta\right)$
+) to try to minimize $J\left(\Theta\right)$ as a function of parameters
+$\Theta$.
+\end{enumerate}
+\textbf{注意}：在z神经网络中，$J\left(\Theta\right)$ 是 non-convex 的。所以s理论上可能会得到局部最优解。不过在实践中这并不是一个大问题，通常得到的解已足够令人满意。
+
+Gradient descent 的直观描述：
+
+\includegraphics{\string"9.6.put together2\string".png}
+
+What gradient descent does is starting from some random initial point,
+and it will repeatedly go downhill. And so what back-propagation is
+doing is computing the direction of the gradient, and what gradient
+descent is doing is taking little steps downhill untill hopefully
+it gets to a pretty good local optimum.
+
+When you implement back-propagation and use gradient descent or one
+of the advanced optimization methods, this picture sort of explaining
+what the algorithm is doing.
+
+
+\section{Advice for applying machine learning}
+
+
+\subsection{Deciding what to try next}
+
+\includegraphics{\string"10.1.Deciding what to do next\string".png}
+
+在之后的课程里，将会介绍Machine learning diagnostic.
+
+It's a test that you can run to gain insight what is/isn't working
+with a learning algorithm, and gain guidance as to how best to improve
+its performance.
+
+
+\subsection{Evaluating a hypothesis}
+
+我们可以把hypothesis画出来，判断是否出现overfitting 或 underfitting. 可如果features 数量很多的话，画图就不是什么好主意了。
+
+一般化的方法是将dataset 分割为两部分：第一部分用作training set, 而第二部分用来做test set。分割的比例大概是7:3。在分割前先对dataset随机排序一下（如果其排列不是随机的话）。
+
+
+\subsubsection{Training/testing procedure for linear regression}
+
+\includegraphics{\string"10.2.procedure for linear regression\string".png}
+
+
+\subsubsection{Training/testing procedure for logistic regression(classification)}
+
+\includegraphics{\string"10.2.procedure for logistic regression\string".png}
+
+
+\subsection{Model selection and training/validation/test sets}
+
+Suppose you'd like to decide what the degree of polynomial to fit
+to a data set, sort of what features to include to give you a learning
+algorithm. Or suppose you'd like to choose the regularization parameter
+$\lambda$ for the learning algorithm. These are called model selection
+problems.
+
+在model selection 问题中，我们将把data set分成trainig、validation 和 test 三部分，而不只是
+training 和 test 两部分。
+
+\includegraphics{\string"10.3.model selection\string".png}
+
+\includegraphics{\string"10.3.model selection2\string".png}
+
+使用 $J_{test}\left(\theta^{\left(5\right)}\right)$来估计how well the
+model generalize是不公平的。因为What we done is we fit the extra parameter
+$d$ using the test set, 那么我们据此得到的 $\Theta^{\left(5\right)}$ 可能过于乐观的估计了它的generalization.
+也就是说，建立在 test set 上的估计是不全面的。
+
+现在我们将数据分成三部分： Training set, Cross validation set 和 Test set，大概是6:2:2的比例：
+
+
+\subsubsection{Evaluating your hypothesis}
+
+\includegraphics{\string"10.3.model selection3\string".png}
+
+
+\subsubsection{Train/validation/test error}
+
+Training error:
+
+\[
+J_{train}\left(\theta\right)=\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}
+\]
+
+
+Cross Validation error:
+
+\[
+J_{cv}\left(\theta\right)=\frac{1}{2m_{cv}}\sum_{i=1}^{m_{cv}}\left(h_{\theta}\left(x_{cv}^{\left(i\right)}\right)-y_{cv}^{\left(i\right)}\right)^{2}
+\]
+
+
+Test error:
+
+\[
+J_{test}\left(\theta\right)=\frac{1}{2m_{test}}\sum_{i=1}^{m_{test}}\left(h_{\theta}\left(x_{test}^{\left(i\right)}\right)-y_{test}^{\left(i\right)}\right)^{2}
+\]
+
+
+So when we fits the model selection problem by this, instead of using
+the test set to select the model, we're instead going to use validation
+set or the cross-validation set to select the model.
+
+\includegraphics{\string"10.3.model selection4\string".png}
+
+\includegraphics{\string"10.3.model selection5\string".png}我承认我没看懂……\label{why:validation vs. test set}
+
+\includegraphics{10\lyxdot 3\lyxdot excercise}
+
+
+\subsection{Diagnosing bias vs. variance}
+
+If you run the learning algorithm and it doesn't do as well as you're
+hoping, almost all the time it will be because you have either a high
+bias problem or a high variance problem. In other words they're either
+an underfitting problem or an overfitting problem.
+
+\includegraphics{\string"10.4.bias vs variance\string".png}
+
+
+\subsection{Regularization and bias/variance}
+
+\includegraphics{10\lyxdot 5\lyxdot regularization}
+
+How can we automatically choose a good value for the regularization
+parameter $\lambda$ ?
+
+
+\subsubsection{Choosing the regularization parameter $\lambda$}
+
+\includegraphics{10\lyxdot 5\lyxdot regularization2}
+
+$J_{train}\left(\theta\right)$、$J_{cv}\left(\theta\right)$和$J_{test}\left(\theta\right)$
+都没有regularization。
+
+\includegraphics{10\lyxdot 5\lyxdot regularization3}
+
+选择一个使Cross validation error最小的 $\lambda$ 即可。选定之后，计算该 $\theta$ 的test
+error: $J_{test}\left(\Theta^{\left(?\right)}\right)$ 来检查其在test set
+上的表现如何。
+
+
+\subsubsection{Bias/variance as a function of the regularization parameter $\lambda$}
+
+\includegraphics{10\lyxdot 5\lyxdot regularization4}
+
+\includegraphics{10\lyxdot 5\lyxdot regularization5}
+
+
+\subsection{Learning curves}
+
+\includegraphics{\string"10.6.Learning curves\string".png}
+
+
+\subsubsection{High bias}
+
+\includegraphics{\string"10.6.Learning curves high bias\string".png}
+
+Both $J_{cv}\left(\Theta\right)$ and $J_{train}\left(\Theta\right)$
+are high.
+
+
+\subsubsection{High variance}
+
+\includegraphics{\string"10.6.Learning curves high variance\string".png}
+
+
+\subsection{Deciding what to try next (revisited)}
+
+\includegraphics{10\lyxdot 7\lyxdot revisited}
+
+
+\subsubsection{Neural networks and overfitting}
+
+如果要增加神经网络的层数，可以测试一下不同层数的$J_{cv}\left(\Theta\right)$ 以找到最佳结果。
+
+\includegraphics{\string"10.7.neural network\string".png}
+
+\includegraphics{\string"10.7.neural network2\string".png}
+
+
+\section{Machine Learning System Design}
+
+
+\subsection{Prioritizing what to work on: Spam classification example}
+
+采用 Supervised leaning 来构建一个垃圾邮件分类器，问题就在于如何选择 email 的features。 而输出y则是
+spam(1) 或 not spam(0)两个值。
+
+\includegraphics{\string"11.1 Spam classifier\string".png}
+
+Note: In practice, take most frequently occurring $n$ words (10,000
+to 50,000) in training set, rather than manually pick 100 words.
+
+\textbf{How to spend your time to make it have low error?}
+
+\includegraphics{\string"11.1 Spam classifier2\string".png}
+
+\includegraphics{\string"11.1 Spam classifier3\string".png}
+
+
+\subsection{Error analysis}
+
+
+\subsubsection{Recommended approach}
+
+\includegraphics{\string"11.2.error analysing\string".png}
+
+先用24小时的时间构建一个相当简单而且脏乱的系统。然后使用cross-validation data来测试。之后通过画学习曲线和误差分析来优化系统。
+
+
+\subsubsection{Error Analysis}
+
+\includegraphics{\string"11.2.error analysing2\string".png}
+
+
+\subsubsection{The importance of numerical evaluation}
+
+\includegraphics{\string"11.2.error analysing3\string".png}
+
+\includegraphics{\string"11.2.error analysing4\string".png}
+
+\textbf{强烈建议}使用 cross validation error 而不是 test error 来进行误差分析。
+
+
+\subsection{Error metrics for skewed classes}
+
+
+\subsubsection{Cancer classification example}
+
+\includegraphics{\string"11.3.Skewed class\string".png}
+
+在skewed class（样本中某一类别出现的频率非常之小）的情况下，使用分类准确率将变得非常困难（比如上例，将诊断正确率从99.2\%提升到99.5\%，谁知道是不是算法更先进了还是单纯的预测出更多的y=0？）
+
+对于skewed class问题，我们可能需要别的 error metric / evaluation metric。
+
+
+\subsubsection{Pricision/Recall}
+
+\includegraphics{\string"11.3.Precision Recall\string".png}
+
+\includegraphics{\string"11.3.Precision Recall2\string".png}
+
+Precision 和 recall 的取值越高越有利。特别地，如果像上一张幻灯片那样所有诊断结果都为0（良性），那么将得到为0的precision和recall值。
+
+所以，如果我们得到了很高的 precision 和 recall ，那么我们可以相信我们的学习算法，即使样本是非常skewed的情况。
+
+
+\subsection{Trading off precision and recall}
+
+\includegraphics{\string"11.4.Trading off precision and recall\string".png}
+
+当我们将阈值从0.5改成更高的值，以达到只有当我们非常自信时才预测为癌症，那么这会带来更高的precision，和更低的recall。
+
+\includegraphics{\string"11.4.Trading off precision and recall2\string".png}
+
+如果我们宁愿错诊也不想让病人错过治疗，那么 就需要调低阈值，这样就会带来更高的recall和更低的precision。
+
+
+\subsubsection{$F_{1}$ Score (F score)}
+
+\includegraphics{\string"11.4.Trading off precision and recall3\string".png}
+
+现在一个学习算法有两个变量来描述，我们希望使用一个单值来衡量一个学习算法。使用平均值是相当没用的方式。这里我们使用 $F_{1}$
+Score 来描述算法的质量。
+
+\includegraphics{\string"11.4.Trading off precision and recall4\string".png}
+
+那么，很明显：
+
+\includegraphics{\string"11.4.Trading off precision and recall5\string".png}
+
+
+\subsection{Data for Machine Learning}
+
+\includegraphics{11\lyxdot 5}
+
+\includegraphics{11\lyxdot 5\lyxdot 2}
+\end{document}
