@@ -1276,12 +1276,10 @@ of Logistic Regression with Regularization}
 
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=80cm]{\string"7.4.Advanced optimization\string".png}
+\includegraphics[width=0.8\paperwidth]{\string"7.4.Advanced optimization\string".png}
 \par\end{centering}
 
 \caption{\label{fig:Advanced-Optimization}Advanced Optimization}
-
-
 \end{figure}
 
 
@@ -1297,11 +1295,18 @@ of Logistic Regression with Regularization}
 non-linear hypotheses)的好方法。
 
 
-\subsection{Neurons and the Brain}
+\subsection{Neurons（神经元） and the Brain}
 \begin{description}
 \item [{Neuro-rewiring~experiments}] 比如把传入听觉中枢的神经re-wire到眼睛，那么听觉中枢会学习用眼睛看的功能。同一块大脑组织，其实可以处理听觉、视觉、触觉等等功能。看起来大脑有非常强大的学习算法:)
 \end{description}
-\includegraphics[scale=0.7]{\string"8.2.Neurons and brain\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=0.8\paperwidth]{\string"8.2.Neurons and brain\string".png}
+\par\end{centering}
+
+\caption{大脑强大的学习能力}
+\end{figure}
+
 
 
 \subsection{Model representation I}
@@ -1309,50 +1314,115 @@ non-linear hypotheses)的好方法。
 
 \subsubsection{Nuron in the brain}
 
-\includegraphics[scale=0.7]{\string"8.3.1\string".nuron in the brain}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"8.3.1\string".nuron in the brain}
+\par\end{centering}
 
+\caption{\label{fig:=005927=008111=004E2D=007684=00795E=007ECF=005143=007ED3=006784}大脑中的神经元结构}
+\end{figure}
+
+
+大脑中的神经元结构如图\ref{fig:=005927=008111=004E2D=007684=00795E=007ECF=005143=007ED3=006784}所示，图中
 Dendrite 是树突，也就是输入端，Axon是轴突，也就是输出端。
 
 
 \subsubsection{Neuron model: losgistic unit}
 
-\includegraphics[scale=0.7]{\string"8.3.1.neuron model:losistic unit\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"8.3.1.neuron model:losistic unit\string".png}
+\par\end{centering}
 
-Sigmoid(logistic) activation function. 
+\caption{\label{fig:=004EBA=005DE5=00795E=007ECF=005143=006A21=00578B=00FF1A=00903B=008F91=005355=005143}人工神经元模型：逻辑单元}
+\end{figure}
 
-$x_{0}=0$ 称为 bias unit。parameters 也常被称为权重（weights）。
+
+我们将大脑中的神经元类比到人工智能网络中，一个简单的神经网络可见图\ref{fig:=004EBA=005DE5=00795E=007ECF=005143=006A21=00578B=00FF1A=00903B=008F91=005355=005143}。
+
+一般绘制神经网络图时会省略$x_{0}$，$x_{0}=1$ 称为bias unit或bias neuron。
+
+When we talk about neural networks, sometimes we'll say that this
+is a neural network with a sigmoid(logistic) \textbf{activation function}(激活函数).
+This activation function in the neural network terminology is just
+another term for that non-linear function $g\left(z\right)=\frac{1}{1+e^{-z}}$.
+
+回归模型中的参数（$\theta$）在神经网络中有时被称为权重（weights）。
 
 
 \subsubsection{Neural Network}
 
-\includegraphics[scale=0.7]{\string"8.3.Neural Network\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"8.3.Neural Network\string".png}
+\par\end{centering}
 
-\includegraphics[scale=0.7]{\string"8.3.Neural Network2\string".png}
+\caption{\label{fig:Neural-Network}Neural Network}
+\end{figure}
+
+
+图\ref{fig:Neural-Network}是一个三层的神经网络，其中$x_{1}$,$x_{2}$,$x_{3}$是输入层，The
+third layer outputs the value that the hypothesis $h\left(x\right)$
+computes.第一层经常称为输入层(input layer)，最后一层被称为输出层(output layer)，而位于中间的被称为隐藏层(hidden
+layer)。关于这个神经网络是如何工作的，请参考图\ref{fig:Neural-Network(2)}。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[width=0.8\paperwidth]{\string"8.3.Neural Network2\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Neural-Network(2)}Neural Network(2)}
+\end{figure}
+
+
+需要注意图中的标号，正如图中所说，如果神经网络在第$j$层有$s_{j}$个单位，在$j+1$层有$s_{j+1}$个单位，那么$\Theta^{\left(j\right)}$将是一个$s_{j+1}\times\left(s_{j}+1\right)$的矩阵，如h图中$\Theta^{\left(1\right)}$就是$3\times4$的矩阵。
 
 
 \subsection{Model representation II}
 
 
-\subsubsection{Forward propagation: Vectorized implementation}
+\subsubsection{Forward propagation: Vectorized implementation 前向传播：矢量化实现}
 
-\includegraphics[scale=0.7]{\string"8.4.forward propagation\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"8.4.forward propagation\string".png}
+\par\end{centering}
 
-We call this process of computing $h_{\theta}\left(x\right)$ \textbf{forward
+\caption{\label{fig:Forward-propagation:Vectorized-impl}Forward propagation:Vectorized
+implementation}
+
+
+\end{figure}
+
+
+如图\ref{fig:Forward-propagation:Vectorized-impl}所示，将括号中的部分表示为$z_{i}^{\left(j\right)}$，那么计算过程可以使用图中右半部分的矩阵运算表示（输入层$x$使用$a^{\left(1\right)}$表示）。We
+call this process of computing $h_{\theta}\left(x\right)$ \textbf{forward
 propagation} because that we start of with the \textbf{activations}
-of the input-units and then we sort of \textbf{forward propagate}
-that to the hidden layer and compute the activations of the hidden
-layer and then we sort of forward propagate that and compute the activations
-of the output layer, but this process of computing the activations
-from the input then the hidden then the output layer and that's also
-called forward propagation.
+of the input-units and then we \textbf{forward propagate} that to
+the hidden layer and compute the activations of the hidden layer and
+then we forward propagate that, and compute the activations of the
+output layer, this process of computing the activations from the input
+then the hidden then the output layer and that's also called forward
+propagation.
 
 
 \subsubsection{Neural Network learning its own features}
 
-\includegraphics[scale=0.7]{\string"8.4.Neural network learning features\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"8.4.Neural network learning features\string".png}
+\par\end{centering}
 
-如果将 input layer 遮住，那么计算 $h_{\theta}\left(x\right)$ 的公式将如图所示，可见与 Logistic
-Regression 的公式几乎相同（除了$\theta$变成了大写$\Theta$外\textasciitilde{}）。只不过在神经网络中，我们并不直接使用输入的
+\caption{\label{fig:Neural-network-learning-its-own-features}Neural network
+learning its own features}
+
+
+\end{figure}
+
+
+如图\ref{fig:Neural-network-learning-its-own-features}所示，如果将 input
+layer 遮住，那么计算 $h_{\theta}\left(x\right)$ 的公式将如图中所示，可见与 Logistic Regression
+的公式（公式\ref{eq:logistic regression hypothesis}）几乎相同（除了$\theta$变成了大写$\Theta$外\textasciitilde{}）。只不过在神经网络中，我们并不直接使用输入的
 features -- $x_{1},x_{2},x_{3}$，而是使用 hidden layer 的 activations --
 $a_{1}^{\left(2\right)},a_{2}^{\left(2\right)},a_{3}^{\left(2\right)}$。
 It learned its own features to apply logistic regression. 这将比使用原始的输入
@@ -1365,12 +1435,23 @@ logistic regression 产生更好的 hypotheses。
 
 \subsubsection{Simple example: AND}
 
-\includegraphics[scale=0.7]{8\lyxdot 5\lyxdot Example1}
+图\ref{fig:=00795E=007ECF=007F51=007EDC=004E2D=007684AND=00903B=008F91}为神经网络实现的AND逻辑。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{8\lyxdot 5\lyxdot Example1}
+\par\end{centering}
+
+\caption{\label{fig:=00795E=007ECF=007F51=007EDC=004E2D=007684AND=00903B=008F91}神经网络中的AND逻辑}
+
+
+\end{figure}
+
 
 
 \subsection{Examples and intuitions II}
 
-\includegraphics[scale=0.7]{8\lyxdot 6\lyxdot examples2}
+\includegraphics[width=0.7\paperwidth]{8\lyxdot 6\lyxdot examples2}
 
 \includegraphics[scale=0.9]{8\lyxdot 6\lyxdot examples3}
 

@@ -4281,7 +4281,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 7.4.Advanced optimization.png
-	width 80cm
+	width 80page%
 
 \end_inset
 
@@ -4303,10 +4303,6 @@ Advanced Optimization
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -4340,7 +4336,7 @@ Non-linear Hypotheses
 \end_layout
 
 \begin_layout Subsection
-Neurons and the Brain
+Neurons（神经元） and the Brain
 \end_layout
 
 \begin_layout Description
@@ -4353,9 +4349,33 @@ experiments 比如把传入听觉中枢的神经re-wire到眼睛，那么听觉�
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 8.2.Neurons and brain.png
-	scale 70
+	width 80page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+大脑强大的学习能力
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -4371,9 +4391,39 @@ Nuron in the brain
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 8.3.1.nuron in the brain
-	scale 70
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:大脑中的神经元结构"
+
+\end_inset
+
+大脑中的神经元结构
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -4381,7 +4431,14 @@ Nuron in the brain
 \end_layout
 
 \begin_layout Standard
-Dendrite 是树突，也就是输入端，Axon是轴突，也就是输出端。
+大脑中的神经元结构如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:大脑中的神经元结构"
+
+\end_inset
+
+所示，图中 Dendrite 是树突，也就是输入端，Axon是轴突，也就是输出端。
 \end_layout
 
 \begin_layout Subsubsection
@@ -4389,9 +4446,39 @@ Neuron model: losgistic unit
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 8.3.1.neuron model:losistic unit.png
-	scale 70
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:人工神经元模型：逻辑单元"
+
+\end_inset
+
+人工神经元模型：逻辑单元
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -4399,15 +4486,49 @@ Neuron model: losgistic unit
 \end_layout
 
 \begin_layout Standard
-Sigmoid(logistic) activation function.
- 
+我们将大脑中的神经元类比到人工智能网络中，一个简单的神经网络可见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:人工神经元模型：逻辑单元"
+
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $x_{0}=0$
+一般绘制神经网络图时会省略
+\begin_inset Formula $x_{0}$
 \end_inset
 
- 称为 bias unit。parameters 也常被称为权重（weights）。
+，
+\begin_inset Formula $x_{0}=1$
+\end_inset
+
+ 称为bias unit或bias neuron。
+\end_layout
+
+\begin_layout Standard
+When we talk about neural networks, sometimes we'll say that this is a neural
+ network with a sigmoid(logistic) 
+\series bold
+activation function
+\series default
+(激活函数).
+ This activation function in the neural network terminology is just another
+ term for that non-linear function 
+\begin_inset Formula $g\left(z\right)=\frac{1}{1+e^{-z}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+回归模型中的参数（
+\begin_inset Formula $\theta$
+\end_inset
+
+）在神经网络中有时被称为权重（weights）。
 \end_layout
 
 \begin_layout Subsubsection
@@ -4415,9 +4536,39 @@ Neural Network
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 8.3.Neural Network.png
-	scale 70
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Neural-Network"
+
+\end_inset
+
+Neural Network
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -4425,13 +4576,114 @@ Neural Network
 \end_layout
 
 \begin_layout Standard
+图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Neural-Network"
+
+\end_inset
+
+是一个三层的神经网络，其中
+\begin_inset Formula $x_{1}$
+\end_inset
+
+,
+\begin_inset Formula $x_{2}$
+\end_inset
+
+,
+\begin_inset Formula $x_{3}$
+\end_inset
+
+是输入层，The third layer outputs the value that the hypothesis 
+\begin_inset Formula $h\left(x\right)$
+\end_inset
+
+ computes.第一层经常称为输入层(input layer)，最后一层被称为输出层(output layer)，而位于中间的被称为隐藏层(hidden
+ layer)。关于这个神经网络是如何工作的，请参考图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Neural-Network(2)"
+
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 8.3.Neural Network2.png
-	scale 70
+	width 80page%
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Neural-Network(2)"
+
+\end_inset
+
+Neural Network(2)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+需要注意图中的标号，正如图中所说，如果神经网络在第
+\begin_inset Formula $j$
+\end_inset
+
+层有
+\begin_inset Formula $s_{j}$
+\end_inset
+
+个单位，在
+\begin_inset Formula $j+1$
+\end_inset
+
+层有
+\begin_inset Formula $s_{j+1}$
+\end_inset
+
+个单位，那么
+\begin_inset Formula $\Theta^{\left(j\right)}$
+\end_inset
+
+将是一个
+\begin_inset Formula $s_{j+1}\times\left(s_{j}+1\right)$
+\end_inset
+
+的矩阵，如h图中
+\begin_inset Formula $\Theta^{\left(1\right)}$
+\end_inset
+
+就是
+\begin_inset Formula $3\times4$
+\end_inset
+
+的矩阵。
 \end_layout
 
 \begin_layout Subsection
@@ -4439,13 +4691,47 @@ Model representation II
 \end_layout
 
 \begin_layout Subsubsection
-Forward propagation: Vectorized implementation
+Forward propagation: Vectorized implementation 前向传播：矢量化实现
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 8.4.forward propagation.png
-	scale 70
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Forward-propagation:Vectorized-impl"
+
+\end_inset
+
+Forward propagation:Vectorized implementation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -4453,7 +4739,26 @@ Forward propagation: Vectorized implementation
 \end_layout
 
 \begin_layout Standard
-We call this process of computing 
+如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Forward-propagation:Vectorized-impl"
+
+\end_inset
+
+所示，将括号中的部分表示为
+\begin_inset Formula $z_{i}^{\left(j\right)}$
+\end_inset
+
+，那么计算过程可以使用图中右半部分的矩阵运算表示（输入层
+\begin_inset Formula $x$
+\end_inset
+
+使用
+\begin_inset Formula $a^{\left(1\right)}$
+\end_inset
+
+表示）。We call this process of computing 
 \begin_inset Formula $h_{\theta}\left(x\right)$
 \end_inset
 
@@ -4465,15 +4770,15 @@ forward propagation
 \series bold
 activations
 \series default
- of the input-units and then we sort of 
+ of the input-units and then we 
 \series bold
 forward propagate
 \series default
  that to the hidden layer and compute the activations of the hidden layer
- and then we sort of forward propagate that and compute the activations
- of the output layer, but this process of computing the activations from
- the input then the hidden then the output layer and that's also called
- forward propagation.
+ and then we forward propagate that, and compute the activations of the
+ output layer, this process of computing the activations from the input
+ then the hidden then the output layer and that's also called forward propagatio
+n.
 \end_layout
 
 \begin_layout Subsubsection
@@ -4481,9 +4786,43 @@ Neural Network learning its own features
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 8.4.Neural network learning features.png
-	scale 70
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Neural-network-learning-its-own-features"
+
+\end_inset
+
+Neural network learning its own features
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -4491,11 +4830,25 @@ Neural Network learning its own features
 \end_layout
 
 \begin_layout Standard
-如果将 input layer 遮住，那么计算 
+如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Neural-network-learning-its-own-features"
+
+\end_inset
+
+所示，如果将 input layer 遮住，那么计算 
 \begin_inset Formula $h_{\theta}\left(x\right)$
 \end_inset
 
- 的公式将如图所示，可见与 Logistic Regression 的公式几乎相同（除了
+ 的公式将如图中所示，可见与 Logistic Regression 的公式（公式
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:logistic regression hypothesis"
+
+\end_inset
+
+）几乎相同（除了
 \begin_inset Formula $\theta$
 \end_inset
 
@@ -4528,9 +4881,54 @@ Simple example: AND
 \end_layout
 
 \begin_layout Standard
+图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:神经网络中的AND逻辑"
+
+\end_inset
+
+为神经网络实现的AND逻辑。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 8.5.Example1.png
-	scale 70
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:神经网络中的AND逻辑"
+
+\end_inset
+
+神经网络中的AND逻辑
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -4544,7 +4942,7 @@ Examples and intuitions II
 \begin_layout Standard
 \begin_inset Graphics
 	filename 8.6.examples2.png
-	scale 70
+	width 70page%
 
 \end_inset
 
