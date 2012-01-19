@@ -440,7 +440,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 2.1.training set.png
-	width 70page%
+	scale 75
 
 \end_inset
 
@@ -828,7 +828,7 @@ status open
 \begin_inset Graphics
 	filename 2.5.gradient descent intuition
 	lyxscale 80
-	scale 60
+	scale 75
 
 \end_inset
 
@@ -1295,7 +1295,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 4.2.Gradient Descent.png
-	width 70page%
+	scale 75
 
 \end_inset
 
@@ -1352,7 +1352,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 4.3.feature scaling.png
-	width 70page%
+	scale 75
 
 \end_inset
 
@@ -1426,7 +1426,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 4.3.Mean normalization.png
-	width 70page%
+	scale 75
 
 \end_inset
 
@@ -1509,7 +1509,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 4.5.Polynomial regression.png
-	width 70page%
+	scale 75
 
 \end_inset
 
@@ -1730,7 +1730,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 4.6.Normal Equation2.png
-	width 70page%
+	scale 75
 
 \end_inset
 
@@ -2666,7 +2666,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 6.3.Decision boundary.png
-	width 80col%
+	scale 75
 
 \end_inset
 
@@ -2744,7 +2744,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 6.4.Cost Function
-	width 70page%
+	scale 75
 
 \end_inset
 
@@ -2825,7 +2825,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 6.3.Plot Cost function.png
-	width 70page%
+	scale 75
 
 \end_inset
 
@@ -3142,7 +3142,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 6.6.Gradient Example using Octave.png
-	width 70page%
+	scale 75
 
 \end_inset
 
@@ -3198,7 +3198,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 6.6.Exercise using Octave.png
-	width 70page%
+	scale 75
 
 \end_inset
 
@@ -3421,12 +3421,12 @@ status open
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename 6.7.ones-vs-all1
-	scale 60
+	scale 75
 
 \end_inset
 
@@ -3455,12 +3455,12 @@ status collapsed
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename 6.7.ones-vs-all2.png
-	scale 60
+	scale 75
 
 \end_inset
 
@@ -3489,12 +3489,12 @@ status collapsed
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename 6.7.ones-vs-all3.png
-	scale 60
+	scale 75
 
 \end_inset
 
@@ -3629,7 +3629,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 7.1.overfitting.png
-	width 70page%
+	scale 75
 
 \end_inset
 
@@ -3678,7 +3678,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 7.1.overfitting2.png
-	width 70page%
+	scale 75
 
 \end_inset
 
@@ -3813,7 +3813,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 7.2.Intuition.png
-	width 70page%
+	scale 75
 
 \end_inset
 
@@ -3884,7 +3884,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 7.2.Intuition2.png
-	width 75page%
+	scale 75
 
 \end_inset
 
@@ -3979,7 +3979,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 7.3.Regularized linear regression.png
-	width 75page%
+	scale 75
 
 \end_inset
 
@@ -4126,7 +4126,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 7.4.Regularized logistic regression.png
-	width 75page%
+	scale 75
 
 \end_inset
 
@@ -4199,7 +4199,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 7.4.CostFuntion.png
-	width 75page%
+	scale 75
 
 \end_inset
 
@@ -4281,7 +4281,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 7.4.Advanced optimization.png
-	width 80page%
+	scale 75
 
 \end_inset
 
@@ -4358,7 +4358,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 8.2.Neurons and brain.png
-	width 80page%
+	scale 75
 
 \end_inset
 
@@ -4620,7 +4620,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename 8.3.Neural Network2.png
-	width 80page%
+	scale 75
 
 \end_inset
 
@@ -4940,9 +4940,70 @@ Examples and intuitions II
 \end_layout
 
 \begin_layout Standard
+在本节将进行更为复杂的非线性问题的求解。
+\end_layout
+
+\begin_layout Standard
+图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:XNOR逻辑的实现过程"
+
+\end_inset
+
+向我们展示了XNOR逻辑的具体实现过程。XNOR的真值表见图右下部分，即“相同为真，相异为假”，若以
+\begin_inset Formula $x_{1}$
+\end_inset
+
+和
+\begin_inset Formula $x_{2}$
+\end_inset
+
+为坐标轴，那么我们需要确定图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:XNOR逻辑的实现过程"
+
+\end_inset
+
+上部所示坐标系的 decision boundary。通过组合图中上部的三个简单神经网络，可以构造出XNOR的神经网络，即中间一层使用AND和
+ NOT AND，输出层使用OR，得到的结果可以使用真值表检验。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 8.6.examples2.png
-	width 70page%
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:XNOR逻辑的实现过程"
+
+\end_inset
+
+XNOR逻辑的实现过程
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -4950,9 +5011,39 @@ Examples and intuitions II
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 8.6.examples3.png
-	scale 90
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:神经网络的经典案例：数字识别"
+
+\end_inset
+
+神经网络的经典案例：数字识别
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -4967,15 +5058,75 @@ Multi-class classification
 Multiple output units: One-vs-all
 \end_layout
 
-\begin_layout Itemize
-Suppose you have a multi-class classification problem with three classes,
+\begin_layout Standard
+如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:One-vs-All-in-neural-net"
+
+\end_inset
+
+，四个输出项分别标识了是否是步行、是否是轿车、是否时摩托车和是否是卡车。可见类似于之前的One-vs-All方法，这里有四个逻辑标识符(logistic
+ classifier)。注意图中用的是约等号。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 8.7.1.One vs All.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:One-vs-All-in-neural-net"
+
+\end_inset
+
+One vs All in Neural Network
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+课后习题：Suppose you have a multi-class classification problem with three classes,
  trained with a 3 layer network.
  Let 
 \begin_inset Formula $a_{2}^{(3)}=(h_{\Theta}(x))_{2}$
 \end_inset
 
- be the activation of the first output unit, and similarly 
-\begin_inset Formula $a(3)2=(hΘ(x))2$
+ （注意
+\begin_inset Formula $\Theta$
+\end_inset
+
+要用大写）be the activation of the first output unit, and similarly 
+\begin_inset Formula $a_{2}^{\left(3\right)}=(h_{\Theta}(x))2$
 \end_inset
 
  and 
@@ -4987,7 +5138,7 @@ Suppose you have a multi-class classification problem with three classes,
 \begin_inset Formula $a_{1}^{(3)}+a_{2}^{(3)}+a_{3}^{(3)}=1$
 \end_inset
 
-。错误，因为输出并非是概率，所以输出的总和并不一定是1。
+。答案：错误，因为输出并非是概率，所以输出的总和并不一定是1。
 \end_layout
 
 \begin_layout Section
@@ -5003,12 +5154,59 @@ Neural Network (Classification)
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 9.1.Cost Function.png
+	scale 75
 
 \end_inset
 
 
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Neural-Network-(Classification)"
+
+\end_inset
+
+Neural Network (Classification)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Neural-Network-(Classification)"
+
+\end_inset
+
+解释：
 \end_layout
 
 \begin_layout Standard
@@ -5027,7 +5225,15 @@ k: output layer 的节点个数。
 \end_layout
 
 \begin_layout Standard
-我们将考虑binary classification 和 Muti-class classification 两种情况。
+我们将考虑binary classification 和 Muti-class classification(
+\begin_inset Formula $K\geqslant3$
+\end_inset
+
+，
+\begin_inset Formula $K=2$
+\end_inset
+
+没意义) 两种情况。
 \end_layout
 
 \begin_layout Subsubsection
@@ -5040,9 +5246,9 @@ Logistic regression:
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-J\left(\theta\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}y^{\left(i\right)}\log h_{\theta}\left(x^{\left(i\right)}\right)+\left(1-y^{\left(i\right)}\right)\log\left(1-h_{\theta}\left(x^{\left(i\right)}\right)\right)\right]+\frac{\lambda}{2m}\sum_{j=1}^{n}\theta_{j}^{2}
-\]
+\begin{equation}
+J\left(\theta\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}y^{\left(i\right)}\log h_{\theta}\left(x^{\left(i\right)}\right)+\left(1-y^{\left(i\right)}\right)\log\left(1-h_{\theta}\left(x^{\left(i\right)}\right)\right)\right]+\frac{\lambda}{2m}\sum_{j=1}^{n}\theta_{j}^{2}\label{eq:cost func logistic regression with reg2}
+\end{equation}
 
 \end_inset
 
@@ -5050,11 +5256,18 @@ J\left(\theta\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}y^{\left(i\right)}\log h_{\
 \end_layout
 
 \begin_layout Standard
-The cost function we use for the neural network is going to be a generalization
- of the one that we use for logistic regression(
+The cost function we use for the neural network is going to be the generalizatio
+n of the one that we use for logistic regression(见公式
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:cost func logistic regression with reg"
+
+\end_inset
+
+和
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cost func logistic regression with reg2"
 
 \end_inset
 
@@ -5063,7 +5276,7 @@ reference "eq:cost func logistic regression with reg"
 \end_layout
 
 \begin_layout Paragraph
-Neural network:(K个输出)
+Neural network:(有K个输出)
 \end_layout
 
 \begin_layout Standard
@@ -5079,11 +5292,12 @@ h_{\Theta}\left(x\right)\in\mathbb{R}^{K}\qquad\left(h_{\Theta}\left(x\right)\ri
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
+\begin{equation}
 \begin{aligned}J\left(\Theta\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}\sum_{k=1}^{K}y_{k}^{\left(i\right)}\log\left(h_{\Theta}\left(x^{\left(i\right)}\right)\right)_{k}+\left(1-y_{k}^{\left(i\right)}\right)\log\left(1-\left(h_{\Theta}\left(x^{\left(i\right)}\right)\right)_{k}\right)\right]\\
 +\frac{\lambda}{2m}\sum_{l=1}^{L-1}\sum_{i=1}^{s_{l}}\sum_{j=1}^{s_{l+1}}\left(\Theta_{ji}^{\left(l\right)}\right)^{2}
 \end{aligned}
-\]
+\label{eq:cost function of neural network}
+\end{equation}
 
 \end_inset
 
@@ -5115,6 +5329,30 @@ summing
  that cost function over each of my output units in turn.
 \end_layout
 
+\begin_layout Standard
+因此在公式
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cost function of neural network"
+
+\end_inset
+
+中，我们使用了
+\begin_inset Formula $y_{k}$
+\end_inset
+
+和
+\begin_inset Formula $h_{\Theta}\left(\ldots\right)_{k}$
+\end_inset
+
+来表示针对每一个输出项的y和hypothesis。虽然该公式的regularization项看起来非常复杂，但无非是在计算除了bias unit（i=0）外所有
+的
+\begin_inset Formula $\left(\Theta_{ji}^{\left(l\right)}\right)^{2}$
+\end_inset
+
+的总和而已，和logistic regression一样，从1开始（去除bisa unit）而不是从0开始仅仅是个惯例，即使从0开始也不会有太大的不同。
+\end_layout
+
 \begin_layout Subsection
 Backpropagation Algorithm (to minimize the cost function)
 \end_layout
@@ -5124,8 +5362,39 @@ Gradient Comutation
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 9.2.backpropagation algorithm.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gradient-computation"
+
+\end_inset
+
+Gradient computation
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -5133,45 +5402,86 @@ Gradient Comutation
 \end_layout
 
 \begin_layout Standard
-What we want to do is to focus on how we can compute the partial derivative
- terms.
- (貌似 
-\begin_inset Formula $a^{\left(1\right)}$
-\end_inset
-
-应该加上bias unit)
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename 9.2.backpropagation algorithm2.png
+如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gradient-computation"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Subsubsection
-Gradient computation: Backpropagation algorithm
-\end_layout
-
-\begin_layout Standard
-The intuition of the backpropagation algorithm is that for each note we're
- going to compute the term 
-\begin_inset Formula $\delta_{j}^{\left(l\right)}$
-\end_inset
-
- that's going to represent the 
+，What we want to do is to focus on how we can compute the 
 \series bold
-error
+partial derivative 
 \series default
- of node j in layer l.
+terms.
  
 \end_layout
 
 \begin_layout Standard
+让我们从只有一个training example 
+\begin_inset Formula $\left(x,y\right)$
+\end_inset
+
+ 的情况开始，如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Forward-propagation过程"
+
+\end_inset
+
+所示，逐步计算cost function的偏导。第一步为forward propagation，用来计算hypothesis输出。
+\end_layout
+
+\begin_layout Standard
+貌似图中的 
+\begin_inset Formula $a^{\left(1\right)}$
+\end_inset
+
+应该加上bias unit（
+\begin_inset Formula $a_{0}^{\left(1\right)}$
+\end_inset
+
+）。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
-	filename 9.2.backpropagation algorithm3.png
+	filename 9.2.backpropagation algorithm2.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Forward-propagation过程"
+
+\end_inset
+
+Forward propagation过程
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -5179,7 +5489,89 @@ error
 \end_layout
 
 \begin_layout Standard
-上式可以矢量化为 
+要计算偏导，下一步需要用到后向传播（backward-propagation）算法。对该算法的直观理解就是对每个节点计算一个
+\begin_inset Formula $\delta_{j}^{\left(l\right)}$
+\end_inset
+
+，表示节点
+\begin_inset Formula $j$
+\end_inset
+
+在第
+\begin_inset Formula $l$
+\end_inset
+
+层的“误差”（error）。比如要计算输出层节点的“误差”，如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:back-propagation intuition"
+
+\end_inset
+
+，那么只需计算每个节点
+\begin_inset Formula $a_{j}^{\left(4\right)}$
+\end_inset
+
+和结果
+\begin_inset Formula $y_{i}$
+\end_inset
+
+的差距即可。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 9.2.backpropagation algorithm3.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:back-propagation intuition"
+
+\end_inset
+
+back propagation intuition
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+注意图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:back-propagation intuition"
+
+\end_inset
+
+中的算式可以矢量化为 
 \begin_inset Formula $\delta^{\left(4\right)}=a^{\left(4\right)}-y=\left(h_{\Theta}\left(x\right)\right)-y$
 \end_inset
 
@@ -5187,15 +5579,48 @@ error
 \end_layout
 
 \begin_layout Standard
-下一步需要计算erlier layers的
+下一步需要计算前面每一层的
 \begin_inset Formula $\delta$
 \end_inset
 
-：
+，见式
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:compute delta for 3rd layer"
+
+\end_inset
+
+、
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:compute delta for 2nd layer"
+
+\end_inset
+
+。注意式
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:compute delta for 3rd layer"
+
+\end_inset
+
+中
+\begin_inset Formula $\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}$
+\end_inset
+
+是一个向量，
+\begin_inset Formula $g^{\prime}\left(z^{\left(3\right)}\right)$
+\end_inset
+
+也是一个向量，他们之间使用的是点乘号（element wise），表示按元素进行乘法运算。
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\delta^{\left(3\right)}=\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}\,.*g^{\prime}\left(z^{\left(3\right)}\right)$
+\begin_inset Formula 
+\begin{equation}
+\delta^{\left(3\right)}=\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}\,.*g^{\prime}\left(z^{\left(3\right)}\right)\label{eq:compute delta for 3rd layer}
+\end{equation}
+
 \end_inset
 
 
@@ -5203,19 +5628,26 @@ error
 status open
 
 \begin_layout Plain Layout
-怀疑这里有一处错误：
 \begin_inset Formula $z^{\left(3\right)}$
 \end_inset
 
-是5*1的矩阵，然而
-\begin_inset Formula $\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}$
-\end_inset
-
-是6*1的，下同。 编程训练时将
+是5*1的矢量，然而如果按之前
 \begin_inset Formula $\Theta$
 \end_inset
 
-中的bias unit 去掉以保证维度相等。
+的定义，那么
+\begin_inset Formula $\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}$
+\end_inset
+
+的结果应该是6*1的。 因此这里的
+\begin_inset Formula $\Theta$
+\end_inset
+
+应该不包括bias unit，即
+\begin_inset Formula $\Theta$
+\end_inset
+
+是4*5的，这样结果就是5*1的了。编程训练中也是这样处理的。
 \end_layout
 
 \end_inset
@@ -5224,7 +5656,11 @@ status open
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\delta^{\left(2\right)}=\left(\Theta^{\left(2\right)}\right)^{T}\delta^{\left(3\right)}\,.*g^{\prime}\left(z^{\left(2\right)}\right)$
+\begin_inset Formula 
+\begin{equation}
+\delta^{\left(2\right)}=\left(\Theta^{\left(2\right)}\right)^{T}\delta^{\left(3\right)}\,.*g^{\prime}\left(z^{\left(2\right)}\right)\label{eq:compute delta for 2nd layer}
+\end{equation}
+
 \end_inset
 
 
@@ -5235,35 +5671,26 @@ status open
 \begin_inset Formula $g^{\prime}\left(z^{\left(3\right)}\right)$
 \end_inset
 
- is the derivative of the activation function 
+ 是activation function 
 \begin_inset Formula $g\left(z^{\left(3\right)}\right)$
 \end_inset
 
-:
+的导数:
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $g^{\prime}\left(z^{\left(3\right)}\right)=z^{\left(3\right)}\,.*\left(1-z^{\left(3\right)}\right)$
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "why:sigmoid's derivative"
+\begin_inset Formula 
+\begin{equation}
+g^{\prime}\left(z^{\left(3\right)}\right)=a^{\left(3\right)}\,.*\left(1-a^{\left(3\right)}\right)\label{eq:partial derivative of cost func in NN without reg}
+\end{equation}
 
 \end_inset
 
 
-\begin_inset Marginal
-status open
-
-\begin_layout Plain Layout
-怎么计算出来的？
 \end_layout
 
-\end_inset
-
-
+\begin_layout Standard
+这里不对该式的得出进行推导（我没看懂是怎么得出来的）。
 \end_layout
 
 \begin_layout Standard
@@ -5281,17 +5708,24 @@ The name backpropagation comes from the fact that we start by computing
 go back
 \series default
  a layer and compute the delta terms for that layer.
- So we are sort of backpropagating the errors from the current layer to
- the earlier layer.
+ So we are back propagating the errors from the current layer to the earlier
+ layer.
 \end_layout
 
 \begin_layout Standard
-可以证明（过程比这个公式还要复杂，略掉），如果忽略regularization(
+最后得到的求偏导的公式非常复杂，可以证明（过程比这个公式还要复杂，故略掉），如果忽略regularization(
 \begin_inset Formula $\lambda=0$
 \end_inset
 
-), 那么我们需要的偏导数 
-\begin_inset Formula $\frac{\partial}{\partial\Theta_{ij}^{\left(l\right)}}J\left(\Theta\right)=\delta_{i}^{\left(l+1\right)}a_{j}^{\left(l\right)}$
+), 那么我们需要的偏导数是：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial}{\partial\Theta_{ij}^{\left(l\right)}}J\left(\Theta\right)=\delta_{i}^{\left(l+1\right)}a_{j}^{\left(l\right)}\label{eq:partial derivative of cost func of logistic in NN without regularization}
+\end{equation}
+
 \end_inset
 
 
@@ -5302,24 +5736,89 @@ Backpropagation algorithm
 \end_layout
 
 \begin_layout Standard
+如果training example不止一个，在这里设定有m个，如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Backward-propagation-algorithm"
+
+\end_inset
+
+所示，首先设置
+\begin_inset Formula $\Delta_{ij}^{\left(l\right)}=0$
+\end_inset
+
+(for all l, i, j)，这里的
+\begin_inset Formula $\Delta$
+\end_inset
+
+是用来计算cost function的偏导的，而且正如即将看到的，
+\begin_inset Formula $\Delta$
+\end_inset
+
+其实是个累加数(Accumulator)。针对每个training example执行图中所示循环，每次循环都更新一次
+\begin_inset Formula $\Delta$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 9.2.backpropagation algorithm4.png
+	scale 75
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "pic:backprop algorithm"
+name "fig:Backward-propagation-algorithm"
+
+\end_inset
+
+Backward propagation algorithm
+\end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-文中计算
+图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Backward-propagation-algorithm"
+
+\end_inset
+
+中计算
 \begin_inset Formula $D_{ij}^{\left(l\right)}$
 \end_inset
 
@@ -5336,8 +5835,97 @@ status open
 \end_layout
 
 \begin_layout Standard
+也如图中所示，
+\begin_inset Formula $\Delta$
+\end_inset
+
+的计算可以矢量化为
+\begin_inset Formula $\Delta^{\left(l\right)}:=\Delta^{\left(l\right)}+\delta^{\left(l+1\right)}\left(a^{\left(l\right)}\right)^{T}$
+\end_inset
+
+的形式。
+\end_layout
+
+\begin_layout Standard
+在循环外计算
+\begin_inset Formula $D_{ij}^{\left(l\right)}$
+\end_inset
+
+，分为
+\begin_inset Formula $j=0$
+\end_inset
+
+（bias unit）和
+\begin_inset Formula $j\neq0$
+\end_inset
+
+两种情况。
+\end_layout
+
+\begin_layout Standard
+可以证明，最后求得的
+\begin_inset Formula $D_{ij}^{\left(l\right)}$
+\end_inset
+
+就是cost function的偏导：
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial}{\partial\Theta_{ij}^{\left(l\right)}}J\left(\Theta\right)=D_{ij}^{\left(l\right)}\label{eq:partial derivative of cost func of logistic in NN with regularization}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+课堂习题（图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:课堂练习：计算gradient步骤"
+
+\end_inset
+
+）的答案就是求gradient过程的简单概括。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 9.2.backpropagation algorithm5.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:课堂练习：计算gradient步骤"
+
+\end_inset
+
+课堂练习：计算gradient步骤
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -5345,7 +5933,7 @@ status open
 \end_layout
 
 \begin_layout Subsection
-Implementation not: Unrolling parameters
+Implementation note: Unrolling parameters
 \end_layout
 
 \begin_layout Standard
@@ -5354,15 +5942,57 @@ Implementation not: Unrolling parameters
 \end_inset
 
 视为矢量，而神经网络中的
-\begin_inset Formula $\theta$
+\begin_inset Formula $\Theta$
 \end_inset
 
-是矩阵，因此需要将矩阵转化为矢量后再进行运算。
+是矩阵，因此需要将矩阵转化为矢量后才能使用之前介绍过的函数进行计算（图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Need-to-unrol-params"
+
+\end_inset
+
+）。
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 9.3.Unrolling parameters.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Need-to-unrol-params"
+
+\end_inset
+
+Need to unrol parameters
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -5370,8 +6000,39 @@ Implementation not: Unrolling parameters
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 9.3.Unrolling parameters2.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:矩阵和矢量的互转"
+
+\end_inset
+
+矩阵和矢量的互转
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -5379,7 +6040,14 @@ Implementation not: Unrolling parameters
 \end_layout
 
 \begin_layout Standard
-以上便是矩阵到矢量和矢量到矩阵的转换方法。 
+图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:矩阵和矢量的互转"
+
+\end_inset
+
+所示便是矩阵到矢量和矢量到矩阵的转换方法。 
 \end_layout
 
 \begin_layout Subsection
@@ -5391,8 +6059,43 @@ Gradient Checking
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 9.4.Gradient Checking.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gradient错误检查"
+
+\end_inset
+
+Gradient错误检查
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -5400,7 +6103,14 @@ Gradient Checking
 \end_layout
 
 \begin_layout Standard
-上图是假设
+图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gradient错误检查"
+
+\end_inset
+
+是假设
 \begin_inset Formula $\theta$
 \end_inset
 

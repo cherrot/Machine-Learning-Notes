@@ -19,9 +19,6 @@
 \makeatletter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
-\newcommand{\lyxmathsym}[1]{\ifmmode\begingroup\def\b@ld{bold}
-  \text{\ifx\math@version\b@ld\bfseries\fi#1}\endgroup\else#1\fi}
-
 %% A simple dot to overcome graphicx limitations
 \newcommand{\lyxdot}{.}
 
@@ -166,7 +163,7 @@ purchase)
 单变量（Univariate）线性回归的直观认识可见图\ref{fig:training-set}。
 
 \begin{figure}[tbh]
-\centering{}\includegraphics[width=0.7\paperwidth]{\string"2.1.training set\string".png}\caption{\label{fig:training-set}training set}
+\centering{}\includegraphics[scale=0.75]{\string"2.1.training set\string".png}\caption{\label{fig:training-set}training set}
 \end{figure}
 
 
@@ -271,7 +268,7 @@ with gradient descent.即梯度值，是个正数。
 
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[scale=0.6]{\string"2.5\string".gradient descent intuition}
+\includegraphics[scale=0.75]{\string"2.5\string".gradient descent intuition}
 \par\end{centering}
 
 \caption{\label{fig:=0076F4=0089C2=007406=0089E3Gradient-Descent}直观理解Gradient
@@ -417,7 +414,7 @@ Gradient descent:
 
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.7\paperwidth]{\string"4.2.Gradient Descent\string".png}
+\includegraphics[scale=0.75]{\string"4.2.Gradient Descent\string".png}
 \par\end{centering}
 
 \caption{\label{fig:=00591A=0053D8=0091CF=007684Gradient-Descent}多变量的Gradient
@@ -436,7 +433,7 @@ Make sure features are on a similar scale。
 
 \begin{figure}[tbh]
 \begin{centering}
-\includegraphics[width=0.7\paperwidth]{\string"4.3.feature scaling\string".png}
+\includegraphics[scale=0.75]{\string"4.3.feature scaling\string".png}
 \par\end{centering}
 
 \caption{Feature Scaling}
@@ -457,7 +454,7 @@ Gradient desent 需要很长的时间才能收敛到最优解。
 
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.7\paperwidth]{\string"4.3.Mean normalization\string".png}
+\includegraphics[scale=0.75]{\string"4.3.Mean normalization\string".png}
 \par\end{centering}
 
 \caption{\label{fig:Mean-Normalization}Mean Normalization}
@@ -480,7 +477,7 @@ $\alpha$太大可能不收敛，太小可能收敛太慢。来回试吧\textasci
 
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.7\paperwidth]{\string"4.5.Polynomial regression\string".png}
+\includegraphics[scale=0.75]{\string"4.5.Polynomial regression\string".png}
 \par\end{centering}
 
 \caption{\label{fig:=00591A=009879=005F0F=0062DF=005408}多项式拟合}
@@ -534,7 +531,7 @@ Equation的区别：
 
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.7\paperwidth]{\string"4.6.Normal Equation2\string".png}
+\includegraphics[scale=0.75]{\string"4.6.Normal Equation2\string".png}
 \par\end{centering}
 
 \caption{\label{fig:Gradient-Descent-Normal-Equation}Gradient Descent 与 Normal
@@ -840,7 +837,7 @@ Decision Boundary 就是使$\theta^{T}x=0$的直线，如图\ref{fig:Decision-Bo
 
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.8\columnwidth]{\string"6.3.Decision boundary\string".png}
+\includegraphics[scale=0.75]{\string"6.3.Decision boundary\string".png}
 \par\end{centering}
 
 \caption{\label{fig:Decision-Boundary}Decision Boundary}
@@ -859,7 +856,7 @@ cost function），导致得不到全局最优解，如图\ref{fig:=0076F4=0063A
 
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.7\paperwidth]{\string"6.4\string".Cost Function}
+\includegraphics[scale=0.75]{\string"6.4\string".Cost Function}
 \par\end{centering}
 
 \caption{\label{fig:=0076F4=0063A5=004F7F=007528=007EBF=006027=0056DE=005F52=007684cost-function=005BFC=0081F4=007ED3=00679C=004E3A=00975E=0051F8=0051FD=006570}直接使用线性回归的cost
@@ -890,7 +887,7 @@ Cost\left(h_{\theta}\left(x\right),y\right)=\begin{cases}
 
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.7\paperwidth]{\string"6.3.Plot Cost function\string".png}
+\includegraphics[scale=0.75]{\string"6.3.Plot Cost function\string".png}
 \par\end{centering}
 
 \caption{Plotting the Cost()}
@@ -977,7 +974,7 @@ for every interation.
 
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.7\paperwidth]{\string"6.6.Gradient Example using Octave\string".png}
+\includegraphics[scale=0.75]{\string"6.6.Gradient Example using Octave\string".png}
 \par\end{centering}
 
 \caption{\label{fig:fminunc=0051FD=006570=007684=004F7F=007528=00793A=004F8B}fminunc函数的使用示例}
@@ -991,7 +988,7 @@ fminunc()函数：function minimization unconstrained。 是Octave中的内建�
 
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.7\paperwidth]{\string"6.6.Exercise using Octave\string".png}
+\includegraphics[scale=0.75]{\string"6.6.Exercise using Octave\string".png}
 \par\end{centering}
 
 \caption{\label{fig:Octave=006F14=00793Afminunc=0051FD=006570}Octave演示fminunc函数}
@@ -1053,15 +1050,15 @@ three \textbf{separate binary classification problems:}(如图\ref{fig:Multi-cla
 
 \begin{figure}[tb]
 \begin{centering}
-\subfloat[]{\includegraphics[scale=0.6]{6.7.ones-vs-all1}
+\subfloat[]{\includegraphics[scale=0.75]{6.7.ones-vs-all1}
 
 
 
-}\subfloat[]{\includegraphics[scale=0.6]{6\lyxdot 7\lyxdot ones-vs-all2}
+}\subfloat[]{\includegraphics[scale=0.75]{6\lyxdot 7\lyxdot ones-vs-all2}
 
 
 
-}\subfloat[]{\includegraphics[scale=0.6]{6\lyxdot 7\lyxdot ones-vs-all3}
+}\subfloat[]{\includegraphics[scale=0.75]{6\lyxdot 7\lyxdot ones-vs-all3}
 
 
 
@@ -1096,7 +1093,7 @@ variants)，正如图\ref{fig:Underfitting-and-Overfitting-in-linear-regression}
 
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.7\paperwidth]{7\lyxdot 1\lyxdot overfitting}
+\includegraphics[scale=0.75]{7\lyxdot 1\lyxdot overfitting}
 \par\end{centering}
 
 \caption{\label{fig:Underfitting-and-Overfitting-in-linear-regression}Underfitting
@@ -1110,7 +1107,7 @@ but fail to generalize to new examples(predict prices on new examples).
 \end{description}
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.7\paperwidth]{7\lyxdot 1\lyxdot overfitting2}
+\includegraphics[scale=0.75]{7\lyxdot 1\lyxdot overfitting2}
 \par\end{centering}
 
 \caption{\label{fig:Underfitting-and-Overfitting-in-logistic}Underfitting
@@ -1149,7 +1146,7 @@ a bit to predicting $y$.
 
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.7\paperwidth]{7\lyxdot 2\lyxdot Intuition}
+\includegraphics[scale=0.75]{7\lyxdot 2\lyxdot Intuition}
 \par\end{centering}
 
 \caption{\label{fig:Penalize-parameters}Penalize parameters instead of removing
@@ -1169,7 +1166,7 @@ Small values for parameters $\theta_{0},\theta_{1},\ldots,\theta_{n}$
 \end{itemize}
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.75\paperwidth]{7\lyxdot 2\lyxdot Intuition2}
+\includegraphics[scale=0.75]{7\lyxdot 2\lyxdot Intuition2}
 \par\end{centering}
 
 \caption{\label{fig:Regularization}Regularization}
@@ -1195,7 +1192,7 @@ small, and therefore keeping the hypothesis simple.
 
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.75\paperwidth]{\string"7.3.Regularized linear regression\string".png}
+\includegraphics[scale=0.75]{\string"7.3.Regularized linear regression\string".png}
 \par\end{centering}
 
 \caption{\label{fig:Gradient-Descent-with-Regularization}Gradient Descent
@@ -1239,7 +1236,7 @@ Regularization后，加上Regularization因子后的矩阵一定是可逆的。
 
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.75\paperwidth]{\string"7.4.Regularized logistic regression\string".png}
+\includegraphics[scale=0.75]{\string"7.4.Regularized logistic regression\string".png}
 \par\end{centering}
 
 \caption{\label{fig:Cost-function-of-logistic-with-reg}Cost function of logistic
@@ -1258,7 +1255,7 @@ J\left(\theta\right)=-\left[\frac{1}{m}\sum_{i=1}^{m}\left(y^{\left(i\right)}\lo
 
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.75\paperwidth]{7\lyxdot 4\lyxdot CostFuntion}
+\includegraphics[scale=0.75]{7\lyxdot 4\lyxdot CostFuntion}
 \par\end{centering}
 
 \caption{\label{fig:Gradient-Descent-of-logistic-with-reg}Gradient Descent
@@ -1276,7 +1273,7 @@ of Logistic Regression with Regularization}
 
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.8\paperwidth]{\string"7.4.Advanced optimization\string".png}
+\includegraphics[scale=0.75]{\string"7.4.Advanced optimization\string".png}
 \par\end{centering}
 
 \caption{\label{fig:Advanced-Optimization}Advanced Optimization}
@@ -1301,7 +1298,7 @@ non-linear hypotheses)的好方法。
 \end{description}
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.8\paperwidth]{\string"8.2.Neurons and brain\string".png}
+\includegraphics[scale=0.75]{\string"8.2.Neurons and brain\string".png}
 \par\end{centering}
 
 \caption{大脑强大的学习能力}
@@ -1368,7 +1365,7 @@ layer)。关于这个神经网络是如何工作的，请参考图\ref{fig:Neura
 
 \begin{figure}[!tbh]
 \begin{centering}
-\includegraphics[width=0.8\paperwidth]{\string"8.3.Neural Network2\string".png}
+\includegraphics[scale=0.75]{\string"8.3.Neural Network2\string".png}
 \par\end{centering}
 
 \caption{\label{fig:Neural-Network(2)}Neural Network(2)}
@@ -1451,22 +1448,56 @@ logistic regression 产生更好的 hypotheses。
 
 \subsection{Examples and intuitions II}
 
-\includegraphics[width=0.7\paperwidth]{8\lyxdot 6\lyxdot examples2}
+在本节将进行更为复杂的非线性问题的求解。
 
-\includegraphics[scale=0.9]{8\lyxdot 6\lyxdot examples3}
+图\ref{fig:XNOR=00903B=008F91=007684=005B9E=0073B0=008FC7=007A0B}向我们展示了XNOR逻辑的具体实现过程。XNOR的真值表见图右下部分，即“相同为真，相异为假”，若以$x_{1}$和$x_{2}$为坐标轴，那么我们需要确定图\ref{fig:XNOR=00903B=008F91=007684=005B9E=0073B0=008FC7=007A0B}上部所示坐标系的
+decision boundary。通过组合图中上部的三个简单神经网络，可以构造出XNOR的神经网络，即中间一层使用AND和 NOT
+AND，输出层使用OR，得到的结果可以使用真值表检验。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{8\lyxdot 6\lyxdot examples2}
+\par\end{centering}
+
+\caption{\label{fig:XNOR=00903B=008F91=007684=005B9E=0073B0=008FC7=007A0B}XNOR逻辑的实现过程}
+\end{figure}
+
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{8\lyxdot 6\lyxdot examples3}
+\par\end{centering}
+
+\caption{\label{fig:=00795E=007ECF=007F51=007EDC=007684=007ECF=005178=006848=004F8B=00FF1A=006570=005B57=008BC6=00522B}神经网络的经典案例：数字识别}
+\end{figure}
+
 
 
 \subsection{Multi-class classification}
 
 
 \subsubsection{Multiple output units: One-vs-all}
-\begin{itemize}
-\item Suppose you have a multi-class classification problem with three classes,
-trained with a 3 layer network. Let $a_{2}^{(3)}=(h_{\Theta}(x))_{2}$
-be the activation of the first output unit, and similarly $a(3)2=(h\lyxmathsym{Θ}(x))2$
-and $a_{3}^{(3)}=(h_{\Theta}(x))_{3}$. Then for any input x, it must
-be the case that $a_{1}^{(3)}+a_{2}^{(3)}+a_{3}^{(3)}=1$。错误，因为输出并非是概率，所以输出的总和并不一定是1。
-\end{itemize}
+
+如图\ref{fig:One-vs-All-in-neural-net}，四个输出项分别标识了是否是步行、是否是轿车、是否时摩托车和是否是卡车。可见类似于之前的One-vs-All方法，这里有四个逻辑标识符(logistic
+classifier)。注意图中用的是约等号。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"8.7.1.One vs All\string".png}
+\par\end{centering}
+
+\caption{\label{fig:One-vs-All-in-neural-net}One vs All in Neural Network}
+
+
+\end{figure}
+
+
+课后习题：Suppose you have a multi-class classification problem with three
+classes, trained with a 3 layer network. Let $a_{2}^{(3)}=(h_{\Theta}(x))_{2}$
+（注意$\Theta$要用大写）be the activation of the first output unit, and similarly
+$a_{2}^{\left(3\right)}=(h_{\Theta}(x))2$ and $a_{3}^{(3)}=(h_{\Theta}(x))_{3}$.
+Then for any input x, it must be the case that $a_{1}^{(3)}+a_{2}^{(3)}+a_{3}^{(3)}=1$。答案：错误，因为输出并非是概率，所以输出的总和并不一定是1。
+
 
 \section{Neural Networks: Learning}
 
@@ -1476,7 +1507,18 @@ be the case that $a_{1}^{(3)}+a_{2}^{(3)}+a_{3}^{(3)}=1$。错误，因为输出
 
 \subsubsection{Neural Network (Classification)}
 
-\includegraphics{\string"9.1.Cost Function\string".png}
+\begin{figure}[!tbh]
+
+
+\begin{centering}
+\includegraphics[scale=0.75]{\string"9.1.Cost Function\string".png}\caption{\label{fig:Neural-Network-(Classification)}Neural Network (Classification)}
+
+\par\end{centering}
+
+\end{figure}
+
+
+图\ref{fig:Neural-Network-(Classification)}解释：
 
 L: 网络层数。
 
@@ -1484,7 +1526,8 @@ $s_{l}$: 第l层的节点个数（不包括bias节点）。
 
 k: output layer 的节点个数。
 
-我们将考虑binary classification 和 Muti-class classification 两种情况。
+我们将考虑binary classification 和 Muti-class classification($K\geqslant3$，$K=2$没意义)
+两种情况。
 
 
 \subsubsection{Cost function}
@@ -1492,27 +1535,28 @@ k: output layer 的节点个数。
 
 \paragraph{Logistic regression:}
 
-\[
-J\left(\theta\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}y^{\left(i\right)}\log h_{\theta}\left(x^{\left(i\right)}\right)+\left(1-y^{\left(i\right)}\right)\log\left(1-h_{\theta}\left(x^{\left(i\right)}\right)\right)\right]+\frac{\lambda}{2m}\sum_{j=1}^{n}\theta_{j}^{2}
-\]
+\begin{equation}
+J\left(\theta\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}y^{\left(i\right)}\log h_{\theta}\left(x^{\left(i\right)}\right)+\left(1-y^{\left(i\right)}\right)\log\left(1-h_{\theta}\left(x^{\left(i\right)}\right)\right)\right]+\frac{\lambda}{2m}\sum_{j=1}^{n}\theta_{j}^{2}\label{eq:cost func logistic regression with reg2}
+\end{equation}
 
 
-The cost function we use for the neural network is going to be a generalization
-of the one that we use for logistic regression(\ref{eq:cost func logistic regression with reg}). 
+The cost function we use for the neural network is going to be the
+generalization of the one that we use for logistic regression(见公式\ref{eq:cost func logistic regression with reg}和\ref{eq:cost func logistic regression with reg2}). 
 
 
-\paragraph{Neural network:(K个输出)}
+\paragraph{Neural network:(有K个输出)}
 
 \[
 h_{\Theta}\left(x\right)\in\mathbb{R}^{K}\qquad\left(h_{\Theta}\left(x\right)\right)_{i}=i^{th}\, output
 \]
 
 
-\[
+\begin{equation}
 \begin{aligned}J\left(\Theta\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}\sum_{k=1}^{K}y_{k}^{\left(i\right)}\log\left(h_{\Theta}\left(x^{\left(i\right)}\right)\right)_{k}+\left(1-y_{k}^{\left(i\right)}\right)\log\left(1-\left(h_{\Theta}\left(x^{\left(i\right)}\right)\right)_{k}\right)\right]\\
 +\frac{\lambda}{2m}\sum_{l=1}^{L-1}\sum_{i=1}^{s_{l}}\sum_{j=1}^{s_{l+1}}\left(\Theta_{ji}^{\left(l\right)}\right)^{2}
 \end{aligned}
-\]
+\label{eq:cost function of neural network}
+\end{equation}
 
 
 For logistic regression, we used to minimize the cost function j of
@@ -1525,82 +1569,187 @@ This is basically the sum over the K output unit. It's basically the
 logistic regression algorithm's cost function but \textbf{summing}
 that cost function over each of my output units in turn.
 
+因此在公式\ref{eq:cost function of neural network}中，我们使用了$y_{k}$和$h_{\Theta}\left(\ldots\right)_{k}$来表示针对每一个输出项的y和hypothesis。虽然该公式的regularization项看起来非常复杂，但无非是在计算除了bias
+unit（i=0）外所有的$\left(\Theta_{ji}^{\left(l\right)}\right)^{2}$的总和而已，和logistic
+regression一样，从1开始（去除bisa unit）而不是从0开始仅仅是个惯例，即使从0开始也不会有太大的不同。
+
 
 \subsection{Backpropagation Algorithm (to minimize the cost function)}
 
 
 \subsubsection{Gradient Comutation}
 
-\includegraphics{\string"9.2.backpropagation algorithm\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"9.2.backpropagation algorithm\string".png}
+\par\end{centering}
 
-What we want to do is to focus on how we can compute the partial derivative
-terms. (貌似 $a^{\left(1\right)}$应该加上bias unit)
-
-\includegraphics{\string"9.2.backpropagation algorithm2\string".png}
+\caption{\label{fig:Gradient-computation}Gradient computation}
+\end{figure}
 
 
-\subsubsection{Gradient computation: Backpropagation algorithm}
+如图\ref{fig:Gradient-computation}，What we want to do is to focus on
+how we can compute the \textbf{partial derivative }terms. 
 
-The intuition of the backpropagation algorithm is that for each note
-we're going to compute the term $\delta_{j}^{\left(l\right)}$ that's
-going to represent the \textbf{error} of node j in layer l. 
+让我们从只有一个training example $\left(x,y\right)$ 的情况开始，如图\ref{fig:Forward-propagation=008FC7=007A0B}所示，逐步计算cost
+function的偏导。第一步为forward propagation，用来计算hypothesis输出。
 
-\includegraphics{\string"9.2.backpropagation algorithm3\string".png}
+貌似图中的 $a^{\left(1\right)}$应该加上bias unit（$a_{0}^{\left(1\right)}$）。
 
-上式可以矢量化为 $\delta^{\left(4\right)}=a^{\left(4\right)}-y=\left(h_{\Theta}\left(x\right)\right)-y$ 
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"9.2.backpropagation algorithm2\string".png}
+\par\end{centering}
 
-下一步需要计算erlier layers的$\delta$：
+\caption{\label{fig:Forward-propagation=008FC7=007A0B}Forward propagation过程}
 
-$\delta^{\left(3\right)}=\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}\,.*g^{\prime}\left(z^{\left(3\right)}\right)$%
-\footnote{怀疑这里有一处错误：$z^{\left(3\right)}$是5{*}1的矩阵，然而$\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}$是6{*}1的，下同。
-编程训练时将$\Theta$中的bias unit 去掉以保证维度相等。%
+
+\end{figure}
+
+
+要计算偏导，下一步需要用到后向传播（backward-propagation）算法。对该算法的直观理解就是对每个节点计算一个$\delta_{j}^{\left(l\right)}$，表示节点$j$在第$l$层的“误差”（error）。比如要计算输出层节点的“误差”，如图\ref{fig:back-propagation intuition}，那么只需计算每个节点$a_{j}^{\left(4\right)}$和结果$y_{i}$的差距即可。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"9.2.backpropagation algorithm3\string".png}
+\par\end{centering}
+
+\caption{\label{fig:back-propagation intuition}back propagation intuition}
+
+
+\end{figure}
+
+
+注意图\ref{fig:back-propagation intuition}中的算式可以矢量化为 $\delta^{\left(4\right)}=a^{\left(4\right)}-y=\left(h_{\Theta}\left(x\right)\right)-y$ 
+
+下一步需要计算前面每一层的$\delta$，见式\ref{eq:compute delta for 3rd layer}、\ref{eq:compute delta for 2nd layer}。注意式\ref{eq:compute delta for 3rd layer}中$\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}$是一个向量，$g^{\prime}\left(z^{\left(3\right)}\right)$也是一个向量，他们之间使用的是点乘号（element
+wise），表示按元素进行乘法运算。
+
+\begin{equation}
+\delta^{\left(3\right)}=\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}\,.*g^{\prime}\left(z^{\left(3\right)}\right)\label{eq:compute delta for 3rd layer}
+\end{equation}
+\footnote{$z^{\left(3\right)}$是5{*}1的矢量，然而如果按之前$\Theta$的定义，那么$\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}$的结果应该是6{*}1的。
+因此这里的$\Theta$应该不包括bias unit，即$\Theta$是4{*}5的，这样结果就是5{*}1的了。编程训练中也是这样处理的。%
 }
 
-$\delta^{\left(2\right)}=\left(\Theta^{\left(2\right)}\right)^{T}\delta^{\left(3\right)}\,.*g^{\prime}\left(z^{\left(2\right)}\right)$
+\begin{equation}
+\delta^{\left(2\right)}=\left(\Theta^{\left(2\right)}\right)^{T}\delta^{\left(3\right)}\,.*g^{\prime}\left(z^{\left(2\right)}\right)\label{eq:compute delta for 2nd layer}
+\end{equation}
 
-这里，$g^{\prime}\left(z^{\left(3\right)}\right)$ is the derivative
-of the activation function $g\left(z^{\left(3\right)}\right)$:
 
-$g^{\prime}\left(z^{\left(3\right)}\right)=z^{\left(3\right)}\,.*\left(1-z^{\left(3\right)}\right)$\label{why:sigmoid's derivative}\marginpar{怎么计算出来的？}
+这里，$g^{\prime}\left(z^{\left(3\right)}\right)$ 是activation function
+$g\left(z^{\left(3\right)}\right)$的导数:
+
+\begin{equation}
+g^{\prime}\left(z^{\left(3\right)}\right)=a^{\left(3\right)}\,.*\left(1-a^{\left(3\right)}\right)\label{eq:partial derivative of cost func in NN without reg}
+\end{equation}
+
+
+这里不对该式的得出进行推导（我没看懂是怎么得出来的）。
 
 注意没有 $\delta_{1}$这一说。
 
 The name backpropagation comes from the fact that we start by computing
 the delta term for the output layer and then we \textbf{go back} a
-layer and compute the delta terms for that layer. So we are sort of
-backpropagating the errors from the current layer to the earlier layer.
+layer and compute the delta terms for that layer. So we are back propagating
+the errors from the current layer to the earlier layer.
 
-可以证明（过程比这个公式还要复杂，略掉），如果忽略regularization($\lambda=0$), 那么我们需要的偏导数
-$\frac{\partial}{\partial\Theta_{ij}^{\left(l\right)}}J\left(\Theta\right)=\delta_{i}^{\left(l+1\right)}a_{j}^{\left(l\right)}$
+最后得到的求偏导的公式非常复杂，可以证明（过程比这个公式还要复杂，故略掉），如果忽略regularization($\lambda=0$),
+那么我们需要的偏导数是：
+
+\begin{equation}
+\frac{\partial}{\partial\Theta_{ij}^{\left(l\right)}}J\left(\Theta\right)=\delta_{i}^{\left(l+1\right)}a_{j}^{\left(l\right)}\label{eq:partial derivative of cost func of logistic in NN without regularization}
+\end{equation}
+
 
 
 \subsubsection{Backpropagation algorithm}
 
-\includegraphics{\string"9.2.backpropagation algorithm4\string".png}\label{pic:backprop algorithm}%
-\footnote{文中计算$D_{ij}^{\left(l\right)}$的公式错误。应该为 $D_{ij}^{\left(l\right)}:=\frac{1}{m}\left(\Delta_{ij}^{\left(l\right)}+\lambda\Theta_{ij}^{\left(l\right)}\right)\qquad if\; j\neq0$%
+如果training example不止一个，在这里设定有m个，如图\ref{fig:Backward-propagation-algorithm}所示，首先设置$\Delta_{ij}^{\left(l\right)}=0$(for
+all l, i, j)，这里的$\Delta$是用来计算cost function的偏导的，而且正如即将看到的，$\Delta$其实是个累加数(Accumulator)。针对每个training
+example执行图中所示循环，每次循环都更新一次$\Delta$。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"9.2.backpropagation algorithm4\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Backward-propagation-algorithm}Backward propagation algorithm}
+
+
+\end{figure}
+
+
+\footnote{图\ref{fig:Backward-propagation-algorithm}中计算$D_{ij}^{\left(l\right)}$的公式错误。应该为
+$D_{ij}^{\left(l\right)}:=\frac{1}{m}\left(\Delta_{ij}^{\left(l\right)}+\lambda\Theta_{ij}^{\left(l\right)}\right)\qquad if\; j\neq0$%
 }
 
-\includegraphics{\string"9.2.backpropagation algorithm5\string".png}
+也如图中所示，$\Delta$的计算可以矢量化为$\Delta^{\left(l\right)}:=\Delta^{\left(l\right)}+\delta^{\left(l+1\right)}\left(a^{\left(l\right)}\right)^{T}$的形式。
+
+在循环外计算$D_{ij}^{\left(l\right)}$，分为$j=0$（bias unit）和$j\neq0$两种情况。
+
+可以证明，最后求得的$D_{ij}^{\left(l\right)}$就是cost function的偏导：
+
+\begin{equation}
+\frac{\partial}{\partial\Theta_{ij}^{\left(l\right)}}J\left(\Theta\right)=D_{ij}^{\left(l\right)}\label{eq:partial derivative of cost func of logistic in NN with regularization}
+\end{equation}
 
 
-\subsection{Implementation not: Unrolling parameters}
+课堂习题（图\ref{fig:=008BFE=005802=007EC3=004E60=00FF1A=008BA1=007B97gradient=006B65=009AA4}）的答案就是求gradient过程的简单概括。
 
-我们需要用到的函数一般都将$\theta$视为矢量，而神经网络中的$\theta$是矩阵，因此需要将矩阵转化为矢量后再进行运算。
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"9.2.backpropagation algorithm5\string".png}
+\par\end{centering}
 
-\includegraphics{\string"9.3.Unrolling parameters\string".png}
+\caption{\label{fig:=008BFE=005802=007EC3=004E60=00FF1A=008BA1=007B97gradient=006B65=009AA4}课堂练习：计算gradient步骤}
+\end{figure}
 
-\includegraphics{\string"9.3.Unrolling parameters2\string".png}
 
-以上便是矩阵到矢量和矢量到矩阵的转换方法。 
+
+\subsection{Implementation note: Unrolling parameters}
+
+我们需要用到的函数一般都将$\theta$视为矢量，而神经网络中的$\Theta$是矩阵，因此需要将矩阵转化为矢量后才能使用之前介绍过的函数进行计算（图\ref{fig:Need-to-unrol-params}）。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"9.3.Unrolling parameters\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Need-to-unrol-params}Need to unrol parameters}
+
+
+\end{figure}
+
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"9.3.Unrolling parameters2\string".png}
+\par\end{centering}
+
+\caption{\label{fig:=0077E9=009635=00548C=0077E2=0091CF=007684=004E92=008F6C}矩阵和矢量的互转}
+\end{figure}
+
+
+图\ref{fig:=0077E9=009635=00548C=0077E2=0091CF=007684=004E92=008F6C}所示便是矩阵到矢量和矢量到矩阵的转换方法。 
 
 
 \subsection{Gradient Checking}
 
 神经网络的后向算法可能会出现很多微妙的错误，因此最好在投入运作之前检查一下算法是否工作正常。
 
-\includegraphics{\string"9.4.Gradient Checking\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"9.4.Gradient Checking\string".png}
+\par\end{centering}
 
-上图是假设$\theta$是一个实数（$\theta\in\mathbb{R}$）的情况，我们通过检查斜率和我们估计的斜率值的误差是否在容许范围之内来判断算法是否工作正常。当$\theta$是矢量（$\theta\in\mathbb{R}$）时：
+\caption{\label{fig:Gradient=009519=008BEF=0068C0=0067E5}Gradient错误检查}
+
+
+\end{figure}
+
+
+图\ref{fig:Gradient=009519=008BEF=0068C0=0067E5}是假设$\theta$是一个实数（$\theta\in\mathbb{R}$）的情况，我们通过检查斜率和我们估计的斜率值的误差是否在容许范围之内来判断算法是否工作正常。当$\theta$是矢量（$\theta\in\mathbb{R}$）时：
 
 \includegraphics{\string"9.4.Gradient Checking2\string".png}
 
