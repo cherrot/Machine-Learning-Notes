@@ -188,12 +188,12 @@ J\left(\theta_{0},\theta_{1}\right)=\frac{1}{2m}\overset{m}{\underset{i=1}{\sum}
 
 \subsection{Cost function intuition I}
 
-如果$\theta_{0}=0$,那么cost function 是二维坐标系的弓形。
+如果$\theta_{0}=0$,那么cost function 是二维坐标系的弓形（一元二次方程）。
 
 
 \subsection{Cost function intuition II}
 
-cost function 如图\ref{fig:Cost-Function=007684=0076F4=0089C2=008868=00793A}所示(这种形状称为凸函数
+cost function 如图\ref{fig:Cost-Function=007684=0076F4=0089C2=008868=00793A}所示，自变量是$\theta_{0}$和$\theta_{1}$(这种形状称为凸函数
 convex funtion)：
 
 \begin{figure}[!tbh]
@@ -223,7 +223,9 @@ Plot)}
 
 \subsection{Gradient descent -- 求最小J($\theta_{0},\theta_{1}$)的算法}
 
-得到的是局部最优解，不一定是全局最优解，如图\ref{fig:Gradient-Descent=007684=008FC7=007A0B}所示，如果起始点不同，那么可能会得到不同的局部最优解（local
+$\theta$的初始值习惯上全部置为零（当然取别的值也无所谓）%
+\footnote{在神经网络中，$\Theta$的初始值却不能全部为0，详见\ref{sub:Random-Initialization}。%
+}。使用该算法得到的是局部最优解，不一定是全局最优解，如图\ref{fig:Gradient-Descent=007684=008FC7=007A0B}所示，如果起始点不同，那么可能会得到不同的局部最优解（local
 optimal）。
 
 \begin{figure}[!tbh]
@@ -239,23 +241,23 @@ optimal）。
 
 repeat until convergence\{
 
-\qquad{}$\theta_{j}:=\theta_{j}-\alpha\frac{\delta}{\delta\theta_{j}}J\left(\theta_{0},\theta_{1}\right)\; for\, j=0\, and\, j=1$
+\qquad{}$\theta_{j}:=\theta_{j}-\alpha\frac{\partial}{\partial\theta_{j}}J\left(\theta_{0},\theta_{1}\right)\; for\, j=0\, and\, j=1$
 
 \}
 \begin{description}
 \item [{:=}] 赋值号
 \item [{$\alpha$}] learning rate. Controls how big a step we take downhill
 with gradient descent.即梯度值，是个正数。
-\item [{偏导数(partial~derivative~term)}] 见下一节。偏导数和导数(用d而不是$\delta$表示)的区别在于参数个数,该题中有两个参数，只对一个求导，所以是偏导(partial)。
+\item [{偏导数(partial~derivative~term)}] 见下一节。偏导数和导数(用d而不是$\partial$表示)的区别在于参数个数,该题中有两个参数，只对一个求导，所以是偏导(partial)。
 \end{description}
-注意，我们需要同时更新(Simultaneous update)$\theta_{0}$和$\theta_{1}$：
+注意，我们需要同时更新(Simultaneous update)$\theta_{0}$和$\theta_{1}$（见图\ref{fig:=00540C=006B65=0066F4=0065B0}）。
 
 \begin{figure}[!tbh]
 \begin{centering}
 \includegraphics[scale=0.75]{\string"2.5\string". simultaneous update}
 \par\end{centering}
 
-\caption{同步更新}
+\caption{\label{fig:=00540C=006B65=0066F4=0065B0}同步更新}
 
 
 \end{figure}
@@ -264,7 +266,7 @@ with gradient descent.即梯度值，是个正数。
 
 \subsection{Gradient descent intuition}
 
-导数的作用见图\ref{fig:=0076F4=0089C2=007406=0089E3Gradient-Descent}：
+见图\ref{fig:=0076F4=0089C2=007406=0089E3Gradient-Descent}，以$\theta_{1}$为例，如果落点在最小点右边，那么函数偏导是负数，$\theta_{1}$的值会随之减小（向最小点靠近）；如果落点在最小点左边，那么求导结果是负数，那么$\theta_{1}$的值会随之增大。最终的结果就是使$\theta_{1}$落在或逼近最小点。
 
 \begin{figure}[!tbh]
 \begin{centering}
@@ -290,9 +292,9 @@ the training examples.
 
 \subsection{Matrices \& Vectors}
 
-$4\times2$矩阵常表示为$\mathbb{R}^{4\times2}$
+$\mathbb{R}^{4\times2}$表示4行2列的实数矩阵。
 \begin{description}
-\item [{Vector}] An $n\times1$matrix.一个n维向量被表示成$\mathbb{R}^{n}$
+\item [{Vector}] $n\times1$的矩阵。$\mathbb{R}^{n}$表示n维的实数向量。
 \end{description}
 
 \subsection{加法}
@@ -425,7 +427,7 @@ Descent}
 
 
 
-\subsection{Gradient descent in practice I:Feature Scaling}
+\subsection{Gradient descent in practice I:Feature Scaling\label{sub:Gradient-descent-in-practice-1-feature-scaling}}
 
 Make sure features are on a similar scale。
 
@@ -536,8 +538,6 @@ Equation的区别：
 
 \caption{\label{fig:Gradient-Descent-Normal-Equation}Gradient Descent 与 Normal
 Equation的区别}
-
-
 \end{figure}
 
 
@@ -546,9 +546,9 @@ Equation的区别}
 
 \subsection{Normal equation and non-invertibility(不可逆性)}
 
-\[
+\begin{equation}
 \theta=\left(X^{T}X\right)^{-1}X^{T}y
-\]
+\end{equation}
 
 
 $X^{T}X$如果是不可逆的怎么办（虽然很少见）？（sigular/degenerate）%
@@ -922,7 +922,7 @@ The topic of convexity analysis is beyond the scope of this course.
 \subsection{Simplified cost function and gradient descent}
 
 \begin{equation}
-J\left(\theta\right)=\frac{1}{m}\sum_{i=1}^{m}Cost\left(h_{\theta}\left(x^{\left(i\right)}\right),y^{\left(i\right)}\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}y^{\left(i\right)}\log h_{\theta}\left(x^{\left(i\right)}\right)+\left(1-y^{\left(i\right)}\right)\log\left(1-h_{\theta}\left(x^{\left(i\right)}\right)\right)\right]\label{eq:cost function for logistic regression}
+J\left(\theta\right)=\frac{1}{m}\sum_{i=1}^{m}Cost\left(h_{\theta}\left(x^{\left(i\right)}\right),y^{\left(i\right)}\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}y^{\left(i\right)}\log h_{\theta}\left(x^{\left(i\right)}\right)+\left(1-y^{\left(i\right)}\right)\log\left(1-h_{\theta}\left(x^{\left(i\right)}\right)\right)\right]\label{eq:simplified cost function for logistic regression}
 \end{equation}
 
 
@@ -945,7 +945,7 @@ $\theta_{j}\,:=\theta_{j}-\alpha\frac{\delta}{\delta\theta_{j}}J\left(\theta\rig
 \footnote{\textbf{怎么算的？} 我的猜想是，sigmoid函数只是起函数域的限定作用，不改变原函数的增长性，所以为了计算简便，求导时不考虑sigmoid函数。求证。%
 }，见\ref{fig:=00591A=0053D8=0091CF=007684Gradient-Descent}。\textbf{\label{why:gradient descent=006C42=005BFC=00516C=005F0F=007591=0095EE}}
 
-该算法同样可以使用feature scaling来优化计算。
+该算法同样可以使用feature scaling（见\ref{sub:Gradient-descent-in-practice-1-feature-scaling}节）来优化计算。
 
 
 \subsection{Advanced Optimization}
@@ -1499,7 +1499,7 @@ $a_{2}^{\left(3\right)}=(h_{\Theta}(x))2$ and $a_{3}^{(3)}=(h_{\Theta}(x))_{3}$.
 Then for any input x, it must be the case that $a_{1}^{(3)}+a_{2}^{(3)}+a_{3}^{(3)}=1$。答案：错误，因为输出并非是概率，所以输出的总和并不一定是1。
 
 
-\section{Neural Networks: Learning}
+\section{Neural Networks: Learning(the parameters)}
 
 
 \subsection{Cost Function}
@@ -1574,7 +1574,7 @@ unit（i=0）外所有的$\left(\Theta_{ji}^{\left(l\right)}\right)^{2}$的总�
 regression一样，从1开始（去除bisa unit）而不是从0开始仅仅是个惯例，即使从0开始也不会有太大的不同。
 
 
-\subsection{Backpropagation Algorithm (to minimize the cost function)}
+\subsection{Backpropagation Algorithm (to compute derivation of cost function)}
 
 
 \subsubsection{Gradient Comutation}
@@ -1592,7 +1592,9 @@ regression一样，从1开始（去除bisa unit）而不是从0开始仅仅是�
 how we can compute the \textbf{partial derivative }terms. 
 
 让我们从只有一个training example $\left(x,y\right)$ 的情况开始，如图\ref{fig:Forward-propagation=008FC7=007A0B}所示，逐步计算cost
-function的偏导。第一步为forward propagation，用来计算hypothesis输出。
+function的偏导。第一步为forward propagation，用来计算hypothesis输出。%
+\footnote{在设计神经网络时，我们自然是没有现成的矩阵的（我们的任务也就是计算$\Theta$矩阵），然而却需要先用前向传播算法计算Hypothesis(这势必要用到$\Theta$)。虽然课程未做说明，但这里的$\Theta$往往是随机生成的值，具体可以参考第\ref{sub:Random-Initialization}节和\ref{sub:Putting-It-Together}节。这里只是提醒一下，以免看到相关内容时会困惑。%
+}
 
 貌似图中的 $a^{\left(1\right)}$应该加上bias unit（$a_{0}^{\left(1\right)}$）。
 
@@ -1607,14 +1609,14 @@ function的偏导。第一步为forward propagation，用来计算hypothesis输�
 \end{figure}
 
 
-要计算偏导，下一步需要用到后向传播（backward-propagation）算法。对该算法的直观理解就是对每个节点计算一个$\delta_{j}^{\left(l\right)}$，表示节点$j$在第$l$层的“误差”（error）。比如要计算输出层节点的“误差”，如图\ref{fig:back-propagation intuition}，那么只需计算每个节点$a_{j}^{\left(4\right)}$和结果$y_{i}$的差距即可。
+要计算偏导，下一步需要用到后向传播（backpropagation）算法。对该算法的直观理解就是对每个节点计算一个$\delta_{j}^{\left(l\right)}$，表示节点$j$在第$l$层的“误差”（error）。比如要计算输出层节点的“误差”，如图\ref{fig:back-propagation intuition}，那么只需计算每个节点$a_{j}^{\left(4\right)}$和结果$y_{i}$的差距即可。
 
 \begin{figure}[!tbh]
 \begin{centering}
 \includegraphics[scale=0.75]{\string"9.2.backpropagation algorithm3\string".png}
 \par\end{centering}
 
-\caption{\label{fig:back-propagation intuition}back propagation intuition}
+\caption{\label{fig:back-propagation intuition}backpropagation intuition}
 
 
 \end{figure}
@@ -1622,15 +1624,16 @@ function的偏导。第一步为forward propagation，用来计算hypothesis输�
 
 注意图\ref{fig:back-propagation intuition}中的算式可以矢量化为 $\delta^{\left(4\right)}=a^{\left(4\right)}-y=\left(h_{\Theta}\left(x\right)\right)-y$ 
 
-下一步需要计算前面每一层的$\delta$，见式\ref{eq:compute delta for 3rd layer}、\ref{eq:compute delta for 2nd layer}。注意式\ref{eq:compute delta for 3rd layer}中$\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}$是一个向量，$g^{\prime}\left(z^{\left(3\right)}\right)$也是一个向量，他们之间使用的是点乘号（element
-wise），表示按元素进行乘法运算。
+下一步需要计算前面每一层的$\delta$，见式\ref{eq:compute delta for 3rd layer}、\ref{eq:compute delta for 2nd layer}。注意式\ref{eq:compute delta for 3rd layer}中$\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}$是一个矢量，$g^{\prime}\left(z^{\left(3\right)}\right)$也是一个矢量，他们之间使用的是点乘号（element
+wise），表示按元素进行乘法运算（两矢量的对应元素分别相乘）。%
+\footnote{$z^{\left(3\right)}$是5{*}1的矢量，然而如果按之前$\Theta$的定义，那么$\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}$的结果应该是6{*}1的。因此这里的$\Theta$应该不包括bias
+unit，即$\Theta$是4{*}5的，这样结果就是5{*}1的了。编程训练中也是这样处理的。%
+}
 
 \begin{equation}
 \delta^{\left(3\right)}=\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}\,.*g^{\prime}\left(z^{\left(3\right)}\right)\label{eq:compute delta for 3rd layer}
 \end{equation}
-\footnote{$z^{\left(3\right)}$是5{*}1的矢量，然而如果按之前$\Theta$的定义，那么$\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}$的结果应该是6{*}1的。
-因此这里的$\Theta$应该不包括bias unit，即$\Theta$是4{*}5的，这样结果就是5{*}1的了。编程训练中也是这样处理的。%
-}
+
 
 \begin{equation}
 \delta^{\left(2\right)}=\left(\Theta^{\left(2\right)}\right)^{T}\delta^{\left(3\right)}\,.*g^{\prime}\left(z^{\left(2\right)}\right)\label{eq:compute delta for 2nd layer}
@@ -1645,7 +1648,7 @@ g^{\prime}\left(z^{\left(3\right)}\right)=a^{\left(3\right)}\,.*\left(1-a^{\left
 \end{equation}
 
 
-这里不对该式的得出进行推导（我没看懂是怎么得出来的）。
+这里不对该式的得出进行推导（我没看懂是怎么得出来的）。\label{why:sigmoid=0051FD=006570=006C42=005BFC=007684=0063A8=005BFC}
 
 注意没有 $\delta_{1}$这一说。
 
@@ -1674,7 +1677,7 @@ example执行图中所示循环，每次循环都更新一次$\Delta$。
 \includegraphics[scale=0.75]{\string"9.2.backpropagation algorithm4\string".png}
 \par\end{centering}
 
-\caption{\label{fig:Backward-propagation-algorithm}Backward propagation algorithm}
+\caption{\label{fig:Backward-propagation-algorithm}Backpropagation algorithm}
 
 
 \end{figure}
@@ -1709,7 +1712,7 @@ $D_{ij}^{\left(l\right)}:=\frac{1}{m}\left(\Delta_{ij}^{\left(l\right)}+\lambda\
 
 \subsection{Implementation note: Unrolling parameters}
 
-我们需要用到的函数一般都将$\theta$视为矢量，而神经网络中的$\Theta$是矩阵，因此需要将矩阵转化为矢量后才能使用之前介绍过的函数进行计算（图\ref{fig:Need-to-unrol-params}）。
+我们需要用到的函数一般都将$\theta$视为矢量，而神经网络中的$\Theta$是矩阵，因此需要将矩阵转化为矢量后才能使用之前介绍过的函数（如fminunc）进行计算（图\ref{fig:Need-to-unrol-params}）。
 
 \begin{figure}[!tbh]
 \begin{centering}
@@ -1749,20 +1752,46 @@ $D_{ij}^{\left(l\right)}:=\frac{1}{m}\left(\Delta_{ij}^{\left(l\right)}+\lambda\
 \end{figure}
 
 
-图\ref{fig:Gradient=009519=008BEF=0068C0=0067E5}是假设$\theta$是一个实数（$\theta\in\mathbb{R}$）的情况，我们通过检查斜率和我们估计的斜率值的误差是否在容许范围之内来判断算法是否工作正常。当$\theta$是矢量（$\theta\in\mathbb{R}$）时：
+图\ref{fig:Gradient=009519=008BEF=0068C0=0067E5}是假设$\theta$是一个实数（$\theta\in\mathbb{R}$）的情况，我们通过检查斜率和我们估计的斜率值的误差是否在容许范围之内来判断算法是否工作正常。当$\theta$是矢量（$\theta\in\mathbb{R}$）时，我们计算的近似斜率如图\ref{fig:=008FD1=004F3C=00659C=007387=007684=008BA1=007B97}：
 
-\includegraphics{\string"9.4.Gradient Checking2\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"9.4.Gradient Checking2\string".png}
+\par\end{centering}
 
-在Octave中实现：
-
-\includegraphics{\string"9.4.Gradient Checking3\string".png}
-
-实现提示：检查无误后，记得关掉Gradient checking(time costing)。
-
-\includegraphics{\string"9.4.Gradient Checking4\string".png}
+\caption{\label{fig:=008FD1=004F3C=00659C=007387=007684=008BA1=007B97}近似斜率的计算}
 
 
-\subsection{Random Initialization}
+\end{figure}
+
+
+在Octave中实现如图\ref{fig:Octave=005B9E=0073B0=007684=008FD1=004F3C=00659C=007387}：
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"9.4.Gradient Checking3\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Octave=005B9E=0073B0=007684=008FD1=004F3C=00659C=007387}Octave实现的近似斜率}
+\end{figure}
+
+
+实现提示：检查无误后，记得关掉Gradient checking(time costing)。相比后向传播，Gradient计算是非常耗时的（图\ref{fig:=004F7F=007528=00540E=005411=004F20=0064AD=00800C=004E0D=00662FGradient-descent=007684=00539F=0056E0}）。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"9.4.Gradient Checking4\string".png}
+\par\end{centering}
+
+\caption{\label{fig:=004F7F=007528=00540E=005411=004F20=0064AD=00800C=004E0D=00662FGradient-descent=007684=00539F=0056E0}使用后向传播而不是Gradient
+descent的原因}
+
+
+\end{figure}
+
+
+
+\subsection{Random Initialization\label{sub:Random-Initialization}}
 
 
 \subsubsection{Initial value of $\Theta$}
@@ -1770,22 +1799,29 @@ $D_{ij}^{\left(l\right)}:=\frac{1}{m}\left(\Delta_{ij}^{\left(l\right)}+\lambda\
 For gradient descent and advanced optimization method, need initial
 value for $\Theta$.
 
-把$\Theta$初始化为零向量（在logistic regression中就是这么做的）在 神经网络中是行不通的：
+把$\Theta$初始化为零向量（在logistic regression中就是这么做的）在 神经网络中是行不通的，见图\ref{fig:=005C06=00521D=0059CB=005316=004E3A0=007684=0095EE=009898}，在每次更新（gradient
+descent, etc）后，每个参数的权重永远是相同的。有时这被称作 The problem of symmetric weights.
 
-\includegraphics{\string"9.5.Random Init\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"9.5.Random Init\string".png}
+\par\end{centering}
 
-在每次更新（gradient descent, etc）后，每个参数的权重永远是相同的。有时这被称作 The problem of
-symmetric weights.
+\caption{\label{fig:=005C06=00521D=0059CB=005316=004E3A0=007684=0095EE=009898}将$\Theta$初始化为0将导致每一层元素全部相同}
+\end{figure}
+
 
 
 \subsubsection{Random initialization: Symmetry(对称) breaking}
 
 将每一个$\Theta_{ij}^{\left(l\right)}$初始化为$\left[-\epsilon,\epsilon\right]$之间的随机值：
 \begin{lyxcode}
+\begin{center}
 Theta1~=~rand(10,11){*}(2{*}INIT\_EPSILON)~-~INIT\_EPSILON;
+\par\end{center}
 \end{lyxcode}
 
-\subsection{Putting It Together}
+\subsection{Putting It Together\label{sub:Putting-It-Together}}
 
 
 \subsubsection{Training a neural network}
@@ -1798,20 +1834,29 @@ Theta1~=~rand(10,11){*}(2{*}INIT\_EPSILON)~-~INIT\_EPSILON;
 \item Reasonable default: 1 hidden layer, or if >1 hidden layer, have same
 number of hidden units in every layer.
 \item Usually the number of hidden units in each layer will be comparable
-to the dimension of x. Same number or 3 or 4 times of that(usually
+to the dimension of $x$. Same number or 3 or 4 times of that(usually
 the more the better).
 \end{itemize}
-\item Randomly initialize weight
+\item Randomly initialize weights.
 \item Implement forward propagation to get $h_{\Theta}\left(x^{\left(i\right)}\right)$
 for any $x^{\left(i\right)}$.
 \item Implement code to compute cost function $J\left(\Theta\right)$.
 \item Implement backprop to compute partial derivatives $\frac{\partial}{\partial\Theta_{jk}^{\left(l\right)}}J\left(\Theta\right)$.
 
 
-\includegraphics{\string"9.6.put together\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"9.6.put together\string".png}
+\par\end{centering}
+
+\caption{\label{fig:backpropagation-contour}backpropagation contour}
 
 
-完整算法见 \ref{pic:backprop algorithm}
+\end{figure}
+
+
+
+图\ref{fig:backpropagation-contour}为后向传播算法概述，完整算法见 \ref{fig:Backward-propagation-algorithm}。
 
 \item Use gradient checking to compare $\frac{\partial}{\partial\Theta_{jk}^{\left(l\right)}}J\left(\Theta\right)$
 computed using backpropagation vs. using numerical estimate of gradient
@@ -1822,19 +1867,28 @@ to compute $\frac{\partial}{\partial\Theta_{jk}^{\left(l\right)}}J\left(\Theta\r
 ) to try to minimize $J\left(\Theta\right)$ as a function of parameters
 $\Theta$.
 \end{enumerate}
-\textbf{注意}：在z神经网络中，$J\left(\Theta\right)$ 是 non-convex 的。所以s理论上可能会得到局部最优解。不过在实践中这并不是一个大问题，通常得到的解已足够令人满意。
+\textbf{注意}：在神经网络中，$J\left(\Theta\right)$ 是 non-convex 的。所以s理论上可能会得到局部最优解。不过在实践中这并不是一个大问题，通常得到的解已足够令人满意。
 
-Gradient descent 的直观描述：
+Gradient descent 的直观描述见图\ref{fig:=0056DE=00987EGradient-descent}。
 
-\includegraphics{\string"9.6.put together2\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"9.6.put together2\string".png}
+\par\end{centering}
+
+\caption{\label{fig:=0056DE=00987EGradient-descent}回顾Gradient descent}
+
+
+\end{figure}
+
 
 What gradient descent does is starting from some random initial point,
-and it will repeatedly go downhill. And so what back-propagation is
+and it will repeatedly go downhill. And so what backpropagation is
 doing is computing the direction of the gradient, and what gradient
 descent is doing is taking little steps downhill untill hopefully
 it gets to a pretty good local optimum.
 
-When you implement back-propagation and use gradient descent or one
+When you implement backpropagation and use gradient descent or one
 of the advanced optimization methods, this picture sort of explaining
 what the algorithm is doing.
 
@@ -1844,9 +1898,18 @@ what the algorithm is doing.
 
 \subsection{Deciding what to try next}
 
-\includegraphics{\string"10.1.Deciding what to do next\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"10.1.Deciding what to do next\string".png}
+\par\end{centering}
 
-在之后的课程里，将会介绍Machine learning diagnostic.
+\caption{\label{fig:What-to-try-next}What to try next}
+
+
+\end{figure}
+
+
+如图\ref{fig:What-to-try-next}，在之后的课程里，将会介绍Machine learning diagnostic.
 
 It's a test that you can run to gain insight what is/isn't working
 with a learning algorithm, and gain guidance as to how best to improve
@@ -1862,12 +1925,37 @@ its performance.
 
 \subsubsection{Training/testing procedure for linear regression}
 
-\includegraphics{\string"10.2.procedure for linear regression\string".png}
+见图\ref{fig:Training/testing-for-linear-gregression}。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"10.2.procedure for linear regression\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Training/testing-for-linear-gregression}Training/testing
+procedure for linear regression}
+
+
+\end{figure}
+
 
 
 \subsubsection{Training/testing procedure for logistic regression(classification)}
 
-\includegraphics{\string"10.2.procedure for logistic regression\string".png}
+图\ref{fig:Training/testing-procedure-for-classification}给出了两种检验学习质量的方法，一种是使用cost
+function，另一种称为misclassification error。不论使用哪种方法，如果算出的误差偏大，那么说明机器学习的质量偏低。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"10.2.procedure for logistic regression\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Training/testing-procedure-for-classification}Training/testing
+procedure for classification}
+
+
+\end{figure}
+
 
 
 \subsection{Model selection and training/validation/test sets}
@@ -1875,27 +1963,53 @@ its performance.
 Suppose you'd like to decide what the degree of polynomial to fit
 to a data set, sort of what features to include to give you a learning
 algorithm. Or suppose you'd like to choose the regularization parameter
-$\lambda$ for the learning algorithm. These are called model selection
-problems.
+$\lambda$ for the learning algorithm. These are called \textbf{model
+selection problems}.
 
 在model selection 问题中，我们将把data set分成trainig、validation 和 test 三部分，而不只是
 training 和 test 两部分。
 
-\includegraphics{\string"10.3.model selection\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"10.3.model selection\string".png}
+\par\end{centering}
 
-\includegraphics{\string"10.3.model selection2\string".png}
+\caption{\label{fig:Overfitting-example}Overfitting example}
 
-使用 $J_{test}\left(\theta^{\left(5\right)}\right)$来估计how well the
-model generalize是不公平的。因为What we done is we fit the extra parameter
-$d$ using the test set, 那么我们据此得到的 $\Theta^{\left(5\right)}$ 可能过于乐观的估计了它的generalization.
-也就是说，建立在 test set 上的估计是不全面的。
 
-现在我们将数据分成三部分： Training set, Cross validation set 和 Test set，大概是6:2:2的比例：
+\end{figure}
+
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"10.3.model selection2\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Model-slection}Model slection}
+\end{figure}
+
+
+如图\ref{fig:Model-slection}所示，假定我们列出d=1到d=10（d 表示多项式的维度）10个模型，然后计算每个模型的测试误差(test
+error)$J_{test}\left(\theta\right)$，最后选择测试误差最小的模型。假设我们最终选择的模型是d=5的多项式，可以看到，使用
+$J_{test}\left(\theta^{\left(5\right)}\right)$来估计模型的归纳质量是不公平的。因为What
+we done is we fit the extra parameter $d$ to the test set（即找出d的最小值），那么我们据此选择的模型得到的
+$\Theta$ 可能过于乐观的估计了它的归纳效果。 也就是说，建立在 test set 上的估计是不全面的。
+
+现在我们将数据分成三部分： Training set, Cross validation set 和 Test set，大概是6:2:2的比例，见图\ref{fig:Evaluating-hypothesis}。
 
 
 \subsubsection{Evaluating your hypothesis}
 
-\includegraphics{\string"10.3.model selection3\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"10.3.model selection3\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Evaluating-hypothesis}Evaluating hypothesis}
+
+
+\end{figure}
+
 
 
 \subsubsection{Train/validation/test error}

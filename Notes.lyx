@@ -523,7 +523,7 @@ Cost function intuition I
 \begin_inset Formula $\theta_{0}=0$
 \end_inset
 
-,那么cost function 是二维坐标系的弓形。
+,那么cost function 是二维坐标系的弓形（一元二次方程）。
 \end_layout
 
 \begin_layout Subsection
@@ -538,7 +538,15 @@ reference "fig:Cost-Function的直观表示"
 
 \end_inset
 
-所示(这种形状称为凸函数 convex funtion)：
+所示，自变量是
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+和
+\begin_inset Formula $\theta_{1}$
+\end_inset
+
+(这种形状称为凸函数 convex funtion)：
 \end_layout
 
 \begin_layout Standard
@@ -649,7 +657,31 @@ Gradient descent -- 求最小J(
 \end_layout
 
 \begin_layout Standard
-得到的是局部最优解，不一定是全局最优解，如图
+\begin_inset Formula $\theta$
+\end_inset
+
+的初始值习惯上全部置为零（当然取别的值也无所谓）
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+在神经网络中，
+\begin_inset Formula $\Theta$
+\end_inset
+
+的初始值却不能全部为0，详见
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Random-Initialization"
+
+\end_inset
+
+。
+\end_layout
+
+\end_inset
+
+。使用该算法得到的是局部最优解，不一定是全局最优解，如图
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Gradient-Descent的过程"
@@ -713,7 +745,7 @@ repeat until convergence{
 \end_inset
 
 
-\begin_inset Formula $\theta_{j}:=\theta_{j}-\alpha\frac{\delta}{\delta\theta_{j}}J\left(\theta_{0},\theta_{1}\right)\; for\, j=0\, and\, j=1$
+\begin_inset Formula $\theta_{j}:=\theta_{j}-\alpha\frac{\partial}{\partial\theta_{j}}J\left(\theta_{0},\theta_{1}\right)\; for\, j=0\, and\, j=1$
 \end_inset
 
 
@@ -745,7 +777,7 @@ derivative
 \end_inset
 
 term) 见下一节。偏导数和导数(用d而不是
-\begin_inset Formula $\delta$
+\begin_inset Formula $\partial$
 \end_inset
 
 表示)的区别在于参数个数,该题中有两个参数，只对一个求导，所以是偏导(partial)。
@@ -760,7 +792,14 @@ term) 见下一节。偏导数和导数(用d而不是
 \begin_inset Formula $\theta_{1}$
 \end_inset
 
-：
+（见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:同步更新"
+
+\end_inset
+
+）。
 \end_layout
 
 \begin_layout Standard
@@ -785,6 +824,12 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:同步更新"
+
+\end_inset
+
 同步更新
 \end_layout
 
@@ -807,14 +852,30 @@ Gradient descent intuition
 \end_layout
 
 \begin_layout Standard
-导数的作用见图
+见图
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:直观理解Gradient-Descent"
 
 \end_inset
 
-：
+，以
+\begin_inset Formula $\theta_{1}$
+\end_inset
+
+为例，如果落点在最小点右边，那么函数偏导是负数，
+\begin_inset Formula $\theta_{1}$
+\end_inset
+
+的值会随之减小（向最小点靠近）；如果落点在最小点左边，那么求导结果是负数，那么
+\begin_inset Formula $\theta_{1}$
+\end_inset
+
+的值会随之增大。最终的结果就是使
+\begin_inset Formula $\theta_{1}$
+\end_inset
+
+落在或逼近最小点。
 \end_layout
 
 \begin_layout Standard
@@ -884,26 +945,22 @@ Matrices & Vectors
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $4\times2$
-\end_inset
-
-矩阵常表示为
 \begin_inset Formula $\mathbb{R}^{4\times2}$
 \end_inset
 
-
+表示4行2列的实数矩阵。
 \end_layout
 
 \begin_layout Description
-Vector An 
+Vector 
 \begin_inset Formula $n\times1$
 \end_inset
 
-matrix.一个n维向量被表示成
+的矩阵。
 \begin_inset Formula $\mathbb{R}^{n}$
 \end_inset
 
-
+表示n维的实数向量。
 \end_layout
 
 \begin_layout Subsection
@@ -1331,6 +1388,13 @@ name "fig:多变量的Gradient-Descent"
 
 \begin_layout Subsection
 Gradient descent in practice I:Feature Scaling
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Gradient-descent-in-practice-1-feature-scaling"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1755,10 +1819,6 @@ Gradient Descent 与 Normal Equation的区别
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -1774,9 +1834,9 @@ Normal equation and non-invertibility(不可逆性)
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
+\begin{equation}
 \theta=\left(X^{T}X\right)^{-1}X^{T}y
-\]
+\end{equation}
 
 \end_inset
 
@@ -2960,7 +3020,7 @@ Simplified cost function and gradient descent
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-J\left(\theta\right)=\frac{1}{m}\sum_{i=1}^{m}Cost\left(h_{\theta}\left(x^{\left(i\right)}\right),y^{\left(i\right)}\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}y^{\left(i\right)}\log h_{\theta}\left(x^{\left(i\right)}\right)+\left(1-y^{\left(i\right)}\right)\log\left(1-h_{\theta}\left(x^{\left(i\right)}\right)\right)\right]\label{eq:cost function for logistic regression}
+J\left(\theta\right)=\frac{1}{m}\sum_{i=1}^{m}Cost\left(h_{\theta}\left(x^{\left(i\right)}\right),y^{\left(i\right)}\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}y^{\left(i\right)}\log h_{\theta}\left(x^{\left(i\right)}\right)+\left(1-y^{\left(i\right)}\right)\log\left(1-h_{\theta}\left(x^{\left(i\right)}\right)\right)\right]\label{eq:simplified cost function for logistic regression}
 \end{equation}
 
 \end_inset
@@ -3060,7 +3120,14 @@ name "why:gradient descent求导公式疑问"
 \end_layout
 
 \begin_layout Standard
-该算法同样可以使用feature scaling来优化计算。
+该算法同样可以使用feature scaling（见
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Gradient-descent-in-practice-1-feature-scaling"
+
+\end_inset
+
+节）来优化计算。
 \end_layout
 
 \begin_layout Subsection
@@ -5142,7 +5209,7 @@ One vs All in Neural Network
 \end_layout
 
 \begin_layout Section
-Neural Networks: Learning
+Neural Networks: Learning(the parameters)
 \end_layout
 
 \begin_layout Subsection
@@ -5354,7 +5421,7 @@ reference "eq:cost function of neural network"
 \end_layout
 
 \begin_layout Subsection
-Backpropagation Algorithm (to minimize the cost function)
+Backpropagation Algorithm (to compute derivation of cost function)
 \end_layout
 
 \begin_layout Subsubsection
@@ -5430,6 +5497,42 @@ reference "fig:Forward-propagation过程"
 \end_inset
 
 所示，逐步计算cost function的偏导。第一步为forward propagation，用来计算hypothesis输出。
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+在设计神经网络时，我们自然是没有现成的矩阵的（我们的任务也就是计算
+\begin_inset Formula $\Theta$
+\end_inset
+
+矩阵），然而却需要先用前向传播算法计算Hypothesis(这势必要用到
+\begin_inset Formula $\Theta$
+\end_inset
+
+)。虽然课程未做说明，但这里的
+\begin_inset Formula $\Theta$
+\end_inset
+
+往往是随机生成的值，具体可以参考第
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Random-Initialization"
+
+\end_inset
+
+节和
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Putting-It-Together"
+
+\end_inset
+
+节。这里只是提醒一下，以免看到相关内容时会困惑。
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5489,7 +5592,7 @@ Forward propagation过程
 \end_layout
 
 \begin_layout Standard
-要计算偏导，下一步需要用到后向传播（backward-propagation）算法。对该算法的直观理解就是对每个节点计算一个
+要计算偏导，下一步需要用到后向传播（backpropagation）算法。对该算法的直观理解就是对每个节点计算一个
 \begin_inset Formula $\delta_{j}^{\left(l\right)}$
 \end_inset
 
@@ -5546,7 +5649,7 @@ name "fig:back-propagation intuition"
 
 \end_inset
 
-back propagation intuition
+backpropagation intuition
 \end_layout
 
 \end_inset
@@ -5608,24 +5711,13 @@ reference "eq:compute delta for 3rd layer"
 \begin_inset Formula $\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}$
 \end_inset
 
-是一个向量，
+是一个矢量，
 \begin_inset Formula $g^{\prime}\left(z^{\left(3\right)}\right)$
 \end_inset
 
-也是一个向量，他们之间使用的是点乘号（element wise），表示按元素进行乘法运算。
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\delta^{\left(3\right)}=\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}\,.*g^{\prime}\left(z^{\left(3\right)}\right)\label{eq:compute delta for 3rd layer}
-\end{equation}
-
-\end_inset
-
-
+也是一个矢量，他们之间使用的是点乘号（element wise），表示按元素进行乘法运算（两矢量的对应元素分别相乘）。
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Formula $z^{\left(3\right)}$
@@ -5639,7 +5731,7 @@ status open
 \begin_inset Formula $\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}$
 \end_inset
 
-的结果应该是6*1的。 因此这里的
+的结果应该是6*1的。因此这里的
 \begin_inset Formula $\Theta$
 \end_inset
 
@@ -5649,6 +5741,17 @@ status open
 
 是4*5的，这样结果就是5*1的了。编程训练中也是这样处理的。
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\delta^{\left(3\right)}=\left(\Theta^{\left(3\right)}\right)^{T}\delta^{\left(4\right)}\,.*g^{\prime}\left(z^{\left(3\right)}\right)\label{eq:compute delta for 3rd layer}
+\end{equation}
 
 \end_inset
 
@@ -5691,6 +5794,13 @@ g^{\prime}\left(z^{\left(3\right)}\right)=a^{\left(3\right)}\,.*\left(1-a^{\left
 
 \begin_layout Standard
 这里不对该式的得出进行推导（我没看懂是怎么得出来的）。
+\begin_inset CommandInset label
+LatexCommand label
+name "why:sigmoid函数求导的推导"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5789,7 +5899,7 @@ name "fig:Backward-propagation-algorithm"
 
 \end_inset
 
-Backward propagation algorithm
+Backpropagation algorithm
 \end_layout
 
 \end_inset
@@ -5945,7 +6055,7 @@ Implementation note: Unrolling parameters
 \begin_inset Formula $\Theta$
 \end_inset
 
-是矩阵，因此需要将矩阵转化为矢量后才能使用之前介绍过的函数进行计算（图
+是矩阵，因此需要将矩阵转化为矢量后才能使用之前介绍过的函数（如fminunc）进行计算（图
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Need-to-unrol-params"
@@ -6126,12 +6236,54 @@ reference "fig:Gradient错误检查"
 \begin_inset Formula $\theta\in\mathbb{R}$
 \end_inset
 
-）时：
+）时，我们计算的近似斜率如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:近似斜率的计算"
+
+\end_inset
+
+：
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 9.4.Gradient Checking2.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:近似斜率的计算"
+
+\end_inset
+
+近似斜率的计算
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -6139,12 +6291,50 @@ reference "fig:Gradient错误检查"
 \end_layout
 
 \begin_layout Standard
-在Octave中实现：
+在Octave中实现如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Octave实现的近似斜率"
+
+\end_inset
+
+：
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 9.4.Gradient Checking3.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Octave实现的近似斜率"
+
+\end_inset
+
+Octave实现的近似斜率
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -6152,12 +6342,54 @@ reference "fig:Gradient错误检查"
 \end_layout
 
 \begin_layout Standard
-实现提示：检查无误后，记得关掉Gradient checking(time costing)。
+实现提示：检查无误后，记得关掉Gradient checking(time costing)。相比后向传播，Gradient计算是非常耗时的（图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:使用后向传播而不是Gradient-descent的原因"
+
+\end_inset
+
+）。
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 9.4.Gradient Checking4.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:使用后向传播而不是Gradient-descent的原因"
+
+\end_inset
+
+使用后向传播而不是Gradient descent的原因
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -6166,6 +6398,13 @@ reference "fig:Gradient错误检查"
 
 \begin_layout Subsection
 Random Initialization
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Random-Initialization"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -6190,21 +6429,59 @@ For gradient descent and advanced optimization method, need initial value
 \begin_inset Formula $\Theta$
 \end_inset
 
-初始化为零向量（在logistic regression中就是这么做的）在 神经网络中是行不通的：
+初始化为零向量（在logistic regression中就是这么做的）在 神经网络中是行不通的，见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:将初始化为0的问题"
+
+\end_inset
+
+，在每次更新（gradient descent, etc）后，每个参数的权重永远是相同的。有时这被称作 The problem of symmetric
+ weights.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 9.5.Random Init.png
+	scale 75
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-在每次更新（gradient descent, etc）后，每个参数的权重永远是相同的。有时这被称作 The problem of symmetric
- weights.
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:将初始化为0的问题"
+
+\end_inset
+
+将
+\begin_inset Formula $\Theta$
+\end_inset
+
+初始化为0将导致每一层元素全部相同
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -6224,11 +6501,19 @@ Random initialization: Symmetry(对称) breaking
 \end_layout
 
 \begin_layout LyX-Code
+\align center
 Theta1 = rand(10,11)*(2*INIT_EPSILON) - INIT_EPSILON;
 \end_layout
 
 \begin_layout Subsection
 Putting It Together
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Putting-It-Together"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -6259,13 +6544,17 @@ Reasonable default: 1 hidden layer, or if >1 hidden layer, have same number
 
 \begin_layout Itemize
 Usually the number of hidden units in each layer will be comparable to the
- dimension of x.
+ dimension of 
+\begin_inset Formula $x$
+\end_inset
+
+.
  Same number or 3 or 4 times of that(usually the more the better).
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
-Randomly initialize weight
+Randomly initialize weights.
 \end_layout
 
 \begin_layout Enumerate
@@ -6298,8 +6587,43 @@ Implement backprop to compute partial derivatives
 
 \begin_deeper
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 9.6.put together.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:backpropagation-contour"
+
+\end_inset
+
+backpropagation contour
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -6307,14 +6631,21 @@ Implement backprop to compute partial derivatives
 \end_layout
 
 \begin_layout Standard
-完整算法见 
+图
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "pic:backprop algorithm"
+reference "fig:backpropagation-contour"
 
 \end_inset
 
+为后向传播算法概述，完整算法见 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Backward-propagation-algorithm"
 
+\end_inset
+
+。
 \end_layout
 
 \end_deeper
@@ -6357,7 +6688,7 @@ Use gradient descent or advanced optimization method with backpropatation(
 \series bold
 注意
 \series default
-：在z神经网络中，
+：在神经网络中，
 \begin_inset Formula $J\left(\Theta\right)$
 \end_inset
 
@@ -6365,12 +6696,54 @@ Use gradient descent or advanced optimization method with backpropatation(
 \end_layout
 
 \begin_layout Standard
-Gradient descent 的直观描述：
+Gradient descent 的直观描述见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:回顾Gradient-descent"
+
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 9.6.put together2.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:回顾Gradient-descent"
+
+\end_inset
+
+回顾Gradient descent
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -6380,13 +6753,13 @@ Gradient descent 的直观描述：
 \begin_layout Standard
 What gradient descent does is starting from some random initial point, and
  it will repeatedly go downhill.
- And so what back-propagation is doing is computing the direction of the
+ And so what backpropagation is doing is computing the direction of the
  gradient, and what gradient descent is doing is taking little steps downhill
  untill hopefully it gets to a pretty good local optimum.
 \end_layout
 
 \begin_layout Standard
-When you implement back-propagation and use gradient descent or one of the
+When you implement backpropagation and use gradient descent or one of the
  advanced optimization methods, this picture sort of explaining what the
  algorithm is doing.
 \end_layout
@@ -6400,8 +6773,43 @@ Deciding what to try next
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.1.Deciding what to do next.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:What-to-try-next"
+
+\end_inset
+
+What to try next
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -6409,7 +6817,14 @@ Deciding what to try next
 \end_layout
 
 \begin_layout Standard
-在之后的课程里，将会介绍Machine learning diagnostic.
+如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:What-to-try-next"
+
+\end_inset
+
+，在之后的课程里，将会介绍Machine learning diagnostic.
 \end_layout
 
 \begin_layout Standard
@@ -6437,8 +6852,54 @@ Training/testing procedure for linear regression
 \end_layout
 
 \begin_layout Standard
+见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Training/testing-for-linear-gregression"
+
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.2.procedure for linear regression.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Training/testing-for-linear-gregression"
+
+\end_inset
+
+Training/testing procedure for linear regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -6450,8 +6911,55 @@ Training/testing procedure for logistic regression(classification)
 \end_layout
 
 \begin_layout Standard
+图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Training/testing-procedure-for-classification"
+
+\end_inset
+
+给出了两种检验学习质量的方法，一种是使用cost function，另一种称为misclassification error。不论使用哪种方法，如果算出的误差偏
+大，那么说明机器学习的质量偏低。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.2.procedure for logistic regression.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Training/testing-procedure-for-classification"
+
+\end_inset
+
+Training/testing procedure for classification
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -6470,7 +6978,11 @@ Suppose you'd like to decide what the degree of polynomial to fit to a data
 \end_inset
 
  for the learning algorithm.
- These are called model selection problems.
+ These are called 
+\series bold
+model selection problems
+\series default
+.
 \end_layout
 
 \begin_layout Standard
@@ -6479,8 +6991,43 @@ Suppose you'd like to decide what the degree of polynomial to fit to a data
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.3.model selection.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Overfitting-example"
+
+\end_inset
+
+Overfitting example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -6488,8 +7035,39 @@ Suppose you'd like to decide what the degree of polynomial to fit to a data
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.3.model selection2.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Model-slection"
+
+\end_inset
+
+Model slection
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -6497,25 +7075,41 @@ Suppose you'd like to decide what the degree of polynomial to fit to a data
 \end_layout
 
 \begin_layout Standard
-使用 
+如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Model-slection"
+
+\end_inset
+
+所示，假定我们列出d=1到d=10（d 表示多项式的维度）10个模型，然后计算每个模型的测试误差(test error)
+\begin_inset Formula $J_{test}\left(\theta\right)$
+\end_inset
+
+，最后选择测试误差最小的模型。假设我们最终选择的模型是d=5的多项式，可以看到，使用 
 \begin_inset Formula $J_{test}\left(\theta^{\left(5\right)}\right)$
 \end_inset
 
-来估计how well the model generalize是不公平的。因为What we done is we fit the extra
- parameter 
+来估计模型的归纳质量是不公平的。因为What we done is we fit the extra parameter 
 \begin_inset Formula $d$
 \end_inset
 
- using the test set, 那么我们据此得到的 
-\begin_inset Formula $\Theta^{\left(5\right)}$
+ to the test set（即找出d的最小值），那么我们据此选择的模型得到的 
+\begin_inset Formula $\Theta$
 \end_inset
 
- 可能过于乐观的估计了它的generalization.
- 也就是说，建立在 test set 上的估计是不全面的。
+ 可能过于乐观的估计了它的归纳效果。 也就是说，建立在 test set 上的估计是不全面的。
 \end_layout
 
 \begin_layout Standard
-现在我们将数据分成三部分： Training set, Cross validation set 和 Test set，大概是6:2:2的比例：
+现在我们将数据分成三部分： Training set, Cross validation set 和 Test set，大概是6:2:2的比例，见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Evaluating-hypothesis"
+
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Subsubsection
@@ -6523,8 +7117,43 @@ Evaluating your hypothesis
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.3.model selection3.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Evaluating-hypothesis"
+
+\end_inset
+
+Evaluating hypothesis
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
