@@ -6968,6 +6968,13 @@ Training/testing procedure for classification
 
 \begin_layout Subsection
 Model selection and training/validation/test sets
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Model-selection-and-training/validation/test sets"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -7086,23 +7093,27 @@ reference "fig:Model-slection"
 \begin_inset Formula $J_{test}\left(\theta\right)$
 \end_inset
 
-，最后选择测试误差最小的模型。假设我们最终选择的模型是d=5的多项式，可以看到，使用 
-\begin_inset Formula $J_{test}\left(\theta^{\left(5\right)}\right)$
+，最后选择测试误差最小的模型。假设我们最终选择的模型是d=5的多项式，事情进行到这里都是很正常的。然而现在我想知道我选择的hypothesis模型的归纳质量（H
+ow well this model generalized）。一种方法是使用test error来衡量，然而问题是使用 
+\begin_inset Formula $J_{test}\left(\theta\right)$
 \end_inset
 
-来估计模型的归纳质量是不公平的。因为What we done is we fit the extra parameter 
+来估计模型的归纳（generalization）质量是不公平的，因为What we done is we fit the extra parameter
+ 
 \begin_inset Formula $d$
 \end_inset
 
- to the test set（即找出d的最小值），那么我们据此选择的模型得到的 
+ using the test set，即选择模型时就是以test set error作为标准，如果再用test set error来衡量hypothesis的
+话，那该模型的 
 \begin_inset Formula $\Theta$
 \end_inset
 
- 可能过于乐观的估计了它的归纳效果。 也就是说，建立在 test set 上的估计是不全面的。
+ 可能过于乐观的估计了它的归纳质量。 也就是说，建立在 test set 上的估计是不全面的。
 \end_layout
 
 \begin_layout Standard
-现在我们将数据分成三部分： Training set, Cross validation set 和 Test set，大概是6:2:2的比例，见图
+那么我们就将数据分成三部分： Training set, Cross validation set 和 Test set，大概是6:2:2的比例，这样就避免了在
+模型选择和模型评估中使用同一个数据集合的问题了。见图
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Evaluating-hypothesis"
@@ -7170,9 +7181,9 @@ Training error:
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
+\begin{equation}
 J_{train}\left(\theta\right)=\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}
-\]
+\end{equation}
 
 \end_inset
 
@@ -7185,9 +7196,9 @@ Cross Validation error:
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
+\begin{equation}
 J_{cv}\left(\theta\right)=\frac{1}{2m_{cv}}\sum_{i=1}^{m_{cv}}\left(h_{\theta}\left(x_{cv}^{\left(i\right)}\right)-y_{cv}^{\left(i\right)}\right)^{2}
-\]
+\end{equation}
 
 \end_inset
 
@@ -7200,9 +7211,9 @@ Test error:
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
+\begin{equation}
 J_{test}\left(\theta\right)=\frac{1}{2m_{test}}\sum_{i=1}^{m_{test}}\left(h_{\theta}\left(x_{test}^{\left(i\right)}\right)-y_{test}^{\left(i\right)}\right)^{2}
-\]
+\end{equation}
 
 \end_inset
 
@@ -7213,27 +7224,54 @@ J_{test}\left(\theta\right)=\frac{1}{2m_{test}}\sum_{i=1}^{m_{test}}\left(h_{\th
 So when we fits the model selection problem by this, instead of using the
  test set to select the model, we're instead going to use validation set
  or the cross-validation set to select the model.
+ 见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:改用cross-validation error选择模型"
+
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.3.model selection4.png
+	scale 75
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Graphics
-	filename 10.3.model selection5.png
+\begin_layout Plain Layout
+\begin_inset Caption
 
-\end_inset
-
-我承认我没看懂……
+\begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "why:validation vs. test set"
+name "fig:改用cross-validation error选择模型"
+
+\end_inset
+
+改用cross-validation set error选择hypothesis模型
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7241,8 +7279,99 @@ name "why:validation vs. test set"
 \end_layout
 
 \begin_layout Standard
+课堂习题（图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:本节课后题"
+
+\end_inset
+
+）也许能让我们对这个问题的理解更加清晰，我们选择的是cross-validation值最小的模型，因此
+\begin_inset Formula $J_{CV}\left(\theta\right)$
+\end_inset
+
+往往比
+\begin_inset Formula $J_{test}\left(\theta\right)$
+\end_inset
+
+小。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename 10.3.model selection5.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:本节课后题"
+
+\end_inset
+
+本节课堂习题
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.3.excercise.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+有关Train/test方法的一个课后题解释
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7256,15 +7385,80 @@ Diagnosing bias vs.
 
 \begin_layout Standard
 If you run the learning algorithm and it doesn't do as well as you're hoping,
- almost all the time it will be because you have either a high bias problem
- or a high variance problem.
- In other words they're either an underfitting problem or an overfitting
+ almost all the time it will be because you have either a 
+\series bold
+high bias
+\series default
+ problem or a 
+\series bold
+high variance
+\series default
+ problem.
+ In other words they're either an 
+\series bold
+underfitting
+\series default
+ problem or an 
+\series bold
+overfitting
+\series default
  problem.
 \end_layout
 
 \begin_layout Standard
+如果发现模型的交叉验证误差(Cross-validation error)或测试误差(Test error)偏大，那么如何知道我们的模型是拟合度太低(high
+ bias)还是太高(high variance)？答案是根据训练集误差
+\begin_inset Formula $J_{train}\left(\theta\right)$
+\end_inset
+
+，见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:模型拟合问题诊断(bias还是variance)"
+
+\end_inset
+
+所述。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.4.bias vs variance.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:模型拟合问题诊断(bias还是variance)"
+
+\end_inset
+
+模型拟合问题诊断(bias还是variance)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7276,8 +7470,43 @@ Regularization and bias/variance
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.5.regularization.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Regularization-and-bias/variance"
+
+\end_inset
+
+Regularization and bias/variance
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7302,8 +7531,51 @@ Choosing the regularization parameter
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.5.regularization2.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:只有J(theta)有参数"
+
+\end_inset
+
+只有
+\begin_inset Formula $J\left(\theta\right)$
+\end_inset
+
+有
+\begin_inset Formula $\lambda$
+\end_inset
+
+参数
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7311,6 +7583,14 @@ Choosing the regularization parameter
 \end_layout
 
 \begin_layout Standard
+如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:只有J(theta)有参数"
+
+\end_inset
+
+所示，
 \begin_inset Formula $J_{train}\left(\theta\right)$
 \end_inset
 
@@ -7322,12 +7602,51 @@ Choosing the regularization parameter
 \begin_inset Formula $J_{test}\left(\theta\right)$
 \end_inset
 
- 都没有regularization。
+ 都没有进行regularization。
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.5.regularization3.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:选择合适的lambda"
+
+\end_inset
+
+选择合适的
+\begin_inset Formula $\lambda$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7335,7 +7654,18 @@ Choosing the regularization parameter
 \end_layout
 
 \begin_layout Standard
-选择一个使Cross validation error最小的 
+如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:选择合适的lambda"
+
+\end_inset
+
+所示，针对选定的模型，测试不同的
+\begin_inset Formula $\lambda$
+\end_inset
+
+取值，最后选择一个使Cross validation error最小的 
 \begin_inset Formula $\lambda$
 \end_inset
 
@@ -7344,7 +7674,7 @@ Choosing the regularization parameter
 \end_inset
 
  的test error: 
-\begin_inset Formula $J_{test}\left(\Theta^{\left(?\right)}\right)$
+\begin_inset Formula $J_{test}\left(\Theta\right)$
 \end_inset
 
  来检查其在test set 上的表现如何。
@@ -7359,6 +7689,31 @@ Bias/variance as a function of the regularization parameter
 \end_layout
 
 \begin_layout Standard
+见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Bias/variance-as-a-func-of-lambda-2"
+
+\end_inset
+
+和图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Bias/variance-as-a-func-of-lambda-2"
+
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.5.regularization4.png
 
@@ -7367,9 +7722,79 @@ Bias/variance as a function of the regularization parameter
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Bias/variance-as-a-func-of-lambda"
+
+\end_inset
+
+Bias/variance as a function of the regularization parameter 
+\begin_inset Formula $\lambda$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.5.regularization5.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Bias/variance-as-a-func-of-lambda-2"
+
+\end_inset
+
+Bias/variance as a function of the regularization parameter 
+\begin_inset Formula $\lambda$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7381,12 +7806,67 @@ Learning curves
 \end_layout
 
 \begin_layout Standard
+学习曲线是一种非常有用的图，比如用来检查算法是否正常工作，或者用来提升算法的性能。事实上学习曲线是一个有力的工具，可以用来诊断学习算法是否正遭受bias、var
+iance或两者。图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Learning-curves"
+
+\end_inset
+
+展示了学习曲线的样子。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.6.Learning curves.png
+	scale 75
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Learning-curves"
+
+\end_inset
+
+Learning curves
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+正如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Learning-curves"
+
+\end_inset
+
+所示，我们限制训练集的大小，以训练集元素个数为自变量，误差为因变量，这样便构成了学习曲线。注意，不管是训练集的学习曲线还是交叉验证集的学习曲线，自变量都是训练集
+的元素尺寸。
 \end_layout
 
 \begin_layout Subsubsection
@@ -7394,8 +7874,43 @@ High bias
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.6.Learning curves high bias.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Learning-curve-of-high-bias"
+
+\end_inset
+
+Learning curve of high bias
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7403,7 +7918,14 @@ High bias
 \end_layout
 
 \begin_layout Standard
-Both 
+如果学习算法拟合度过低（high bias），如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Learning-curve-of-high-bias"
+
+\end_inset
+
+，那么增加训练集容量是徒劳的，Both 
 \begin_inset Formula $J_{cv}\left(\Theta\right)$
 \end_inset
 
@@ -7419,12 +7941,58 @@ High variance
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.6.Learning curves high variance.png
+	scale 75
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Learning-curve-of-high-variance"
+
+\end_inset
+
+Learning curve of high variance
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Learning-curve-of-high-variance"
+
+\end_inset
+
+，如果学习算法拟合度过高（high variance），那么增大训练集容量应该会有帮助。
 \end_layout
 
 \begin_layout Subsection
@@ -7432,12 +8000,94 @@ Deciding what to try next (revisited)
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.7.revisited.png
+	scale 75
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Debugging-a-learning-algorithm"
+
+\end_inset
+
+Debugging a learning algorithm
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Debugging-a-learning-algorithm"
+
+\end_inset
+
+，当学习算法效果不理想时，我们可以采用很多方法来改进算法：
+\end_layout
+
+\begin_layout Itemize
+使用更大的训练集合。这可以改善拟合过度的问题。
+\end_layout
+
+\begin_layout Itemize
+精简贡献小的features以减少features的数量。这可以改善拟合过度的问题。
+\end_layout
+
+\begin_layout Itemize
+寻找可能的features以扩大features的数量。这可以改善拟合不够的问题。
+\end_layout
+
+\begin_layout Itemize
+增加多项式features(如添加
+\begin_inset Formula $x_{1}^{2},\, x_{2}^{2},\, x_{1}x_{2}$
+\end_inset
+
+等)。这可以改善拟合不够的问题。
+\end_layout
+
+\begin_layout Itemize
+减小
+\begin_inset Formula $\lambda$
+\end_inset
+
+。这可以改善拟合不够的问题。
+\end_layout
+
+\begin_layout Itemize
+增大
+\begin_inset Formula $\lambda$
+\end_inset
+
+。这可以改善拟合过度的问题。
 \end_layout
 
 \begin_layout Subsubsection
@@ -7445,7 +8095,7 @@ Neural networks and overfitting
 \end_layout
 
 \begin_layout Standard
-如果要增加神经网络的层数，可以测试一下不同层数的
+如果要改变神经网络的层数，可以测试一下不同层数神经网络的
 \begin_inset Formula $J_{cv}\left(\Theta\right)$
 \end_inset
 
@@ -7453,8 +8103,43 @@ Neural networks and overfitting
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.7.neural network.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:神经网络中的模型选择问题"
+
+\end_inset
+
+神经网络中的模型选择问题
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7462,12 +8147,58 @@ Neural networks and overfitting
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 10.7.neural network2.png
+	scale 75
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:本节课上习题"
+
+\end_inset
+
+本节课上习题
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如本节课上习题（图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:本节课上习题"
+
+\end_inset
+
+）给出的情景：若交叉验证误差远大于训练集误差时，那这应该是拟合过度的情况，增加隐藏层单位只能让事情更遭。
 \end_layout
 
 \begin_layout Section
@@ -7479,13 +8210,58 @@ Prioritizing what to work on: Spam classification example
 \end_layout
 
 \begin_layout Standard
-采用 Supervised leaning 来构建一个垃圾邮件分类器，问题就在于如何选择 email 的features。 而输出y则是 spam(1)
- 或 not spam(0)两个值。
+采用 Supervised leaning 来构建一个垃圾邮件分类器，问题就在于如何选择 email 的features，见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:垃圾邮件分类器的构建思路"
+
+\end_inset
+
+，比如让features (
+\begin_inset Formula $x$
+\end_inset
+
+)是100个对垃圾邮件有区分作用（真或假）的单词，而输出y则是 spam(1) 或 not spam(0)两个值。
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 11.1 Spam classifier.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:垃圾邮件分类器的构建思路"
+
+\end_inset
+
+垃圾邮件分类器的构建思路
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7508,8 +8284,50 @@ How to spend your time to make it have low error?
 \end_layout
 
 \begin_layout Standard
+Andrew Ng老师给我们提出4个建议（图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:有助于降低算法误差的建议"
+
+\end_inset
+
+）。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 11.1 Spam classifier2.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:有助于降低算法误差的建议"
+
+\end_inset
+
+有助于降低垃圾邮件算法误差的建议
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -7517,8 +8335,54 @@ How to spend your time to make it have low error?
 \end_layout
 
 \begin_layout Standard
+本节可后习题见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:课上习题：关于垃圾邮件判别算法"
+
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 11.1 Spam classifier3.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:课上习题：关于垃圾邮件判别算法"
+
+\end_inset
+
+课上习题：关于垃圾邮件判别算法
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7534,8 +8398,43 @@ Recommended approach
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 11.2.error analysing.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:设计算法的几个建议"
+
+\end_inset
+
+设计算法的几个建议
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7543,7 +8442,15 @@ Recommended approach
 \end_layout
 
 \begin_layout Standard
-先用24小时的时间构建一个相当简单而且脏乱的系统。然后使用cross-validation data来测试。之后通过画学习曲线和误差分析来优化系统。
+图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:设计算法的几个建议"
+
+\end_inset
+
+为Ng老师给出的关于设计学习算法的几个有用的建议，而且Ng老师推荐先用24小时的时间构建一个相当简单而且脏乱的系统。然后使用cross-validation
+ data来测试。之后通过画学习曲线和误差分析来优化系统。
 \end_layout
 
 \begin_layout Subsubsection
@@ -7551,8 +8458,54 @@ Error Analysis
 \end_layout
 
 \begin_layout Standard
+见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Error-analysis"
+
+\end_inset
+
+，通过手动分析算法在交叉验证集上出现的差错，这有助于对现有算法进行改进，比如添加修改feature等，提高侦测率。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 11.2.error analysing2.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Error-analysis"
+
+\end_inset
+
+Error analysis
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7564,8 +8517,58 @@ The importance of numerical evaluation
 \end_layout
 
 \begin_layout Standard
+正如前文（第
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Model-selection-and-training/validation/test sets"
+
+\end_inset
+
+节）所示，测试集只是为了检验模型是否有良好的归纳质量（generalization）而存在，如果用在模型选择中，那么再次用测试集对模型归纳质量进行估计是不公平的
+，见课上习题（图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Reason-to-use-cv-rather-than-test"
+
+\end_inset
+
+）。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 11.2.error analysing3.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Reason-to-use-cv-rather-than-test"
+
+\end_inset
+
+Reason to use cross validation data rather than test data
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -7573,8 +8576,50 @@ The importance of numerical evaluation
 \end_layout
 
 \begin_layout Standard
+误差分析（Error analysis）不是万能的，很多情况下需要我们手动实验才能知道。（见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Try-&-See"
+
+\end_inset
+
+）
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 11.2.error analysing4.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Try-&-See"
+
+\end_inset
+
+Try & See
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -7582,7 +8627,7 @@ The importance of numerical evaluation
 \end_layout
 
 \begin_layout Standard
-
+最后再啰嗦一次：
 \series bold
 强烈建议
 \series default
@@ -7590,7 +8635,7 @@ The importance of numerical evaluation
 \end_layout
 
 \begin_layout Subsection
-Error metrics for skewed classes
+Error metrics for skewed(歪斜的) classes
 \end_layout
 
 \begin_layout Subsubsection
@@ -7598,8 +8643,43 @@ Cancer classification example
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 11.3.Skewed class.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:歪斜分布问题——癌症诊断"
+
+\end_inset
+
+歪斜分布问题——（不负责任的）癌症诊断
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7607,30 +8687,174 @@ Cancer classification example
 \end_layout
 
 \begin_layout Standard
-在skewed class（样本中某一类别出现的频率非常之小）的情况下，使用分类准确率将变得非常困难（比如上例，将诊断正确率从99.2%提升到99.5%，谁知道是不
-是算法更先进了还是单纯的预测出更多的y=0？）
+在skewed class（样本中某一类别出现的频率非常之小）的情况下，使用分类准确率衡量算法质量将变得非常困难（比如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:歪斜分布问题——癌症诊断"
+
+\end_inset
+
+，将诊断正确率从99.2%提升到99.5%，谁知道是不是算法更先进了还是单纯的预测出更多的y=0？）
 \end_layout
 
 \begin_layout Standard
-对于skewed class问题，我们可能需要别的 error metric / evaluation metric。
+对于skewed class问题，我们可能需要其他测试方式，这里将介绍 error metric / evaluation metric。
 \end_layout
 
 \begin_layout Subsubsection
-Pricision/Recall
+Precision/Recall（查准率/查全率）
+\end_layout
+
+\begin_layout Description
+Precision
+\begin_inset space ~
+\end_inset
+
+&
+\begin_inset space ~
+\end_inset
+
+recall In pattern recognition (模式识别) and information retrieval (信息检索), precision
+ is the fraction of retrieved instances that are relevant, while recall
+ is the fraction of relevant instances that are retrieved.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+引用自英文维基百科：
+\begin_inset CommandInset href
+LatexCommand href
+name "Precision and recall"
+target "http://en.wikipedia.org/wiki/Precision_and_recall"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+比如在信息检索领域：
+\end_layout
+
+\begin_layout Standard
+\align center
+查准率＝检索出的相关信息量/检索出的信息总量
+\end_layout
+
+\begin_layout Standard
+\align center
+查全率＝检索出的相关信息量/系统中的相关信息总量
+\end_layout
+
+\begin_layout Standard
+查准率(precision)是衡量检索系统和检索者拒绝非相关信息的能力，查全率(recall)是衡量检索系统和检索者检出相关信息的能力。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 11.3.Precision Recall.png
+	scale 75
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 11.3.Precision Recall2.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Precision-&-Recall"
+
+\end_inset
+
+Precision & Recall
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7638,12 +8862,26 @@ Pricision/Recall
 \end_layout
 
 \begin_layout Standard
-Precision 和 recall 的取值越高越有利。特别地，如果像上一张幻灯片那样所有诊断结果都为0（良性），那么将得到为0的precision和recal
-l值。
+详见图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Precision-&-Recall"
+
+\end_inset
+
+，在癌症诊断的例子中，查准率是指在诊断为癌症的人里面有多少是真的癌症，而查全率是指真正患癌症的人中有多少被诊断了出来。Precision 和 recall
+ 的取值都是越高越有利。特别地，如果像上一张幻灯片（图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:歪斜分布问题——癌症诊断"
+
+\end_inset
+
+）那样诊断所有病人的结果都为良性（0），那么将得到值为0的precision和recall，从而有效的避免了这种不负责任的诊断方式。
 \end_layout
 
 \begin_layout Standard
-所以，如果我们得到了很高的 precision 和 recall ，那么我们可以相信我们的学习算法，即使样本是非常skewed的情况。
+所以，如果我们得到了很高的 precision 和 recall ，那么我们可以信任我们的学习算法，即使样本是非常“歪斜”的情况。
 \end_layout
 
 \begin_layout Subsection
@@ -7651,8 +8889,43 @@ Trading off precision and recall
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 11.4.Trading off precision and recall.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:权衡precision和recall-提高precision"
+
+\end_inset
+
+权衡precision和recall——提高查准率
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7660,12 +8933,54 @@ Trading off precision and recall
 \end_layout
 
 \begin_layout Standard
-当我们将阈值从0.5改成更高的值，以达到只有当我们非常自信时才预测为癌症，那么这会带来更高的precision，和更低的recall。
+当我们将癌症诊断阈值从0.5改成更高的值，以达到只有当我们非常自信时才预测为癌症，那么这会带来更高的precision，和更低的recall，如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:权衡precision和recall-提高precision"
+
+\end_inset
+
+所示。
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 11.4.Trading off precision and recall2.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:权衡precision和recall——提高查全率"
+
+\end_inset
+
+权衡precision和recall——提高查全率
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7673,7 +8988,14 @@ Trading off precision and recall
 \end_layout
 
 \begin_layout Standard
-如果我们宁愿错诊也不想让病人错过治疗，那么 就需要调低阈值，这样就会带来更高的recall和更低的precision。
+而如果我们宁愿错诊也不想让病人错过治疗，那么 就需要调低诊断阈值，这样就会带来更高的recall和更低的precision，如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:权衡precision和recall——提高查全率"
+
+\end_inset
+
+所示。
 \end_layout
 
 \begin_layout Subsubsection
@@ -7684,8 +9006,43 @@ Trading off precision and recall
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 11.4.Trading off precision and recall3.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:不能用Precision和Recall的平均代替这两个值"
+
+\end_inset
+
+不能用Precision和Recall的平均代替这两个值
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7693,16 +9050,54 @@ Trading off precision and recall
 \end_layout
 
 \begin_layout Standard
-现在一个学习算法有两个变量来描述，我们希望使用一个单值来衡量一个学习算法。使用平均值是相当没用的方式。这里我们使用 
+现在一个学习算法有两个变量（precision和recall）来描述，我们希望使用一个单值来衡量一个学习算法。如图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:F-score"
+
+\end_inset
+
+所示，使用平均值是相当没用的方式。这里我们使用 
 \begin_inset Formula $F_{1}$
 \end_inset
 
- Score 来描述算法的质量。
+ Score 来描述算法的质量（见图）。
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 11.4.Trading off precision and recall4.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:F-score"
+
+\end_inset
+
+F score
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -7710,12 +9105,55 @@ Trading off precision and recall
 \end_layout
 
 \begin_layout Standard
-那么，很明显：
+那么很明显，在使用查准率和查全率进行模型选择时，应该基于交叉验证集进行测试并且选择F值最大的模型，如课后题（图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:使用Precision&Recall进行模型选择"
+
+\end_inset
+
+）所示。
 \end_layout
 
 \begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 11.4.Trading off precision and recall5.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:使用Precision&Recall进行模型选择"
+
+\end_inset
+
+使用Precision&Recall进行模型选择
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7727,8 +9165,47 @@ Data for Machine Learning
 \end_layout
 
 \begin_layout Standard
+上节课讨论的是误差矩阵，这节课将介绍机器学习系统设计中的另一重要方面，是关于训练模型时应该使用多大的训练集的。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 11.5.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:海量数据原理(1)"
+
+\end_inset
+
+海量数据原理(1)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -7736,8 +9213,39 @@ Data for Machine Learning
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename 11.5.2.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:海量数据原理(2)"
+
+\end_inset
+
+海量数据原理(2)
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 

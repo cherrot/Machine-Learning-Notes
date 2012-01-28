@@ -1958,7 +1958,7 @@ procedure for classification}
 
 
 
-\subsection{Model selection and training/validation/test sets}
+\subsection{Model selection and training/validation/test sets\label{sub:Model-selection-and-training/validation/test sets}}
 
 Suppose you'd like to decide what the degree of polynomial to fit
 to a data set, sort of what features to include to give you a learning
@@ -1990,12 +1990,13 @@ training 和 test 两部分。
 
 
 如图\ref{fig:Model-slection}所示，假定我们列出d=1到d=10（d 表示多项式的维度）10个模型，然后计算每个模型的测试误差(test
-error)$J_{test}\left(\theta\right)$，最后选择测试误差最小的模型。假设我们最终选择的模型是d=5的多项式，可以看到，使用
-$J_{test}\left(\theta^{\left(5\right)}\right)$来估计模型的归纳质量是不公平的。因为What
-we done is we fit the extra parameter $d$ to the test set（即找出d的最小值），那么我们据此选择的模型得到的
-$\Theta$ 可能过于乐观的估计了它的归纳效果。 也就是说，建立在 test set 上的估计是不全面的。
+error)$J_{test}\left(\theta\right)$，最后选择测试误差最小的模型。假设我们最终选择的模型是d=5的多项式，事情进行到这里都是很正常的。然而现在我想知道我选择的hypothesis模型的归纳质量（How
+well this model generalized）。一种方法是使用test error来衡量，然而问题是使用 $J_{test}\left(\theta\right)$来估计模型的归纳（generalization）质量是不公平的，因为What
+we done is we fit the extra parameter $d$ using the test set，即选择模型时就是以test
+set error作为标准，如果再用test set error来衡量hypothesis的话，那该模型的 $\Theta$ 可能过于乐观的估计了它的归纳质量。
+也就是说，建立在 test set 上的估计是不全面的。
 
-现在我们将数据分成三部分： Training set, Cross validation set 和 Test set，大概是6:2:2的比例，见图\ref{fig:Evaluating-hypothesis}。
+那么我们就将数据分成三部分： Training set, Cross validation set 和 Test set，大概是6:2:2的比例，这样就避免了在模型选择和模型评估中使用同一个数据集合的问题了。见图\ref{fig:Evaluating-hypothesis}。
 
 
 \subsubsection{Evaluating your hypothesis}
@@ -2016,49 +2017,99 @@ $\Theta$ 可能过于乐观的估计了它的归纳效果。 也就是说，建�
 
 Training error:
 
-\[
+\begin{equation}
 J_{train}\left(\theta\right)=\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}
-\]
+\end{equation}
 
 
 Cross Validation error:
 
-\[
+\begin{equation}
 J_{cv}\left(\theta\right)=\frac{1}{2m_{cv}}\sum_{i=1}^{m_{cv}}\left(h_{\theta}\left(x_{cv}^{\left(i\right)}\right)-y_{cv}^{\left(i\right)}\right)^{2}
-\]
+\end{equation}
 
 
 Test error:
 
-\[
+\begin{equation}
 J_{test}\left(\theta\right)=\frac{1}{2m_{test}}\sum_{i=1}^{m_{test}}\left(h_{\theta}\left(x_{test}^{\left(i\right)}\right)-y_{test}^{\left(i\right)}\right)^{2}
-\]
+\end{equation}
 
 
 So when we fits the model selection problem by this, instead of using
 the test set to select the model, we're instead going to use validation
-set or the cross-validation set to select the model.
+set or the cross-validation set to select the model. 见图\ref{fig:=006539=007528cross-validation error=009009=0062E9=006A21=00578B}。
 
-\includegraphics{\string"10.3.model selection4\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"10.3.model selection4\string".png}
+\par\end{centering}
 
-\includegraphics{\string"10.3.model selection5\string".png}我承认我没看懂……\label{why:validation vs. test set}
+\caption{\label{fig:=006539=007528cross-validation error=009009=0062E9=006A21=00578B}改用cross-validation
+set error选择hypothesis模型}
 
-\includegraphics{10\lyxdot 3\lyxdot excercise}
+
+\end{figure}
+
+
+课堂习题（图\ref{fig:=00672C=008282=008BFE=00540E=009898}）也许能让我们对这个问题的理解更加清晰，我们选择的是cross-validation值最小的模型，因此$J_{CV}\left(\theta\right)$往往比$J_{test}\left(\theta\right)$小。
+
+\begin{figure}[!tbh]
+\includegraphics[scale=0.75]{\string"10.3.model selection5\string".png}
+
+\caption{\label{fig:=00672C=008282=008BFE=00540E=009898}本节课堂习题}
+
+
+\end{figure}
+
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{10\lyxdot 3\lyxdot excercise}
+\par\end{centering}
+
+\caption{有关Train/test方法的一个课后题解释}
+
+
+\end{figure}
+
 
 
 \subsection{Diagnosing bias vs. variance}
 
 If you run the learning algorithm and it doesn't do as well as you're
-hoping, almost all the time it will be because you have either a high
-bias problem or a high variance problem. In other words they're either
-an underfitting problem or an overfitting problem.
+hoping, almost all the time it will be because you have either a \textbf{high
+bias} problem or a \textbf{high variance} problem. In other words
+they're either an \textbf{underfitting} problem or an \textbf{overfitting}
+problem.
 
-\includegraphics{\string"10.4.bias vs variance\string".png}
+如果发现模型的交叉验证误差(Cross-validation error)或测试误差(Test error)偏大，那么如何知道我们的模型是拟合度太低(high
+bias)还是太高(high variance)？答案是根据训练集误差$J_{train}\left(\theta\right)$，见图\ref{fig:=006A21=00578B=0062DF=005408=0095EE=009898=008BCA=0065AD(bias=008FD8=00662Fvariance)}所述。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"10.4.bias vs variance\string".png}
+\par\end{centering}
+
+\caption{\label{fig:=006A21=00578B=0062DF=005408=0095EE=009898=008BCA=0065AD(bias=008FD8=00662Fvariance)}模型拟合问题诊断(bias还是variance)}
+
+
+\end{figure}
+
 
 
 \subsection{Regularization and bias/variance}
 
-\includegraphics{10\lyxdot 5\lyxdot regularization}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{10\lyxdot 5\lyxdot regularization}
+\par\end{centering}
+
+\caption{\label{fig:Regularization-and-bias/variance}Regularization and bias/variance}
+
+
+\end{figure}
+
 
 How can we automatically choose a good value for the regularization
 parameter $\lambda$ ?
@@ -2066,55 +2117,166 @@ parameter $\lambda$ ?
 
 \subsubsection{Choosing the regularization parameter $\lambda$}
 
-\includegraphics{10\lyxdot 5\lyxdot regularization2}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{10\lyxdot 5\lyxdot regularization2}
+\par\end{centering}
 
-$J_{train}\left(\theta\right)$、$J_{cv}\left(\theta\right)$和$J_{test}\left(\theta\right)$
-都没有regularization。
+\caption{\label{fig:=0053EA=006709J(theta)=006709=0053C2=006570}只有$J\left(\theta\right)$有$\lambda$参数}
 
-\includegraphics{10\lyxdot 5\lyxdot regularization3}
 
-选择一个使Cross validation error最小的 $\lambda$ 即可。选定之后，计算该 $\theta$ 的test
-error: $J_{test}\left(\Theta^{\left(?\right)}\right)$ 来检查其在test set
-上的表现如何。
+\end{figure}
+
+
+如图\ref{fig:=0053EA=006709J(theta)=006709=0053C2=006570}所示，$J_{train}\left(\theta\right)$、$J_{cv}\left(\theta\right)$和$J_{test}\left(\theta\right)$
+都没有进行regularization。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{10\lyxdot 5\lyxdot regularization3}
+\par\end{centering}
+
+\caption{\label{fig:=009009=0062E9=005408=009002=007684lambda}选择合适的$\lambda$}
+
+
+\end{figure}
+
+
+如图\ref{fig:=009009=0062E9=005408=009002=007684lambda}所示，针对选定的模型，测试不同的$\lambda$取值，最后选择一个使Cross
+validation error最小的 $\lambda$ 即可。选定之后，计算该 $\theta$ 的test error:
+$J_{test}\left(\Theta\right)$ 来检查其在test set 上的表现如何。
 
 
 \subsubsection{Bias/variance as a function of the regularization parameter $\lambda$}
 
-\includegraphics{10\lyxdot 5\lyxdot regularization4}
+见图\ref{fig:Bias/variance-as-a-func-of-lambda-2}和图\ref{fig:Bias/variance-as-a-func-of-lambda-2}。
 
-\includegraphics{10\lyxdot 5\lyxdot regularization5}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics{10\lyxdot 5\lyxdot regularization4}
+\par\end{centering}
+
+\caption{\label{fig:Bias/variance-as-a-func-of-lambda}Bias/variance as a function
+of the regularization parameter $\lambda$}
+
+
+\end{figure}
+
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{10\lyxdot 5\lyxdot regularization5}
+\par\end{centering}
+
+\caption{\label{fig:Bias/variance-as-a-func-of-lambda-2}Bias/variance as a
+function of the regularization parameter $\lambda$}
+
+
+\end{figure}
+
 
 
 \subsection{Learning curves}
 
-\includegraphics{\string"10.6.Learning curves\string".png}
+学习曲线是一种非常有用的图，比如用来检查算法是否正常工作，或者用来提升算法的性能。事实上学习曲线是一个有力的工具，可以用来诊断学习算法是否正遭受bias、variance或两者。图\ref{fig:Learning-curves}展示了学习曲线的样子。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"10.6.Learning curves\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Learning-curves}Learning curves}
+\end{figure}
+
+
+正如图\ref{fig:Learning-curves}所示，我们限制训练集的大小，以训练集元素个数为自变量，误差为因变量，这样便构成了学习曲线。注意，不管是训练集的学习曲线还是交叉验证集的学习曲线，自变量都是训练集的元素尺寸。
 
 
 \subsubsection{High bias}
 
-\includegraphics{\string"10.6.Learning curves high bias\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"10.6.Learning curves high bias\string".png}
+\par\end{centering}
 
-Both $J_{cv}\left(\Theta\right)$ and $J_{train}\left(\Theta\right)$
-are high.
+\caption{\label{fig:Learning-curve-of-high-bias}Learning curve of high bias}
+
+
+\end{figure}
+
+
+如果学习算法拟合度过低（high bias），如图\ref{fig:Learning-curve-of-high-bias}，那么增加训练集容量是徒劳的，Both
+$J_{cv}\left(\Theta\right)$ and $J_{train}\left(\Theta\right)$ are
+high.
 
 
 \subsubsection{High variance}
 
-\includegraphics{\string"10.6.Learning curves high variance\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"10.6.Learning curves high variance\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Learning-curve-of-high-variance}Learning curve of high
+variance}
+
+
+\end{figure}
+
+
+如图\ref{fig:Learning-curve-of-high-variance}，如果学习算法拟合度过高（high variance），那么增大训练集容量应该会有帮助。
 
 
 \subsection{Deciding what to try next (revisited)}
 
-\includegraphics{10\lyxdot 7\lyxdot revisited}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{10\lyxdot 7\lyxdot revisited}
+\par\end{centering}
 
+\caption{\label{fig:Debugging-a-learning-algorithm}Debugging a learning algorithm}
+
+
+\end{figure}
+
+
+如图\ref{fig:Debugging-a-learning-algorithm}，当学习算法效果不理想时，我们可以采用很多方法来改进算法：
+\begin{itemize}
+\item 使用更大的训练集合。这可以改善拟合过度的问题。
+\item 精简贡献小的features以减少features的数量。这可以改善拟合过度的问题。
+\item 寻找可能的features以扩大features的数量。这可以改善拟合不够的问题。
+\item 增加多项式features(如添加$x_{1}^{2},\, x_{2}^{2},\, x_{1}x_{2}$等)。这可以改善拟合不够的问题。
+\item 减小$\lambda$。这可以改善拟合不够的问题。
+\item 增大$\lambda$。这可以改善拟合过度的问题。
+\end{itemize}
 
 \subsubsection{Neural networks and overfitting}
 
-如果要增加神经网络的层数，可以测试一下不同层数的$J_{cv}\left(\Theta\right)$ 以找到最佳结果。
+如果要改变神经网络的层数，可以测试一下不同层数神经网络的$J_{cv}\left(\Theta\right)$ 以找到最佳结果。
 
-\includegraphics{\string"10.7.neural network\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"10.7.neural network\string".png}
+\par\end{centering}
 
-\includegraphics{\string"10.7.neural network2\string".png}
+\caption{\label{fig:=00795E=007ECF=007F51=007EDC=004E2D=007684=006A21=00578B=009009=0062E9=0095EE=009898}神经网络中的模型选择问题}
+
+
+\end{figure}
+
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"10.7.neural network2\string".png}
+\par\end{centering}
+
+\caption{\label{fig:=00672C=008282=008BFE=004E0A=004E60=009898}本节课上习题}
+
+
+\end{figure}
+
+
+如本节课上习题（图\ref{fig:=00672C=008282=008BFE=004E0A=004E60=009898}）给出的情景：若交叉验证误差远大于训练集误差时，那这应该是拟合过度的情况，增加隐藏层单位只能让事情更遭。
 
 
 \section{Machine Learning System Design}
@@ -2122,19 +2284,48 @@ are high.
 
 \subsection{Prioritizing what to work on: Spam classification example}
 
-采用 Supervised leaning 来构建一个垃圾邮件分类器，问题就在于如何选择 email 的features。 而输出y则是
-spam(1) 或 not spam(0)两个值。
+采用 Supervised leaning 来构建一个垃圾邮件分类器，问题就在于如何选择 email 的features，见图\ref{fig:=005783=00573E=0090AE=004EF6=005206=007C7B=005668=007684=006784=005EFA=00601D=008DEF}，比如让features
+($x$)是100个对垃圾邮件有区分作用（真或假）的单词，而输出y则是 spam(1) 或 not spam(0)两个值。
 
-\includegraphics{\string"11.1 Spam classifier\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"11.1 Spam classifier\string".png}
+\par\end{centering}
+
+\caption{\label{fig:=005783=00573E=0090AE=004EF6=005206=007C7B=005668=007684=006784=005EFA=00601D=008DEF}垃圾邮件分类器的构建思路}
+
+
+\end{figure}
+
 
 Note: In practice, take most frequently occurring $n$ words (10,000
 to 50,000) in training set, rather than manually pick 100 words.
 
 \textbf{How to spend your time to make it have low error?}
 
-\includegraphics{\string"11.1 Spam classifier2\string".png}
+Andrew Ng老师给我们提出4个建议（图\ref{fig:=006709=0052A9=004E8E=00964D=004F4E=007B97=006CD5=008BEF=005DEE=007684=005EFA=008BAE}）。
 
-\includegraphics{\string"11.1 Spam classifier3\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"11.1 Spam classifier2\string".png}
+\par\end{centering}
+
+\caption{\label{fig:=006709=0052A9=004E8E=00964D=004F4E=007B97=006CD5=008BEF=005DEE=007684=005EFA=008BAE}有助于降低垃圾邮件算法误差的建议}
+\end{figure}
+
+
+本节可后习题见图\ref{fig:=008BFE=004E0A=004E60=009898=00FF1A=005173=004E8E=005783=00573E=0090AE=004EF6=005224=00522B=007B97=006CD5}。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"11.1 Spam classifier3\string".png}
+\par\end{centering}
+
+\caption{\label{fig:=008BFE=004E0A=004E60=009898=00FF1A=005173=004E8E=005783=00573E=0090AE=004EF6=005224=00522B=007B97=006CD5}课上习题：关于垃圾邮件判别算法}
+
+
+\end{figure}
+
 
 
 \subsection{Error analysis}
@@ -2142,76 +2333,225 @@ to 50,000) in training set, rather than manually pick 100 words.
 
 \subsubsection{Recommended approach}
 
-\includegraphics{\string"11.2.error analysing\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"11.2.error analysing\string".png}
+\par\end{centering}
 
-先用24小时的时间构建一个相当简单而且脏乱的系统。然后使用cross-validation data来测试。之后通过画学习曲线和误差分析来优化系统。
+\caption{\label{fig:=008BBE=008BA1=007B97=006CD5=007684=0051E0=004E2A=005EFA=008BAE}设计算法的几个建议}
+
+
+\end{figure}
+
+
+图\ref{fig:=008BBE=008BA1=007B97=006CD5=007684=0051E0=004E2A=005EFA=008BAE}为Ng老师给出的关于设计学习算法的几个有用的建议，而且Ng老师推荐先用24小时的时间构建一个相当简单而且脏乱的系统。然后使用cross-validation
+data来测试。之后通过画学习曲线和误差分析来优化系统。
 
 
 \subsubsection{Error Analysis}
 
-\includegraphics{\string"11.2.error analysing2\string".png}
+见图\ref{fig:Error-analysis}，通过手动分析算法在交叉验证集上出现的差错，这有助于对现有算法进行改进，比如添加修改feature等，提高侦测率。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"11.2.error analysing2\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Error-analysis}Error analysis}
+
+
+\end{figure}
+
 
 
 \subsubsection{The importance of numerical evaluation}
 
-\includegraphics{\string"11.2.error analysing3\string".png}
+正如前文（第\ref{sub:Model-selection-and-training/validation/test sets}节）所示，测试集只是为了检验模型是否有良好的归纳质量（generalization）而存在，如果用在模型选择中，那么再次用测试集对模型归纳质量进行估计是不公平的，见课上习题（图\ref{fig:Reason-to-use-cv-rather-than-test}）。
 
-\includegraphics{\string"11.2.error analysing4\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"11.2.error analysing3\string".png}
+\par\end{centering}
 
-\textbf{强烈建议}使用 cross validation error 而不是 test error 来进行误差分析。
+\caption{\label{fig:Reason-to-use-cv-rather-than-test}Reason to use cross
+validation data rather than test data}
+\end{figure}
 
 
-\subsection{Error metrics for skewed classes}
+误差分析（Error analysis）不是万能的，很多情况下需要我们手动实验才能知道。（见图\ref{fig:Try-&-See}）
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"11.2.error analysing4\string".png}
+\par\end{centering}
+
+\caption{\label{fig:Try-&-See}Try \& See}
+\end{figure}
+
+
+最后再啰嗦一次：\textbf{强烈建议}使用 cross validation error 而不是 test error 来进行误差分析。
+
+
+\subsection{Error metrics for skewed(歪斜的) classes}
 
 
 \subsubsection{Cancer classification example}
 
-\includegraphics{\string"11.3.Skewed class\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"11.3.Skewed class\string".png}
+\par\end{centering}
 
-在skewed class（样本中某一类别出现的频率非常之小）的情况下，使用分类准确率将变得非常困难（比如上例，将诊断正确率从99.2\%提升到99.5\%，谁知道是不是算法更先进了还是单纯的预测出更多的y=0？）
-
-对于skewed class问题，我们可能需要别的 error metric / evaluation metric。
+\caption{\label{fig:=006B6A=00659C=005206=005E03=0095EE=009898=002014=002014=00764C=0075C7=008BCA=0065AD}歪斜分布问题——（不负责任的）癌症诊断}
 
 
-\subsubsection{Pricision/Recall}
+\end{figure}
 
-\includegraphics{\string"11.3.Precision Recall\string".png}
 
-\includegraphics{\string"11.3.Precision Recall2\string".png}
+在skewed class（样本中某一类别出现的频率非常之小）的情况下，使用分类准确率衡量算法质量将变得非常困难（比如图\ref{fig:=006B6A=00659C=005206=005E03=0095EE=009898=002014=002014=00764C=0075C7=008BCA=0065AD}，将诊断正确率从99.2\%提升到99.5\%，谁知道是不是算法更先进了还是单纯的预测出更多的y=0？）
 
-Precision 和 recall 的取值越高越有利。特别地，如果像上一张幻灯片那样所有诊断结果都为0（良性），那么将得到为0的precision和recall值。
+对于skewed class问题，我们可能需要其他测试方式，这里将介绍 error metric / evaluation metric。
 
-所以，如果我们得到了很高的 precision 和 recall ，那么我们可以相信我们的学习算法，即使样本是非常skewed的情况。
+
+\subsubsection{Precision/Recall（查准率/查全率）}
+\begin{description}
+\item [{Precision~\&~recall}] In pattern recognition (模式识别) and information
+retrieval (信息检索), precision is the fraction of retrieved instances
+that are relevant, while recall is the fraction of relevant instances
+that are retrieved.%
+\footnote{引用自英文维基百科：\href{http://en.wikipedia.org/wiki/Precision_and_recall}{Precision and recall}%
+}
+\end{description}
+比如在信息检索领域：
+
+\begin{center}
+查准率＝检索出的相关信息量/检索出的信息总量
+\par\end{center}
+
+\begin{center}
+查全率＝检索出的相关信息量/系统中的相关信息总量
+\par\end{center}
+
+查准率(precision)是衡量检索系统和检索者拒绝非相关信息的能力，查全率(recall)是衡量检索系统和检索者检出相关信息的能力。
+
+\begin{figure}[!tbh]
+\subfloat[]{\begin{centering}
+\includegraphics[scale=0.75]{\string"11.3.Precision Recall\string".png}
+\par\end{centering}
+
+
+
+}
+
+\subfloat[]{\begin{centering}
+\includegraphics[scale=0.75]{\string"11.3.Precision Recall2\string".png}
+\par\end{centering}
+
+
+
+}\caption{\label{fig:Precision-&-Recall}Precision \& Recall}
+
+
+\end{figure}
+
+
+详见图\ref{fig:Precision-&-Recall}，在癌症诊断的例子中，查准率是指在诊断为癌症的人里面有多少是真的癌症，而查全率是指真正患癌症的人中有多少被诊断了出来。Precision
+和 recall 的取值都是越高越有利。特别地，如果像上一张幻灯片（图\ref{fig:=006B6A=00659C=005206=005E03=0095EE=009898=002014=002014=00764C=0075C7=008BCA=0065AD}）那样诊断所有病人的结果都为良性（0），那么将得到值为0的precision和recall，从而有效的避免了这种不负责任的诊断方式。
+
+所以，如果我们得到了很高的 precision 和 recall ，那么我们可以信任我们的学习算法，即使样本是非常“歪斜”的情况。
 
 
 \subsection{Trading off precision and recall}
 
-\includegraphics{\string"11.4.Trading off precision and recall\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"11.4.Trading off precision and recall\string".png}
+\par\end{centering}
 
-当我们将阈值从0.5改成更高的值，以达到只有当我们非常自信时才预测为癌症，那么这会带来更高的precision，和更低的recall。
+\caption{\label{fig:=006743=008861precision=00548Crecall-=0063D0=009AD8precision}权衡precision和recall——提高查准率}
 
-\includegraphics{\string"11.4.Trading off precision and recall2\string".png}
 
-如果我们宁愿错诊也不想让病人错过治疗，那么 就需要调低阈值，这样就会带来更高的recall和更低的precision。
+\end{figure}
+
+
+当我们将癌症诊断阈值从0.5改成更高的值，以达到只有当我们非常自信时才预测为癌症，那么这会带来更高的precision，和更低的recall，如图\ref{fig:=006743=008861precision=00548Crecall-=0063D0=009AD8precision}所示。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"11.4.Trading off precision and recall2\string".png}
+\par\end{centering}
+
+\caption{\label{fig:=006743=008861precision=00548Crecall=002014=002014=0063D0=009AD8=0067E5=005168=007387}权衡precision和recall——提高查全率}
+
+
+\end{figure}
+
+
+而如果我们宁愿错诊也不想让病人错过治疗，那么 就需要调低诊断阈值，这样就会带来更高的recall和更低的precision，如图\ref{fig:=006743=008861precision=00548Crecall=002014=002014=0063D0=009AD8=0067E5=005168=007387}所示。
 
 
 \subsubsection{$F_{1}$ Score (F score)}
 
-\includegraphics{\string"11.4.Trading off precision and recall3\string".png}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"11.4.Trading off precision and recall3\string".png}
+\par\end{centering}
 
-现在一个学习算法有两个变量来描述，我们希望使用一个单值来衡量一个学习算法。使用平均值是相当没用的方式。这里我们使用 $F_{1}$
-Score 来描述算法的质量。
+\caption{\label{fig:=004E0D=0080FD=007528Precision=00548CRecall=007684=005E73=005747=004EE3=0066FF=008FD9=004E24=004E2A=00503C}不能用Precision和Recall的平均代替这两个值}
 
-\includegraphics{\string"11.4.Trading off precision and recall4\string".png}
 
-那么，很明显：
+\end{figure}
 
-\includegraphics{\string"11.4.Trading off precision and recall5\string".png}
+
+现在一个学习算法有两个变量（precision和recall）来描述，我们希望使用一个单值来衡量一个学习算法。如图\ref{fig:F-score}所示，使用平均值是相当没用的方式。这里我们使用
+$F_{1}$ Score 来描述算法的质量（见图）。
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"11.4.Trading off precision and recall4\string".png}
+\par\end{centering}
+
+\caption{\label{fig:F-score}F score}
+\end{figure}
+
+
+那么很明显，在使用查准率和查全率进行模型选择时，应该基于交叉验证集进行测试并且选择F值最大的模型，如课后题（图\ref{fig:=004F7F=007528Precision&Recall=008FDB=00884C=006A21=00578B=009009=0062E9}）所示。
+
+\begin{center}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{\string"11.4.Trading off precision and recall5\string".png}
+\par\end{centering}
+
+\caption{\label{fig:=004F7F=007528Precision&Recall=008FDB=00884C=006A21=00578B=009009=0062E9}使用Precision\&Recall进行模型选择}
+
+
+\end{figure}
+
+\par\end{center}
 
 
 \subsection{Data for Machine Learning}
 
-\includegraphics{11\lyxdot 5}
+上节课讨论的是误差矩阵，这节课将介绍机器学习系统设计中的另一重要方面，是关于训练模型时应该使用多大的训练集的。
 
-\includegraphics{11\lyxdot 5\lyxdot 2}
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{11\lyxdot 5}
+\par\end{centering}
+
+\caption{\label{fig:=006D77=0091CF=006570=00636E=00539F=007406(1)}海量数据原理(1)}
+
+
+\end{figure}
+
+
+\begin{figure}[!tbh]
+\begin{centering}
+\includegraphics[scale=0.75]{11\lyxdot 5\lyxdot 2}
+\par\end{centering}
+
+\caption{\label{fig:=006D77=0091CF=006570=00636E=00539F=007406(2)}海量数据原理(2)}
+\end{figure}
+
 \end{document}
